@@ -1,0 +1,672 @@
+ARM GAS  /tmp/cccVuM0p.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"speaker.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/speaker.c"
+  20              		.section	.text.playTone,"ax",%progbits
+  21              		.align	1
+  22              		.global	playTone
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	playTone:
+  28              	.LVL0:
+  29              	.LFB223:
+   1:Core/Src/speaker.c **** /*
+   2:Core/Src/speaker.c ****  * vl6180.c
+   3:Core/Src/speaker.c ****  *
+   4:Core/Src/speaker.c ****  *  Created on: May 21, 2025
+   5:Core/Src/speaker.c ****  *      Author: Stefano
+   6:Core/Src/speaker.c ****  */
+   7:Core/Src/speaker.c **** 
+   8:Core/Src/speaker.c **** #include "speaker.h"
+   9:Core/Src/speaker.c **** #include "main.h"
+  10:Core/Src/speaker.c **** #include <stdio.h>
+  11:Core/Src/speaker.c **** 
+  12:Core/Src/speaker.c **** 
+  13:Core/Src/speaker.c **** void playTone(uint32_t frequency_hz, uint32_t duration_ms) {
+  30              		.loc 1 13 60 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 13 60 is_stmt 0 view .LVU1
+  35 0000 10B5     		push	{r4, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  14:Core/Src/speaker.c **** 	if(frequency_hz == NOTE_REST) {
+  40              		.loc 1 14 2 is_stmt 1 view .LVU2
+  41              		.loc 1 14 4 is_stmt 0 view .LVU3
+  42 0002 78B1     		cbz	r0, .L5
+  15:Core/Src/speaker.c **** 		htim4.Instance->CCR1 = 0;  // Silence
+  16:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
+ARM GAS  /tmp/cccVuM0p.s 			page 2
+
+
+  17:Core/Src/speaker.c **** 		return;
+  18:Core/Src/speaker.c **** 	}
+  19:Core/Src/speaker.c **** 
+  20:Core/Src/speaker.c **** 	uint32_t period = (1000000 / frequency_hz) - 1;  // 1MHz timer clock
+  43              		.loc 1 20 2 is_stmt 1 view .LVU4
+  44              		.loc 1 20 29 is_stmt 0 view .LVU5
+  45 0004 0B4B     		ldr	r3, .L6
+  46 0006 B3FBF0F3 		udiv	r3, r3, r0
+  47              		.loc 1 20 11 view .LVU6
+  48 000a 013B     		subs	r3, r3, #1
+  49              	.LVL1:
+  21:Core/Src/speaker.c **** 
+  22:Core/Src/speaker.c **** 	htim4.Instance->ARR = period;
+  50              		.loc 1 22 2 is_stmt 1 view .LVU7
+  51              		.loc 1 22 7 is_stmt 0 view .LVU8
+  52 000c 0A4C     		ldr	r4, .L6+4
+  53 000e 2268     		ldr	r2, [r4]
+  54              		.loc 1 22 22 view .LVU9
+  55 0010 D362     		str	r3, [r2, #44]
+  23:Core/Src/speaker.c **** 	htim4.Instance->CCR1 = period / 2;  // 50% duty cycle
+  56              		.loc 1 23 2 is_stmt 1 view .LVU10
+  57              		.loc 1 23 32 is_stmt 0 view .LVU11
+  58 0012 5B08     		lsrs	r3, r3, #1
+  59              	.LVL2:
+  60              		.loc 1 23 23 view .LVU12
+  61 0014 5363     		str	r3, [r2, #52]
+  62              	.LVL3:
+  24:Core/Src/speaker.c **** 	HAL_Delay(duration_ms);
+  63              		.loc 1 24 2 is_stmt 1 view .LVU13
+  64 0016 0846     		mov	r0, r1
+  65              	.LVL4:
+  66              		.loc 1 24 2 is_stmt 0 view .LVU14
+  67 0018 FFF7FEFF 		bl	HAL_Delay
+  68              	.LVL5:
+  25:Core/Src/speaker.c **** 	htim4.Instance->CCR1 = 0;  // Silence
+  69              		.loc 1 25 2 is_stmt 1 view .LVU15
+  70              		.loc 1 25 7 is_stmt 0 view .LVU16
+  71 001c 2368     		ldr	r3, [r4]
+  72              		.loc 1 25 23 view .LVU17
+  73 001e 0022     		movs	r2, #0
+  74 0020 5A63     		str	r2, [r3, #52]
+  75              	.LVL6:
+  76              	.L1:
+  26:Core/Src/speaker.c **** }
+  77              		.loc 1 26 1 view .LVU18
+  78 0022 10BD     		pop	{r4, pc}
+  79              	.LVL7:
+  80              	.L5:
+  15:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
+  81              		.loc 1 15 3 is_stmt 1 view .LVU19
+  15:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
+  82              		.loc 1 15 8 is_stmt 0 view .LVU20
+  83 0024 044B     		ldr	r3, .L6+4
+  84 0026 1B68     		ldr	r3, [r3]
+  15:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
+  85              		.loc 1 15 24 view .LVU21
+  86 0028 0022     		movs	r2, #0
+ARM GAS  /tmp/cccVuM0p.s 			page 3
+
+
+  87 002a 5A63     		str	r2, [r3, #52]
+  16:Core/Src/speaker.c **** 		return;
+  88              		.loc 1 16 3 is_stmt 1 view .LVU22
+  89 002c 0846     		mov	r0, r1
+  90              	.LVL8:
+  16:Core/Src/speaker.c **** 		return;
+  91              		.loc 1 16 3 is_stmt 0 view .LVU23
+  92 002e FFF7FEFF 		bl	HAL_Delay
+  93              	.LVL9:
+  17:Core/Src/speaker.c **** 	}
+  94              		.loc 1 17 3 is_stmt 1 view .LVU24
+  95 0032 F6E7     		b	.L1
+  96              	.L7:
+  97              		.align	2
+  98              	.L6:
+  99 0034 40420F00 		.word	1000000
+ 100 0038 00000000 		.word	htim4
+ 101              		.cfi_endproc
+ 102              	.LFE223:
+ 104              		.section	.text.playMelody,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	playMelody
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 111              	playMelody:
+ 112              	.LVL10:
+ 113              	.LFB224:
+  27:Core/Src/speaker.c **** 
+  28:Core/Src/speaker.c **** void playMelody(const uint16_t melody[][2], uint16_t notes, uint16_t tempo) {
+ 114              		.loc 1 28 77 view -0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		.loc 1 28 77 is_stmt 0 view .LVU26
+ 119 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 120              	.LCFI1:
+ 121              		.cfi_def_cfa_offset 24
+ 122              		.cfi_offset 4, -24
+ 123              		.cfi_offset 5, -20
+ 124              		.cfi_offset 6, -16
+ 125              		.cfi_offset 7, -12
+ 126              		.cfi_offset 8, -8
+ 127              		.cfi_offset 14, -4
+ 128 0004 0646     		mov	r6, r0
+ 129 0006 0F46     		mov	r7, r1
+ 130 0008 9046     		mov	r8, r2
+  29:Core/Src/speaker.c **** 	for (uint16_t i = 0; i < notes; i++) {
+ 131              		.loc 1 29 2 is_stmt 1 view .LVU27
+ 132              	.LBB2:
+ 133              		.loc 1 29 7 view .LVU28
+ 134              	.LVL11:
+ 135              		.loc 1 29 16 is_stmt 0 view .LVU29
+ 136 000a 0025     		movs	r5, #0
+ 137              		.loc 1 29 2 view .LVU30
+ 138 000c 10E0     		b	.L9
+ 139              	.LVL12:
+ARM GAS  /tmp/cccVuM0p.s 			page 4
+
+
+ 140              	.L10:
+ 141              	.LBB3:
+  30:Core/Src/speaker.c **** 		uint32_t duration = (60000 / tempo) * melody[i][1] / 4;
+ 142              		.loc 1 30 54 view .LVU31
+ 143 000e 9C10     		asrs	r4, r3, #2
+ 144              	.LVL13:
+  31:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 145              		.loc 1 31 3 is_stmt 1 view .LVU32
+ 146 0010 2146     		mov	r1, r4
+ 147 0012 B05A     		ldrh	r0, [r6, r2]
+ 148 0014 FFF7FEFF 		bl	playTone
+ 149              	.LVL14:
+  32:Core/Src/speaker.c **** 
+  33:Core/Src/speaker.c **** 		// Short pause between notes (20% of note duration)
+  34:Core/Src/speaker.c **** 		htim4.Instance->CCR1 = 0;
+ 150              		.loc 1 34 3 view .LVU33
+ 151              		.loc 1 34 8 is_stmt 0 view .LVU34
+ 152 0018 0E4B     		ldr	r3, .L14
+ 153 001a 1B68     		ldr	r3, [r3]
+ 154              		.loc 1 34 24 view .LVU35
+ 155 001c 0022     		movs	r2, #0
+ 156 001e 5A63     		str	r2, [r3, #52]
+  35:Core/Src/speaker.c **** 		HAL_Delay(duration / 5);
+ 157              		.loc 1 35 3 is_stmt 1 view .LVU36
+ 158 0020 0D4B     		ldr	r3, .L14+4
+ 159 0022 A3FB0423 		umull	r2, r3, r3, r4
+ 160 0026 9808     		lsrs	r0, r3, #2
+ 161 0028 FFF7FEFF 		bl	HAL_Delay
+ 162              	.LVL15:
+ 163              	.LBE3:
+  29:Core/Src/speaker.c **** 		uint32_t duration = (60000 / tempo) * melody[i][1] / 4;
+ 164              		.loc 1 29 35 discriminator 3 view .LVU37
+ 165 002c 0135     		adds	r5, r5, #1
+ 166              	.LVL16:
+  29:Core/Src/speaker.c **** 		uint32_t duration = (60000 / tempo) * melody[i][1] / 4;
+ 167              		.loc 1 29 35 is_stmt 0 discriminator 3 view .LVU38
+ 168 002e ADB2     		uxth	r5, r5
+ 169              	.LVL17:
+ 170              	.L9:
+  29:Core/Src/speaker.c **** 		uint32_t duration = (60000 / tempo) * melody[i][1] / 4;
+ 171              		.loc 1 29 25 is_stmt 1 discriminator 1 view .LVU39
+ 172 0030 BD42     		cmp	r5, r7
+ 173 0032 0DD2     		bcs	.L13
+ 174              	.LBB4:
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 175              		.loc 1 30 3 view .LVU40
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 176              		.loc 1 30 30 is_stmt 0 view .LVU41
+ 177 0034 4EF66023 		movw	r3, #60000
+ 178 0038 93FBF8F3 		sdiv	r3, r3, r8
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 179              		.loc 1 30 47 view .LVU42
+ 180 003c AA00     		lsls	r2, r5, #2
+ 181 003e 06EB8501 		add	r1, r6, r5, lsl #2
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 182              		.loc 1 30 50 view .LVU43
+ 183 0042 4988     		ldrh	r1, [r1, #2]
+ARM GAS  /tmp/cccVuM0p.s 			page 5
+
+
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 184              		.loc 1 30 39 view .LVU44
+ 185 0044 01FB03F3 		mul	r3, r1, r3
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 186              		.loc 1 30 54 view .LVU45
+ 187 0048 002B     		cmp	r3, #0
+ 188 004a E0DA     		bge	.L10
+ 189 004c 0333     		adds	r3, r3, #3
+ 190 004e DEE7     		b	.L10
+ 191              	.L13:
+  30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
+ 192              		.loc 1 30 54 view .LVU46
+ 193              	.LBE4:
+ 194              	.LBE2:
+  36:Core/Src/speaker.c **** 	}
+  37:Core/Src/speaker.c **** }
+ 195              		.loc 1 37 1 view .LVU47
+ 196 0050 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 197              	.LVL18:
+ 198              	.L15:
+ 199              		.loc 1 37 1 view .LVU48
+ 200              		.align	2
+ 201              	.L14:
+ 202 0054 00000000 		.word	htim4
+ 203 0058 CDCCCCCC 		.word	-858993459
+ 204              		.cfi_endproc
+ 205              	.LFE224:
+ 207              		.section	.text.policeSiren,"ax",%progbits
+ 208              		.align	1
+ 209              		.global	policeSiren
+ 210              		.syntax unified
+ 211              		.thumb
+ 212              		.thumb_func
+ 214              	policeSiren:
+ 215              	.LVL19:
+ 216              	.LFB225:
+  38:Core/Src/speaker.c **** 
+  39:Core/Src/speaker.c **** void policeSiren(uint32_t cycles) {
+ 217              		.loc 1 39 35 is_stmt 1 view -0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		.loc 1 39 35 is_stmt 0 view .LVU50
+ 222 0000 70B5     		push	{r4, r5, r6, lr}
+ 223              	.LCFI2:
+ 224              		.cfi_def_cfa_offset 16
+ 225              		.cfi_offset 4, -16
+ 226              		.cfi_offset 5, -12
+ 227              		.cfi_offset 6, -8
+ 228              		.cfi_offset 14, -4
+ 229 0002 0646     		mov	r6, r0
+  40:Core/Src/speaker.c **** 	for (uint32_t i = 0; i < cycles; i++) {
+ 230              		.loc 1 40 2 is_stmt 1 view .LVU51
+ 231              	.LBB5:
+ 232              		.loc 1 40 7 view .LVU52
+ 233              	.LVL20:
+ 234              		.loc 1 40 16 is_stmt 0 view .LVU53
+ARM GAS  /tmp/cccVuM0p.s 			page 6
+
+
+ 235 0004 0025     		movs	r5, #0
+ 236              		.loc 1 40 2 view .LVU54
+ 237 0006 13E0     		b	.L17
+ 238              	.LVL21:
+ 239              	.L18:
+ 240              	.LBB6:
+  41:Core/Src/speaker.c **** 		// Rising pitch
+  42:Core/Src/speaker.c **** 		for (uint32_t freq = 800; freq <= 1500; freq += 10) {
+  43:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 241              		.loc 1 43 4 is_stmt 1 view .LVU55
+ 242 0008 0A21     		movs	r1, #10
+ 243 000a 2046     		mov	r0, r4
+ 244 000c FFF7FEFF 		bl	playTone
+ 245              	.LVL22:
+  42:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 246              		.loc 1 42 48 discriminator 3 view .LVU56
+ 247 0010 0A34     		adds	r4, r4, #10
+ 248              	.LVL23:
+ 249              	.L21:
+  42:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 250              		.loc 1 42 34 discriminator 1 view .LVU57
+ 251 0012 40F2DC53 		movw	r3, #1500
+ 252 0016 9C42     		cmp	r4, r3
+ 253 0018 F6D9     		bls	.L18
+ 254              	.LBE6:
+ 255              	.LBB7:
+  44:Core/Src/speaker.c **** 		}
+  45:Core/Src/speaker.c **** 		// Falling pitch
+  46:Core/Src/speaker.c **** 		for (uint32_t freq = 1500; freq >= 800; freq -= 10) {
+ 256              		.loc 1 46 17 is_stmt 0 view .LVU58
+ 257 001a 1C46     		mov	r4, r3
+ 258              	.LVL24:
+ 259              		.loc 1 46 17 view .LVU59
+ 260 001c 04E0     		b	.L19
+ 261              	.LVL25:
+ 262              	.L20:
+  47:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 263              		.loc 1 47 4 is_stmt 1 view .LVU60
+ 264 001e 0A21     		movs	r1, #10
+ 265 0020 2046     		mov	r0, r4
+ 266 0022 FFF7FEFF 		bl	playTone
+ 267              	.LVL26:
+  46:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 268              		.loc 1 46 48 discriminator 3 view .LVU61
+ 269 0026 0A3C     		subs	r4, r4, #10
+ 270              	.LVL27:
+ 271              	.L19:
+  46:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 272              		.loc 1 46 35 discriminator 1 view .LVU62
+ 273 0028 B4F5487F 		cmp	r4, #800
+ 274 002c F7D2     		bcs	.L20
+ 275              	.LBE7:
+  40:Core/Src/speaker.c **** 		// Rising pitch
+ 276              		.loc 1 40 36 discriminator 2 view .LVU63
+ 277 002e 0135     		adds	r5, r5, #1
+ 278              	.LVL28:
+ 279              	.L17:
+ARM GAS  /tmp/cccVuM0p.s 			page 7
+
+
+  40:Core/Src/speaker.c **** 		// Rising pitch
+ 280              		.loc 1 40 25 discriminator 1 view .LVU64
+ 281 0030 B542     		cmp	r5, r6
+ 282 0032 02D2     		bcs	.L24
+ 283              	.LBB8:
+  42:Core/Src/speaker.c **** 			playTone(freq, 10);
+ 284              		.loc 1 42 17 is_stmt 0 view .LVU65
+ 285 0034 4FF44874 		mov	r4, #800
+ 286 0038 EBE7     		b	.L21
+ 287              	.L24:
+ 288              	.LBE8:
+ 289              	.LBE5:
+  48:Core/Src/speaker.c **** 		}
+  49:Core/Src/speaker.c **** 	}
+  50:Core/Src/speaker.c **** }
+ 290              		.loc 1 50 1 view .LVU66
+ 291 003a 70BD     		pop	{r4, r5, r6, pc}
+ 292              		.loc 1 50 1 view .LVU67
+ 293              		.cfi_endproc
+ 294              	.LFE225:
+ 296              		.section	.text.playClick,"ax",%progbits
+ 297              		.align	1
+ 298              		.global	playClick
+ 299              		.syntax unified
+ 300              		.thumb
+ 301              		.thumb_func
+ 303              	playClick:
+ 304              	.LVL29:
+ 305              	.LFB226:
+  51:Core/Src/speaker.c **** 
+  52:Core/Src/speaker.c **** void playClick(uint32_t duration_ms) {
+ 306              		.loc 1 52 38 is_stmt 1 view -0
+ 307              		.cfi_startproc
+ 308              		@ args = 0, pretend = 0, frame = 0
+ 309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 310              		.loc 1 52 38 is_stmt 0 view .LVU69
+ 311 0000 10B5     		push	{r4, lr}
+ 312              	.LCFI3:
+ 313              		.cfi_def_cfa_offset 8
+ 314              		.cfi_offset 4, -8
+ 315              		.cfi_offset 14, -4
+  53:Core/Src/speaker.c **** 	htim4.Instance->CCR1 = 10;  // Very short pulse
+ 316              		.loc 1 53 2 is_stmt 1 view .LVU70
+ 317              		.loc 1 53 7 is_stmt 0 view .LVU71
+ 318 0002 054C     		ldr	r4, .L27
+ 319 0004 2368     		ldr	r3, [r4]
+ 320              		.loc 1 53 23 view .LVU72
+ 321 0006 0A22     		movs	r2, #10
+ 322 0008 5A63     		str	r2, [r3, #52]
+  54:Core/Src/speaker.c **** 	HAL_Delay(duration_ms);
+ 323              		.loc 1 54 2 is_stmt 1 view .LVU73
+ 324 000a FFF7FEFF 		bl	HAL_Delay
+ 325              	.LVL30:
+  55:Core/Src/speaker.c **** 	htim4.Instance->CCR1 = 0;
+ 326              		.loc 1 55 2 view .LVU74
+ 327              		.loc 1 55 7 is_stmt 0 view .LVU75
+ 328 000e 2368     		ldr	r3, [r4]
+ARM GAS  /tmp/cccVuM0p.s 			page 8
+
+
+ 329              		.loc 1 55 23 view .LVU76
+ 330 0010 0022     		movs	r2, #0
+ 331 0012 5A63     		str	r2, [r3, #52]
+  56:Core/Src/speaker.c **** }
+ 332              		.loc 1 56 1 view .LVU77
+ 333 0014 10BD     		pop	{r4, pc}
+ 334              	.L28:
+ 335 0016 00BF     		.align	2
+ 336              	.L27:
+ 337 0018 00000000 		.word	htim4
+ 338              		.cfi_endproc
+ 339              	.LFE226:
+ 341              		.section	.text.playOdeToJoy,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	playOdeToJoy
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 348              	playOdeToJoy:
+ 349              	.LFB227:
+  57:Core/Src/speaker.c **** 
+  58:Core/Src/speaker.c **** 
+  59:Core/Src/speaker.c **** void playOdeToJoy(){
+ 350              		.loc 1 59 20 is_stmt 1 view -0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354 0000 08B5     		push	{r3, lr}
+ 355              	.LCFI4:
+ 356              		.cfi_def_cfa_offset 8
+ 357              		.cfi_offset 3, -8
+ 358              		.cfi_offset 14, -4
+  60:Core/Src/speaker.c **** 	static const uint16_t odeToJoy[][2] = {
+ 359              		.loc 1 60 2 view .LVU79
+  61:Core/Src/speaker.c **** 			{NOTE_E4, 4}, {NOTE_E4, 4}, {NOTE_F4, 4}, {NOTE_G4, 4},
+  62:Core/Src/speaker.c **** 			{NOTE_G4, 4}, {NOTE_F4, 4}, {NOTE_E4, 4}, {NOTE_D4, 4},
+  63:Core/Src/speaker.c **** 			{NOTE_C4, 4}, {NOTE_C4, 4}, {NOTE_D4, 4}, {NOTE_E4, 4},
+  64:Core/Src/speaker.c **** 			{NOTE_E4, 6}, {NOTE_D4, 2}, {NOTE_D4, 2},
+  65:Core/Src/speaker.c **** 
+  66:Core/Src/speaker.c **** 			{NOTE_E4, 4}, {NOTE_E4, 4}, {NOTE_F4, 4}, {NOTE_G4, 4},
+  67:Core/Src/speaker.c **** 			{NOTE_G4, 4}, {NOTE_F4, 4}, {NOTE_E4, 4}, {NOTE_D4, 4},
+  68:Core/Src/speaker.c **** 			{NOTE_C4, 4}, {NOTE_C4, 4}, {NOTE_D4, 4}, {NOTE_E4, 4},
+  69:Core/Src/speaker.c **** 			{NOTE_D4, 6}, {NOTE_C4, 2}, {NOTE_C4, 2}
+  70:Core/Src/speaker.c **** 	};
+  71:Core/Src/speaker.c **** 	playMelody(odeToJoy, sizeof(odeToJoy) / sizeof(odeToJoy[0]), 130);
+ 360              		.loc 1 71 2 view .LVU80
+ 361 0002 8222     		movs	r2, #130
+ 362 0004 1E21     		movs	r1, #30
+ 363 0006 0248     		ldr	r0, .L31
+ 364 0008 FFF7FEFF 		bl	playMelody
+ 365              	.LVL31:
+  72:Core/Src/speaker.c **** }
+ 366              		.loc 1 72 1 is_stmt 0 view .LVU81
+ 367 000c 08BD     		pop	{r3, pc}
+ 368              	.L32:
+ 369 000e 00BF     		.align	2
+ 370              	.L31:
+ARM GAS  /tmp/cccVuM0p.s 			page 9
+
+
+ 371 0010 00000000 		.word	odeToJoy.1
+ 372              		.cfi_endproc
+ 373              	.LFE227:
+ 375              		.section	.text.playInTheEnd,"ax",%progbits
+ 376              		.align	1
+ 377              		.global	playInTheEnd
+ 378              		.syntax unified
+ 379              		.thumb
+ 380              		.thumb_func
+ 382              	playInTheEnd:
+ 383              	.LFB228:
+  73:Core/Src/speaker.c **** 
+  74:Core/Src/speaker.c **** void playInTheEnd(){
+ 384              		.loc 1 74 20 is_stmt 1 view -0
+ 385              		.cfi_startproc
+ 386              		@ args = 0, pretend = 0, frame = 0
+ 387              		@ frame_needed = 0, uses_anonymous_args = 0
+ 388 0000 08B5     		push	{r3, lr}
+ 389              	.LCFI5:
+ 390              		.cfi_def_cfa_offset 8
+ 391              		.cfi_offset 3, -8
+ 392              		.cfi_offset 14, -4
+  75:Core/Src/speaker.c **** 	static const uint16_t inTheEnd[][2] = {
+ 393              		.loc 1 75 2 view .LVU83
+  76:Core/Src/speaker.c **** 			{NOTE_DS3, 4}, {NOTE_AS3, 4}, {NOTE_AS3, 4}, {NOTE_FS3, 4},
+  77:Core/Src/speaker.c **** 			{NOTE_F3, 6}, {NOTE_F3, 6}, {NOTE_F3, 6}, {NOTE_F3, 4},
+  78:Core/Src/speaker.c **** 			{NOTE_FS3, 4}, {NOTE_DS3, 4}, {NOTE_FS3, 4}, {NOTE_AS3, 4},
+  79:Core/Src/speaker.c **** 			{NOTE_DS4, 4}, {NOTE_F4, 4}, {NOTE_FS4, 4}, {NOTE_F4, 4}
+  80:Core/Src/speaker.c **** 	};
+  81:Core/Src/speaker.c **** 	playMelody(inTheEnd, sizeof(inTheEnd)/sizeof(inTheEnd[0]), 110);
+ 394              		.loc 1 81 2 view .LVU84
+ 395 0002 6E22     		movs	r2, #110
+ 396 0004 1021     		movs	r1, #16
+ 397 0006 0248     		ldr	r0, .L35
+ 398 0008 FFF7FEFF 		bl	playMelody
+ 399              	.LVL32:
+  82:Core/Src/speaker.c **** }
+ 400              		.loc 1 82 1 is_stmt 0 view .LVU85
+ 401 000c 08BD     		pop	{r3, pc}
+ 402              	.L36:
+ 403 000e 00BF     		.align	2
+ 404              	.L35:
+ 405 0010 00000000 		.word	inTheEnd.0
+ 406              		.cfi_endproc
+ 407              	.LFE228:
+ 409              		.section	.rodata.inTheEnd.0,"a"
+ 410              		.align	2
+ 413              	inTheEnd.0:
+ 414 0000 9C00     		.short	156
+ 415 0002 0400     		.short	4
+ 416 0004 E900     		.short	233
+ 417 0006 0400     		.short	4
+ 418 0008 E900     		.short	233
+ 419 000a 0400     		.short	4
+ 420 000c B900     		.short	185
+ 421 000e 0400     		.short	4
+ 422 0010 AF00     		.short	175
+ARM GAS  /tmp/cccVuM0p.s 			page 10
+
+
+ 423 0012 0600     		.short	6
+ 424 0014 AF00     		.short	175
+ 425 0016 0600     		.short	6
+ 426 0018 AF00     		.short	175
+ 427 001a 0600     		.short	6
+ 428 001c AF00     		.short	175
+ 429 001e 0400     		.short	4
+ 430 0020 B900     		.short	185
+ 431 0022 0400     		.short	4
+ 432 0024 9C00     		.short	156
+ 433 0026 0400     		.short	4
+ 434 0028 B900     		.short	185
+ 435 002a 0400     		.short	4
+ 436 002c E900     		.short	233
+ 437 002e 0400     		.short	4
+ 438 0030 3701     		.short	311
+ 439 0032 0400     		.short	4
+ 440 0034 5D01     		.short	349
+ 441 0036 0400     		.short	4
+ 442 0038 7201     		.short	370
+ 443 003a 0400     		.short	4
+ 444 003c 5D01     		.short	349
+ 445 003e 0400     		.short	4
+ 446              		.section	.rodata.odeToJoy.1,"a"
+ 447              		.align	2
+ 450              	odeToJoy.1:
+ 451 0000 4A01     		.short	330
+ 452 0002 0400     		.short	4
+ 453 0004 4A01     		.short	330
+ 454 0006 0400     		.short	4
+ 455 0008 5D01     		.short	349
+ 456 000a 0400     		.short	4
+ 457 000c 8801     		.short	392
+ 458 000e 0400     		.short	4
+ 459 0010 8801     		.short	392
+ 460 0012 0400     		.short	4
+ 461 0014 5D01     		.short	349
+ 462 0016 0400     		.short	4
+ 463 0018 4A01     		.short	330
+ 464 001a 0400     		.short	4
+ 465 001c 2601     		.short	294
+ 466 001e 0400     		.short	4
+ 467 0020 0601     		.short	262
+ 468 0022 0400     		.short	4
+ 469 0024 0601     		.short	262
+ 470 0026 0400     		.short	4
+ 471 0028 2601     		.short	294
+ 472 002a 0400     		.short	4
+ 473 002c 4A01     		.short	330
+ 474 002e 0400     		.short	4
+ 475 0030 4A01     		.short	330
+ 476 0032 0600     		.short	6
+ 477 0034 2601     		.short	294
+ 478 0036 0200     		.short	2
+ 479 0038 2601     		.short	294
+ 480 003a 0200     		.short	2
+ 481 003c 4A01     		.short	330
+ARM GAS  /tmp/cccVuM0p.s 			page 11
+
+
+ 482 003e 0400     		.short	4
+ 483 0040 4A01     		.short	330
+ 484 0042 0400     		.short	4
+ 485 0044 5D01     		.short	349
+ 486 0046 0400     		.short	4
+ 487 0048 8801     		.short	392
+ 488 004a 0400     		.short	4
+ 489 004c 8801     		.short	392
+ 490 004e 0400     		.short	4
+ 491 0050 5D01     		.short	349
+ 492 0052 0400     		.short	4
+ 493 0054 4A01     		.short	330
+ 494 0056 0400     		.short	4
+ 495 0058 2601     		.short	294
+ 496 005a 0400     		.short	4
+ 497 005c 0601     		.short	262
+ 498 005e 0400     		.short	4
+ 499 0060 0601     		.short	262
+ 500 0062 0400     		.short	4
+ 501 0064 2601     		.short	294
+ 502 0066 0400     		.short	4
+ 503 0068 4A01     		.short	330
+ 504 006a 0400     		.short	4
+ 505 006c 2601     		.short	294
+ 506 006e 0600     		.short	6
+ 507 0070 0601     		.short	262
+ 508 0072 0200     		.short	2
+ 509 0074 0601     		.short	262
+ 510 0076 0200     		.short	2
+ 511              		.text
+ 512              	.Letext0:
+ 513              		.file 2 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
+ 514              		.file 3 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
+ 515              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 516              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 517              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 518              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 519              		.file 8 "Core/Inc/tim.h"
+ 520              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /tmp/cccVuM0p.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 speaker.c
+     /tmp/cccVuM0p.s:21     .text.playTone:00000000 $t
+     /tmp/cccVuM0p.s:27     .text.playTone:00000000 playTone
+     /tmp/cccVuM0p.s:99     .text.playTone:00000034 $d
+     /tmp/cccVuM0p.s:105    .text.playMelody:00000000 $t
+     /tmp/cccVuM0p.s:111    .text.playMelody:00000000 playMelody
+     /tmp/cccVuM0p.s:202    .text.playMelody:00000054 $d
+     /tmp/cccVuM0p.s:208    .text.policeSiren:00000000 $t
+     /tmp/cccVuM0p.s:214    .text.policeSiren:00000000 policeSiren
+     /tmp/cccVuM0p.s:297    .text.playClick:00000000 $t
+     /tmp/cccVuM0p.s:303    .text.playClick:00000000 playClick
+     /tmp/cccVuM0p.s:337    .text.playClick:00000018 $d
+     /tmp/cccVuM0p.s:342    .text.playOdeToJoy:00000000 $t
+     /tmp/cccVuM0p.s:348    .text.playOdeToJoy:00000000 playOdeToJoy
+     /tmp/cccVuM0p.s:371    .text.playOdeToJoy:00000010 $d
+     /tmp/cccVuM0p.s:450    .rodata.odeToJoy.1:00000000 odeToJoy.1
+     /tmp/cccVuM0p.s:376    .text.playInTheEnd:00000000 $t
+     /tmp/cccVuM0p.s:382    .text.playInTheEnd:00000000 playInTheEnd
+     /tmp/cccVuM0p.s:405    .text.playInTheEnd:00000010 $d
+     /tmp/cccVuM0p.s:413    .rodata.inTheEnd.0:00000000 inTheEnd.0
+     /tmp/cccVuM0p.s:410    .rodata.inTheEnd.0:00000000 $d
+     /tmp/cccVuM0p.s:447    .rodata.odeToJoy.1:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_Delay
+htim4
