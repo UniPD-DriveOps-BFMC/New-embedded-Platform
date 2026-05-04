@@ -17,24 +17,30 @@
   */
 /* USER CODE END Header */
 
+//#error FREERTOS_CPP_IS_BEING_COMPILED
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
 #include "cmsis_os.h"
+#include "encoder.h"
+//#include "arm_math.h"
+#include "pid.h"
+#include "vl6180.h"
+#include "speaker.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
-
 #include <stdbool.h>
 #include <cmath>       // For std::abs
 #include <stdint.h>    // For uint32_t
 #include <stdio.h>     // For printf
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #include <rcl/rcl.h>
 #include <rcl/error_handling.h>
@@ -49,15 +55,6 @@ extern "C" {
 #include <std_msgs/msg/bool.h>
 #include <std_msgs/msg/u_int8.h>
 #include <usart.h>
-
-
-#include "arm_math.h"
-#include "pid.h"
-#include "vl6180.h"
-#include "speaker.h"
-
-
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,12 +70,10 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define TRANSMISSION_RATIO 		14.6 / 2		// 16/2	// both wheels placed on the ground are rotating at 1/16th of the motor's speed
 #define STEER_DEG2PWM_RATIO 	0.0009505		// [deg] -> [pwm]
 #define STEER_DEG2PWM_OFFSET	0.07620			// [pwm]
 #define MOTOR_SPEED_OFFSET 		0.075568        // [pwm]: The zero default where motors are stop
 #define M_PPI					6.28318530718	//	2*pi
-#define WHEEL_RADIUS			0.03224			// [m]
 #define MAX_FORWARD_SPEED		1.0				// [m/s]
 #define MAX_BACKWARD_SPEED		-0.5			// [m/s]
 #define MAX_FORWARD_PWM_SPEED   0.009
@@ -86,26 +81,23 @@ typedef StaticTask_t osStaticThreadDef_t;
 #define MAX_STEERING_ANGLE		28				// [deg]
 #define MOT_DECELERATION		-2				// [m/ss]
 #define MOT_ACCELERATION		2				// [m/ss]
-
-//#define SPEED_FFW				0				//
 #define EPSILON					0.01			//
-//#define EPSILON_DIFF			0.001			//
 
 // Filter
-#define FIR_LENGHT 		 		13
+//#define FIR_LENGHT 		 		13
 
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
-double speedTarget=0.0, speedTargetPos=0.0, speedRef=0.0; // [m/s], [m/s]: speed references
-double steerRef=0.0;// [deg]: steer references
+double speedTarget=0.0, speedTargetPos=0.0, speedRef=0.0; 									// [m/s], [m/s]: speed references
+double steerRef=0.0;																		// [deg]: steer references
 // MEASUREMENT variables
-double wheelSpeed=0.0, carSpeed=0.0, motorSpeed=0.0;// [rps], [m/s], [rps]: speed measurements
-double wheelSpeedfiltered=0.0, carSpeedfiltered=0.0;// [rps], [m/s]
+double carSpeed=0.0;																		// [rps], [m/s], [rps]: speed measurements
+double carSpeedfiltered=0.0;// [m/s]
+double encoderAcceleration = 0.0;
 double globalDistance=0.0, localDistance=0.0, localDistanceOrigin=0.0, localDistanceRef=0.0;// [m]: position measurements
-long encoderCount=0;// [tick]: encoder count
+long encoderCount=0;																		// [tick]: encoder count
 long encoderTotal=0;
 // CONTROL variables
 double motorPWM=0.0, servoPWM=0.0;// [tick], [tick]: control variables
@@ -117,21 +109,16 @@ volatile bool checkEmergencyBrakeArena = false;
 bool inRangeForEmergencyBrakeArena = false;
 bool flagLed = false;
 
-// DEBUGGING
-uint8_t counter;
-float input,output,setpoint;
-float KP=0.020001, KI=0.025001, KD=0.0;
 
-
-//Finite Impulse Response filter
-float32_t fir_coefficients[FIR_LENGHT] = {
-		0.0120f, 0.0213f, 0.0470f, 0.0822f,
-		0.1175f, 0.1435f, 0.1531f, 0.1435f,
-		0.1175f, 0.0822f, 0.0470f, 0.0213f,
-		0.0120f
-};
-arm_fir_instance_f32 fir_instance;
-float32_t fir_in_arm, fir_out_arm, fir_state[FIR_LENGHT];
+////Finite Impulse Response filter
+//float32_t fir_coefficients[FIR_LENGHT] = {
+//		0.0120f, 0.0213f, 0.0470f, 0.0822f,
+//		0.1175f, 0.1435f, 0.1531f, 0.1435f,
+//		0.1175f, 0.0822f, 0.0470f, 0.0213f,
+//		0.0120f
+//};
+//arm_fir_instance_f32 fir_instance;
+//float32_t fir_in_arm, fir_out_arm, fir_state[FIR_LENGHT];
 
 // VL6180X TOF sensor definition
 VL6180X_Sensor sensorsTOF[NUMBER_OF_VL6180X_ID];
@@ -157,7 +144,7 @@ extern ADC_HandleTypeDef hadc1;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-uint32_t defaultTaskBuffer[ 1000 ];
+uint32_t defaultTaskBuffer[1000];
 osStaticThreadDef_t defaultTaskControlBlock;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
@@ -237,6 +224,11 @@ void MX_FREERTOS_Init(void) {
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
+  if (defaultTaskHandle == NULL)
+  {
+      Error_Handler();
+  }
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -259,7 +251,6 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
   /* USER CODE BEGIN 5 */
-
   // micro-ROS configuration
 
   rmw_uros_set_custom_transport(
@@ -269,6 +260,7 @@ void StartDefaultTask(void *argument)
     cubemx_transport_close,
     cubemx_transport_write,
     cubemx_transport_read);
+
 
   rcl_allocator_t freeRTOS_allocator = rcutils_get_zero_initialized_allocator();
   freeRTOS_allocator.allocate = microros_allocate;
@@ -281,7 +273,6 @@ void StartDefaultTask(void *argument)
   }
 
   // micro-ROS app
-
   rclc_support_t support;
   rcl_allocator_t allocator;
   rcl_node_t node;
@@ -289,10 +280,10 @@ void StartDefaultTask(void *argument)
 
   rcl_publisher_t carSpeed_pub;
   rcl_publisher_t globalDistance_pub;
+  rcl_publisher_t acceleration_pub;
   rcl_publisher_t posFeedback_pub;
   rcl_publisher_t tof_front_pub;
   rcl_publisher_t tof_left_pub;
-
 
   // micro-ROS Subscriber handles
   rcl_subscription_t speed_sub;
@@ -303,8 +294,6 @@ void StartDefaultTask(void *argument)
 //  rcl_subscription_t checkEmergencyBrakeArena_sub;
   rcl_subscription_t leds_sub;
 
-
-
   std_msgs__msg__Float32 speed_msg_in;
   std_msgs__msg__Float32 steer_msg_in;
   std_msgs__msg__Float32 pos_msg_in;
@@ -313,16 +302,12 @@ void StartDefaultTask(void *argument)
   //std_msgs__msg__Bool checkEmergencyBrakeArena_msg_in;
   std_msgs__msg__Bool leds_msg_in;
 
-
-
   std_msgs__msg__Float32 carSpeed_msg_out;
   std_msgs__msg__Float32 dist_msg_out;
+  std_msgs__msg__Float32 accel_msg_out;
   std_msgs__msg__Bool posFeedback_msg_out;
   std_msgs__msg__UInt8 tof_front_msg_out;
   std_msgs__msg__UInt8 tof_left_msg_out;
-
-
-
 
   allocator = rcl_get_default_allocator();
 
@@ -333,7 +318,6 @@ void StartDefaultTask(void *argument)
   rclc_node_init_default(&node, "automobile_node", "", &support);
 
   // create publishers
-
   rclc_publisher_init_default(&carSpeed_pub, &node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "automobile/encoder/speed");
   rclc_publisher_init_default(&globalDistance_pub, &node,
@@ -344,10 +328,10 @@ void StartDefaultTask(void *argument)
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/front");
   rclc_publisher_init_default(&tof_left_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/left");
-
+  rclc_publisher_init_default(&acceleration_pub,&node,
+      ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),"automobile/encoder/acceleration");
 
   // create subscribers
-
   rclc_subscription_init_default(&speed_sub, &node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "automobile/command/speed");
   rclc_subscription_init_default(&steer_sub, &node,
@@ -361,8 +345,6 @@ void StartDefaultTask(void *argument)
   rclc_subscription_init_default(&leds_sub, &node,
        ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Bool), "automobile/led");
 
-
-
   rclc_executor_init(&executor, &support.context, 5, &allocator);
 
   rclc_executor_add_subscription(&executor, &speed_sub, &speed_msg_in, &speed_callback, ON_NEW_DATA);
@@ -372,8 +354,6 @@ void StartDefaultTask(void *argument)
   //rclc_executor_add_subscription(&executor, &checkEmergencyBrakeArena_sub, &checkEmergencyBrakeArena_msg_in, &checkEmergencyBrakeArena__callback, ON_NEW_DATA);
   rclc_executor_add_subscription(&executor, &leds_sub, &leds_msg_in, &leds_callback, ON_NEW_DATA);
 
-
-
   // Initialize the actual message structures, not the handles
   std_msgs__msg__Float32__init(&speed_msg_in);
   std_msgs__msg__Float32__init(&steer_msg_in);
@@ -381,7 +361,6 @@ void StartDefaultTask(void *argument)
   std_msgs__msg__Float32__init(&stop_msg_in);
   //std_msgs__msg__Bool__init(&checkEmergencyBrakeArena_msg_in);
   std_msgs__msg__Bool__init(&leds_msg_in);
-
 
   SpeedController.SetMode(_PID_MODE_AUTOMATIC);// AUTOMATIC MODE
   SpeedController.SetOutputLimits(-0.009, 0.0119);// PWM Output limits
@@ -397,14 +376,12 @@ void StartDefaultTask(void *argument)
   PositionController.EnableProportionalFilter(false);
 
   //initialize the filter
-  arm_fir_init_f32(&fir_instance, FIR_LENGHT, fir_coefficients, fir_state, 1);
+//  arm_fir_init_f32(&fir_instance, FIR_LENGHT, fir_coefficients, fir_state, 1);
 
   // VL6180X TOF sensors initialization
-
   VL6180X_Setup(&sensorsTOF[0]);
   VL6180X_i2c_Init(&sensorsTOF[0]);
   VL6180X_ReadAllDistancesPolling(&sensorsTOF[0], &TOFcounterToInitialize);
-
   //VL6180X_Setup(&sensorsTOF[0]);
   //VL6180X_i2c_Init(&sensorsTOF[0]);
   //VL6180X_ReadAllDistances(&sensorsTOF[0], &TOFcounterToInitialize);
@@ -421,16 +398,10 @@ void StartDefaultTask(void *argument)
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3); // DC MOTOR PWM
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // SERVO PWM
   HAL_TIM_Base_Start(&htim4); // LED and SPEAKERS
-  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  Encoder_Init(&htim3);
   HAL_TIM_Base_Start_IT(&htim11); // PID SPEED CONTROL
   HAL_TIM_Base_Start_IT(&htim10); // PUBLISH TIMER
 
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);// DC MOTOR PWM
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);// SERVO PWM
-	//HAL_TIM_Base_Start(&htim4);// ENCODER COUNTER
-  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
-  HAL_TIM_Base_Start_IT(&htim11);// ENCODER SPEED AND SPEED CONTROL
-  HAL_TIM_Base_Start_IT(&htim10);// PUBLISH TIMER
 
   speedTarget = 0.0;
   speedRef 	= 0.0;
@@ -440,10 +411,8 @@ void StartDefaultTask(void *argument)
   drive_pwm(0);
 
 
-
   for(;;)
   {
-
 	  rcl_ret_t ret = rclc_executor_spin_some(&executor, RCL_MS_TO_NS(10));
 
 	      if (ret == RCL_RET_OK) {
@@ -455,6 +424,9 @@ void StartDefaultTask(void *argument)
 				  // Distance
 				  dist_msg_out.data = (float)globalDistance;
 				  rcl_publish(&globalDistance_pub, &dist_msg_out, NULL);
+
+				  accel_msg_out.data = (float)encoderAcceleration;;
+				  rcl_publish(&acceleration_pub, &accel_msg_out, NULL);
 
 				  if (reachedPosition && !posAckDone) {
 					  posFeedback_msg_out.data = true;
@@ -479,6 +451,16 @@ void StartDefaultTask(void *argument)
   }
   /* USER CODE END StartDefaultTask */
 }
+
+
+//void StartDefaultTask(void *argument)
+//{
+//  for (;;)
+//  {
+//    HAL_UART_Transmit(&huart2, (uint8_t*)"FREERTOS HELLO\r\n", 16, 100);
+//    osDelay(1000);
+//  }
+//}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
@@ -672,24 +654,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 1 */
 	if(htim == &htim11){  //every 1ms, PSC = 83, ARR = 999, f_tim = 84MHz -> (ARR+1*PSC)/f_TIM = 0.001s = 1ms
 
-		double DT = ((ENC_COUNT_MAX + 1) / 1e6); //0.001s  [s]
-		// ---------- ENCODER SPEED ----------
+		Encoder_Update_ISR();
 
-		encoderCount = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);	// (int16_t) cast to [-2^15 ; 2^15]
-		__HAL_TIM_SET_COUNTER(&htim3,0);
-		motorSpeed = ((double)encoderCount / 1024.0) / DT; 		// [rps]: motor speed
+		Encoder_State_t enc = Encoder_GetState();
 
-		encoderCount = (int16_t)__HAL_TIM_GET_COUNTER(&htim4);	// (int16_t) cast to [-2^15 ; 2^15]
-		motorSpeed = ((double)encoderCount / 2048.0) / DT; 		// [rps]: motor speed
+		encoderCount = enc.delta_counts;
+		encoderTotal = enc.total_counts_corrected;
 
-		fir_in_arm = (float32_t)motorSpeed;
-		arm_fir_f32(&fir_instance, &fir_in_arm, &fir_out_arm,1);
-		wheelSpeedfiltered = (double)fir_out_arm / TRANSMISSION_RATIO;	// [rps]: wheel speed
-		wheelSpeed = motorSpeed / TRANSMISSION_RATIO;
-		carSpeedfiltered = wheelSpeedfiltered * M_PPI * WHEEL_RADIUS; 			// [m/s]: carSpeed, i.e. v = ω * R , where angular velocity ω = rps * 2π
-		carSpeed = wheelSpeed * M_PPI * WHEEL_RADIUS;
-		globalDistance = globalDistance + carSpeed * DT;		// [m]: signed distance run by the car, i.e. curvilinear abscissa
-		localDistance = globalDistance - localDistanceOrigin;	// [m]: signed relative distance run by the car, i.e. curvilinear abscissa
+		carSpeed = enc.velocity_mps;
+		carSpeedfiltered = enc.velocity_mps_filtered;
+		globalDistance = enc.distance_m_filtered;
+		encoderAcceleration = enc.acceleration_mps2;
+		localDistance = globalDistance - localDistanceOrigin;
 
 
 		if (sensorsTOF[1].distance > 5 && sensorsTOF[1].distance < 80){
@@ -748,8 +724,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		//output=(float)motorPWM * 100;
 		//setpoint=(float)speedRef;
 
-		input=(float)fir_out_arm*100;
-		output=(float)motorSpeed * 100;
+//		input=(float)fir_out_arm*100;
+//		output=(float)motorSpeed * 100;
 
 		//input=(float)localDistance;
 		//output=(float)speedTargetPos;
@@ -792,7 +768,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
   /* USER CODE END Callback 1 */
 }
-
 #ifdef __cplusplus
 }
 #endif
