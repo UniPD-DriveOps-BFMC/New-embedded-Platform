@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cckf1LAt.s 			page 1
+ARM GAS  /tmp/ccESdKRx.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   28:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:Core/Src/gpio.c **** /* Configure GPIO                                                             */
   30:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
-ARM GAS  /tmp/cckf1LAt.s 			page 2
+ARM GAS  /tmp/ccESdKRx.s 			page 2
 
 
   31:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   65 0024 0192     		str	r2, [sp, #4]
   66              		.loc 1 48 3 view .LVU7
   67 0026 019A     		ldr	r2, [sp, #4]
-ARM GAS  /tmp/cckf1LAt.s 			page 3
+ARM GAS  /tmp/ccESdKRx.s 			page 3
 
 
   68              	.LBE2:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   53:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
   54:Core/Src/gpio.c ****   HAL_GPIO_WritePin(LEDS_IO_GPIO_Port, LEDS_IO_Pin, GPIO_PIN_RESET);
  118              		.loc 1 54 3 view .LVU27
-ARM GAS  /tmp/cckf1LAt.s 			page 4
+ARM GAS  /tmp/ccESdKRx.s 			page 4
 
 
  119 0064 254F     		ldr	r7, .L3+4
@@ -193,7 +193,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
  125              		.loc 1 57 3 view .LVU28
  126 0070 234D     		ldr	r5, .L3+8
  127 0072 2246     		mov	r2, r4
- 128 0074 4FF44071 		mov	r1, #768
+ 128 0074 4FF45871 		mov	r1, #864
  129 0078 2846     		mov	r0, r5
  130 007a FFF7FEFF 		bl	HAL_GPIO_WritePin
  131              	.LVL1:
@@ -221,7 +221,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
  147              	.LVL2:
   64:Core/Src/gpio.c **** 
   65:Core/Src/gpio.c ****   /*Configure GPIO pin : Encoder_Z_Pin_Pin */
-  66:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = Encoder_Z_Pin_Pin;
+  66:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = Encoder_Z_Pin;
  148              		.loc 1 66 3 view .LVU36
  149              		.loc 1 66 23 is_stmt 0 view .LVU37
  150 0096 0126     		movs	r6, #1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   69:Core/Src/gpio.c ****   HAL_GPIO_Init(Encoder_Z_Pin_GPIO_Port, &GPIO_InitStruct);
  159              		.loc 1 69 3 is_stmt 1 view .LVU42
  160 00a2 05A9     		add	r1, sp, #20
-ARM GAS  /tmp/cckf1LAt.s 			page 5
+ARM GAS  /tmp/ccESdKRx.s 			page 5
 
 
  161 00a4 2846     		mov	r0, r5
@@ -274,7 +274,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   79:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = VL6180X_1_SHUT_Pin|VL6180X_2_SHUT_Pin|VL6180X_3_SHUT_Pin|VL6180X_4_SHUT_Pin
  182              		.loc 1 79 3 view .LVU52
  183              		.loc 1 79 23 is_stmt 0 view .LVU53
- 184 00bc 4FF44073 		mov	r3, #768
+ 184 00bc 4FF45873 		mov	r3, #864
  185 00c0 0593     		str	r3, [sp, #20]
   80:Core/Src/gpio.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
  186              		.loc 1 80 3 is_stmt 1 view .LVU54
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
   85:Core/Src/gpio.c ****   /* EXTI interrupt init*/
   86:Core/Src/gpio.c ****   HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
  200              		.loc 1 86 3 view .LVU61
-ARM GAS  /tmp/cckf1LAt.s 			page 6
+ARM GAS  /tmp/ccESdKRx.s 			page 6
 
 
  201 00d0 2246     		mov	r2, r4
@@ -346,14 +346,14 @@ ARM GAS  /tmp/cckf1LAt.s 			page 1
  238              		.file 3 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
  239              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  240              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/cckf1LAt.s 			page 7
+ARM GAS  /tmp/ccESdKRx.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-     /tmp/cckf1LAt.s:21     .text.MX_GPIO_Init:00000000 $t
-     /tmp/cckf1LAt.s:27     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-     /tmp/cckf1LAt.s:229    .text.MX_GPIO_Init:000000f8 $d
+     /tmp/ccESdKRx.s:21     .text.MX_GPIO_Init:00000000 $t
+     /tmp/ccESdKRx.s:27     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+     /tmp/ccESdKRx.s:229    .text.MX_GPIO_Init:000000f8 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

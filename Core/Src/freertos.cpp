@@ -617,7 +617,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	}
 
-    if (GPIO_Pin == ENCODER_Z_Pin)   /* whatever you named it */
+    if (GPIO_Pin == Encoder_Z_Pin)
     {
         Encoder_Z_ISR();
     }

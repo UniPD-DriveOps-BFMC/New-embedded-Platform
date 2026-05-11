@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cciBGufw.s 			page 1
+ARM GAS  /tmp/ccwdALXY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
   28:Core/Src/tof.c **** #define TOF2_7BIT  0x3A
   29:Core/Src/tof.c **** #define TOF3_7BIT  0x4A
   30:Core/Src/tof.c **** #define TOF4_7BIT  0x5A
-ARM GAS  /tmp/cciBGufw.s 			page 2
+ARM GAS  /tmp/ccwdALXY.s 			page 2
 
 
   31:Core/Src/tof.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
   85:Core/Src/tof.c ****     uint8_t       init_fail_step;
   86:Core/Src/tof.c **** } TOF_Sensor_t;
   87:Core/Src/tof.c **** 
-ARM GAS  /tmp/cciBGufw.s 			page 3
+ARM GAS  /tmp/ccwdALXY.s 			page 3
 
 
   88:Core/Src/tof.c **** static TOF_Sensor_t tof_sensors[TOF_SENSOR_COUNT] =
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
   43 0006 0222     		movs	r2, #2
   44 0008 0348     		ldr	r0, .L3
   45              	.LVL1:
-ARM GAS  /tmp/cciBGufw.s 			page 4
+ARM GAS  /tmp/ccwdALXY.s 			page 4
 
 
   46              		.loc 1 127 13 view .LVU4
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  161:Core/Src/tof.c ****                                                    buf, 3, TOF_I2C_TIMEOUT_MS);
  162:Core/Src/tof.c ****     if (st != HAL_OK) TOF_I2C_Recover();
  163:Core/Src/tof.c ****     return st;
-ARM GAS  /tmp/cciBGufw.s 			page 5
+ARM GAS  /tmp/ccwdALXY.s 			page 5
 
 
  164:Core/Src/tof.c **** }
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
   84 0002 074D     		ldr	r5, .L7
   85 0004 00EB4003 		add	r3, r0, r0, lsl #1
   86 0008 05EB8307 		add	r7, r5, r3, lsl #2
-ARM GAS  /tmp/cciBGufw.s 			page 6
+ARM GAS  /tmp/ccwdALXY.s 			page 6
 
 
   87 000c 0022     		movs	r2, #0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  127              		.loc 1 218 5 view .LVU16
  128              	.LBB2:
  129              		.loc 1 218 10 view .LVU17
-ARM GAS  /tmp/cciBGufw.s 			page 7
+ARM GAS  /tmp/ccwdALXY.s 			page 7
 
 
  130              	.LVL6:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  182 0000 10B5     		push	{r4, lr}
  183              	.LCFI3:
  184              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/cciBGufw.s 			page 8
+ARM GAS  /tmp/ccwdALXY.s 			page 8
 
 
  185              		.cfi_offset 4, -8
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  232 0010 83B1     		cbz	r3, .L23
  233              	.L20:
  143:Core/Src/tof.c ****     if (hi2c1.State != HAL_I2C_STATE_READY ||
-ARM GAS  /tmp/cciBGufw.s 			page 9
+ARM GAS  /tmp/ccwdALXY.s 			page 9
 
 
  234              		.loc 1 143 1 view .LVU39
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  284              		@ args = 0, pretend = 0, frame = 8
  285              		@ frame_needed = 0, uses_anonymous_args = 0
  155:Core/Src/tof.c ****     uint8_t buf[3];
-ARM GAS  /tmp/cciBGufw.s 			page 10
+ARM GAS  /tmp/ccwdALXY.s 			page 10
 
 
  286              		.loc 1 155 1 is_stmt 0 view .LVU46
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  325 0022 0446     		mov	r4, r0
  326 0024 10B9     		cbnz	r0, .L30
  327              	.LVL23:
-ARM GAS  /tmp/cciBGufw.s 			page 11
+ARM GAS  /tmp/ccwdALXY.s 			page 11
 
 
  328              	.L28:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  238:Core/Src/tof.c ****         {0x207, 0x01}, {0x208, 0x01}, {0x096, 0x00}, {0x097, 0xFD},
  239:Core/Src/tof.c ****         {0x0E3, 0x01}, {0x0E4, 0x03}, {0x0E5, 0x02}, {0x0E6, 0x01},
  240:Core/Src/tof.c ****         {0x0E7, 0x03}, {0x0F5, 0x02}, {0x0D9, 0x05}, {0x0DB, 0xCE},
-ARM GAS  /tmp/cciBGufw.s 			page 12
+ARM GAS  /tmp/ccwdALXY.s 			page 12
 
 
  241:Core/Src/tof.c ****         {0x0DC, 0x03}, {0x0DD, 0xF8}, {0x09F, 0x00}, {0x0A3, 0x3C},
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  368 0000 10B5     		push	{r4, lr}
  369              	.LCFI10:
  370              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/cciBGufw.s 			page 13
+ARM GAS  /tmp/ccwdALXY.s 			page 13
 
 
  371              		.cfi_offset 4, -8
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  417              		.cfi_def_cfa_offset 8
  418              		.cfi_offset 4, -8
  419              		.cfi_offset 14, -4
-ARM GAS  /tmp/cciBGufw.s 			page 14
+ARM GAS  /tmp/ccwdALXY.s 			page 14
 
 
  420 0002 84B0     		sub	sp, sp, #16
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  175:Core/Src/tof.c ****     return st;
  457              		.loc 1 175 8 is_stmt 0 view .LVU96
  458 0028 0446     		mov	r4, r0
-ARM GAS  /tmp/cciBGufw.s 			page 15
+ARM GAS  /tmp/ccwdALXY.s 			page 15
 
 
  459 002a 10B9     		cbnz	r0, .L41
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  270:Core/Src/tof.c **** 
  508              		.loc 1 270 9 is_stmt 0 view .LVU104
  509 0004 1022     		movs	r2, #16
-ARM GAS  /tmp/cciBGufw.s 			page 16
+ARM GAS  /tmp/ccwdALXY.s 			page 16
 
 
  510 0006 1121     		movs	r1, #17
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  551 0036 3121     		movs	r1, #49
  552 0038 2046     		mov	r0, r4
  553 003a FFF7FEFF 		bl	writeReg
-ARM GAS  /tmp/cciBGufw.s 			page 17
+ARM GAS  /tmp/ccwdALXY.s 			page 17
 
 
  554              	.LVL43:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  595 006e 08B1     		cbz	r0, .L64
  278:Core/Src/tof.c ****     if (writeReg  (dev7, SYSALS__INTERMEASUREMENT_PERIOD,   0x31)   != HAL_OK) return HAL_ERROR;
  596              		.loc 1 278 87 discriminator 1 view .LVU131
-ARM GAS  /tmp/cciBGufw.s 			page 18
+ARM GAS  /tmp/ccwdALXY.s 			page 18
 
 
  597 0070 0120     		movs	r0, #1
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  283:Core/Src/tof.c **** 
  639              		.loc 1 283 5 is_stmt 1 view .LVU144
  283:Core/Src/tof.c **** 
-ARM GAS  /tmp/cciBGufw.s 			page 19
+ARM GAS  /tmp/ccwdALXY.s 			page 19
 
 
  640              		.loc 1 283 9 is_stmt 0 view .LVU145
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  686              		.loc 1 183 12 is_stmt 0 view .LVU155
  687 000c 8DF80D10 		strb	r1, [sp, #13]
  184:Core/Src/tof.c ****                                 TOF_I2C_TIMEOUT_MS) != HAL_OK)
-ARM GAS  /tmp/cciBGufw.s 			page 20
+ARM GAS  /tmp/ccwdALXY.s 			page 20
 
 
  688              		.loc 1 184 5 is_stmt 1 view .LVU156
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  732              	.L72:
  733              	.LCFI19:
  734              		.cfi_restore_state
-ARM GAS  /tmp/cciBGufw.s 			page 21
+ARM GAS  /tmp/ccwdALXY.s 			page 21
 
 
  187:Core/Src/tof.c ****         return HAL_ERROR;
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  782              		.loc 1 228 13 is_stmt 0 view .LVU175
  783 0006 0023     		movs	r3, #0
  784 0008 8DF80730 		strb	r3, [sp, #7]
-ARM GAS  /tmp/cciBGufw.s 			page 22
+ARM GAS  /tmp/ccwdALXY.s 			page 22
 
 
  229:Core/Src/tof.c ****         return HAL_ERROR;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  825              	.LVL67:
  250:Core/Src/tof.c ****             return HAL_ERROR;
  826              		.loc 1 250 12 discriminator 1 view .LVU190
-ARM GAS  /tmp/cciBGufw.s 			page 23
+ARM GAS  /tmp/ccwdALXY.s 			page 23
 
 
  827 003e 0028     		cmp	r0, #0
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  874              	.LVL71:
  875              	.LFB237:
  295:Core/Src/tof.c **** 
-ARM GAS  /tmp/cciBGufw.s 			page 24
+ARM GAS  /tmp/ccwdALXY.s 			page 24
 
 
  296:Core/Src/tof.c **** static HAL_StatusTypeDef VL6180X_CheckModelID(uint8_t dev7)
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  923              		.syntax unified
  924              		.thumb
  925              		.thumb_func
-ARM GAS  /tmp/cciBGufw.s 			page 25
+ARM GAS  /tmp/ccwdALXY.s 			page 25
 
 
  927              	TOF_InitOne:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  963              		.loc 1 320 10 is_stmt 0 view .LVU222
  964 001e 5220     		movs	r0, #82
  965 0020 FFF7FEFF 		bl	TOF_AddressReady
-ARM GAS  /tmp/cciBGufw.s 			page 26
+ARM GAS  /tmp/ccwdALXY.s 			page 26
 
 
  966              	.LVL76:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  344:Core/Src/tof.c ****         TOF_DisableSensor(i);
  345:Core/Src/tof.c ****         return 0;
  346:Core/Src/tof.c ****     }
-ARM GAS  /tmp/cciBGufw.s 			page 27
+ARM GAS  /tmp/ccwdALXY.s 			page 27
 
 
  347:Core/Src/tof.c **** 
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1029              		.loc 1 368 10 view .LVU242
  1030 0082 4000     		lsls	r0, r0, #1
  1031 0084 FFF7FEFF 		bl	TOF_AddressReady
-ARM GAS  /tmp/cciBGufw.s 			page 28
+ARM GAS  /tmp/ccwdALXY.s 			page 28
 
 
  1032              	.LVL83:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  323:Core/Src/tof.c ****         return 0;
  1069              		.loc 1 323 9 is_stmt 1 view .LVU254
  1070 00c2 2046     		mov	r0, r4
-ARM GAS  /tmp/cciBGufw.s 			page 29
+ARM GAS  /tmp/ccwdALXY.s 			page 29
 
 
  1071 00c4 FFF7FEFF 		bl	TOF_DisableSensor
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1111              		.loc 1 343 39 is_stmt 0 view .LVU268
  1112 00fa 04EB4402 		add	r2, r4, r4, lsl #1
  1113 00fe 1C4B     		ldr	r3, .L112
-ARM GAS  /tmp/cciBGufw.s 			page 30
+ARM GAS  /tmp/ccwdALXY.s 			page 30
 
 
  1114 0100 03EB8203 		add	r3, r3, r2, lsl #2
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1155 013e C3E7     		b	.L95
  1156              	.L110:
  370:Core/Src/tof.c ****         TOF_DisableSensor(i);
-ARM GAS  /tmp/cciBGufw.s 			page 31
+ARM GAS  /tmp/ccwdALXY.s 			page 31
 
 
  1157              		.loc 1 370 9 is_stmt 1 view .LVU282
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1203              		.loc 1 103 40 is_stmt 1 view -0
  1204              		.cfi_startproc
  1205              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cciBGufw.s 			page 32
+ARM GAS  /tmp/ccwdALXY.s 			page 32
 
 
  1206              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1258              		@ args = 0, pretend = 0, frame = 0
  1259              		@ frame_needed = 0, uses_anonymous_args = 0
  1260              		@ link register save eliminated.
-ARM GAS  /tmp/cciBGufw.s 			page 33
+ARM GAS  /tmp/ccwdALXY.s 			page 33
 
 
  108:Core/Src/tof.c **** }
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1307 0004 00EB4000 		add	r0, r0, r0, lsl #1
  1308              	.LVL99:
  113:Core/Src/tof.c **** }
-ARM GAS  /tmp/cciBGufw.s 			page 34
+ARM GAS  /tmp/ccwdALXY.s 			page 34
 
 
  1309              		.loc 1 113 70 discriminator 1 view .LVU309
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1357              		.loc 1 118 67 discriminator 2 view .LVU317
  1358 0012 FF20     		movs	r0, #255
  1359              	.LVL105:
-ARM GAS  /tmp/cciBGufw.s 			page 35
+ARM GAS  /tmp/ccwdALXY.s 			page 35
 
 
  119:Core/Src/tof.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1406              		.loc 1 135 8 discriminator 1 view .LVU327
  1407 0014 10B1     		cbz	r0, .L137
  135:Core/Src/tof.c ****     if (TOF_AddressReady(ADDR8(0x3A))) m |= (1U << 2);
-ARM GAS  /tmp/cciBGufw.s 			page 36
+ARM GAS  /tmp/ccwdALXY.s 			page 36
 
 
  1408              		.loc 1 135 40 is_stmt 1 discriminator 1 view .LVU328
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  138:Core/Src/tof.c ****     return m;
  1447              		.loc 1 138 9 is_stmt 0 view .LVU344
  1448 0038 B420     		movs	r0, #180
-ARM GAS  /tmp/cciBGufw.s 			page 37
+ARM GAS  /tmp/ccwdALXY.s 			page 37
 
 
  1449 003a FFF7FEFF 		bl	TOF_AddressReady
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  396:Core/Src/tof.c ****     tof_pre_init_rogue = 0;
  1487              		.loc 1 396 5 view .LVU353
  1488              		.loc 1 396 24 is_stmt 0 view .LVU354
-ARM GAS  /tmp/cciBGufw.s 			page 38
+ARM GAS  /tmp/ccwdALXY.s 			page 38
 
 
  1489 0002 174B     		ldr	r3, .L150
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  418:Core/Src/tof.c **** 
  419:Core/Src/tof.c ****         HAL_Delay(20);
  1521              		.loc 1 419 9 is_stmt 1 view .LVU364
-ARM GAS  /tmp/cciBGufw.s 			page 39
+ARM GAS  /tmp/ccwdALXY.s 			page 39
 
 
  1522 0028 1420     		movs	r0, #20
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  423:Core/Src/tof.c **** }
  1562              		.loc 1 423 1 is_stmt 0 view .LVU377
  1563 005a 034B     		ldr	r3, .L150+8
-ARM GAS  /tmp/cciBGufw.s 			page 40
+ARM GAS  /tmp/ccwdALXY.s 			page 40
 
 
  1564 005c 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1611 000e 00EB4002 		add	r2, r0, r0, lsl #1
  1612 0012 464B     		ldr	r3, .L167
  1613 0014 03EB8203 		add	r3, r3, r2, lsl #2
-ARM GAS  /tmp/cciBGufw.s 			page 41
+ARM GAS  /tmp/ccwdALXY.s 			page 41
 
 
  1614 0018 DD79     		ldrb	r5, [r3, #7]	@ zero_extendqisi2
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1657              		.loc 1 443 14 is_stmt 0 view .LVU400
  1658 004e 0023     		movs	r3, #0
  1659 0050 8DF80730 		strb	r3, [sp, #7]
-ARM GAS  /tmp/cciBGufw.s 			page 42
+ARM GAS  /tmp/ccwdALXY.s 			page 42
 
 
  1660              	.LVL138:
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1696 0084 4D21     		movs	r1, #77
  1697 0086 3046     		mov	r0, r6
  1698 0088 FFF7FEFF 		bl	readReg
-ARM GAS  /tmp/cciBGufw.s 			page 43
+ARM GAS  /tmp/ccwdALXY.s 			page 43
 
 
  1699              	.LVL141:
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  478:Core/Src/tof.c ****         return 0;
  1737              		.loc 1 478 9 is_stmt 1 view .LVU430
  1738              		.loc 1 478 16 is_stmt 0 view .LVU431
-ARM GAS  /tmp/cciBGufw.s 			page 44
+ARM GAS  /tmp/ccwdALXY.s 			page 44
 
 
  1739 00c6 2DE0     		b	.L153
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1780              		.loc 1 464 9 is_stmt 1 view .LVU444
  464:Core/Src/tof.c ****     }
  1781              		.loc 1 464 16 is_stmt 0 view .LVU445
-ARM GAS  /tmp/cciBGufw.s 			page 45
+ARM GAS  /tmp/ccwdALXY.s 			page 45
 
 
  1782 0102 0FE0     		b	.L153
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1827              		.section	.text.TOF_ReadAll,"ax",%progbits
  1828              		.align	1
  1829              		.global	TOF_ReadAll
-ARM GAS  /tmp/cciBGufw.s 			page 46
+ARM GAS  /tmp/ccwdALXY.s 			page 46
 
 
  1830              		.syntax unified
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1875 0018 E4B2     		uxtb	r4, r4
  1876              	.LVL157:
  1877              	.L170:
-ARM GAS  /tmp/cciBGufw.s 			page 47
+ARM GAS  /tmp/ccwdALXY.s 			page 47
 
 
  487:Core/Src/tof.c ****     for (uint8_t i = 0; i < TOF_SENSOR_COUNT; i++)
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1932 0034 DD00     		.short	221
  1933 0036 F8       		.byte	-8
  1934 0037 00       		.space	1
-ARM GAS  /tmp/cciBGufw.s 			page 48
+ARM GAS  /tmp/ccwdALXY.s 			page 48
 
 
  1935 0038 9F00     		.short	159
@@ -2878,18 +2878,18 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  1993              		.section	.data.tof_sensors,"aw"
  1994              		.align	2
  1997              	tof_sensors:
-ARM GAS  /tmp/cciBGufw.s 			page 49
+ARM GAS  /tmp/ccwdALXY.s 			page 49
 
 
  1998 0000 00080240 		.word	1073874944
- 1999 0004 0002     		.short	512
+ 1999 0004 2000     		.short	32
  2000 0006 2A       		.byte	42
  2001 0007 00       		.byte	0
  2002 0008 00       		.byte	0
  2003 0009 00       		.byte	0
  2004 000a 0000     		.space	2
  2005 000c 00080240 		.word	1073874944
- 2006 0010 0001     		.short	256
+ 2006 0010 4000     		.short	64
  2007 0012 3A       		.byte	58
  2008 0013 00       		.byte	0
  2009 0014 00       		.byte	0
@@ -2919,83 +2919,83 @@ ARM GAS  /tmp/cciBGufw.s 			page 1
  2033              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
  2034              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  2035              		.file 9 "Core/Inc/i2c.h"
-ARM GAS  /tmp/cciBGufw.s 			page 50
+ARM GAS  /tmp/ccwdALXY.s 			page 50
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 tof.c
-     /tmp/cciBGufw.s:21     .text.TOF_AddressReady:00000000 $t
-     /tmp/cciBGufw.s:26     .text.TOF_AddressReady:00000000 TOF_AddressReady
-     /tmp/cciBGufw.s:56     .text.TOF_AddressReady:00000018 $d
-     /tmp/cciBGufw.s:61     .text.TOF_DisableSensor:00000000 $t
-     /tmp/cciBGufw.s:66     .text.TOF_DisableSensor:00000000 TOF_DisableSensor
-     /tmp/cciBGufw.s:106    .text.TOF_DisableSensor:00000020 $d
-     /tmp/cciBGufw.s:1997   .data.tof_sensors:00000000 tof_sensors
-     /tmp/cciBGufw.s:111    .text.TOF_AllShutdown:00000000 $t
-     /tmp/cciBGufw.s:116    .text.TOF_AllShutdown:00000000 TOF_AllShutdown
-     /tmp/cciBGufw.s:164    .text.TOF_AllShutdown:0000001c $d
-     /tmp/cciBGufw.s:1991   .bss.tof_init_status:00000000 tof_init_status
-     /tmp/cciBGufw.s:169    .text.TOF_EnableSensor:00000000 $t
-     /tmp/cciBGufw.s:174    .text.TOF_EnableSensor:00000000 TOF_EnableSensor
-     /tmp/cciBGufw.s:204    .text.TOF_EnableSensor:00000020 $d
-     /tmp/cciBGufw.s:209    .text.TOF_I2C_Recover:00000000 $t
-     /tmp/cciBGufw.s:214    .text.TOF_I2C_Recover:00000000 TOF_I2C_Recover
-     /tmp/cciBGufw.s:269    .text.TOF_I2C_Recover:00000038 $d
-     /tmp/cciBGufw.s:274    .text.writeReg:00000000 $t
-     /tmp/cciBGufw.s:279    .text.writeReg:00000000 writeReg
-     /tmp/cciBGufw.s:350    .text.writeReg:00000034 $d
-     /tmp/cciBGufw.s:355    .text.VL6180X_SetAddress:00000000 $t
-     /tmp/cciBGufw.s:360    .text.VL6180X_SetAddress:00000000 VL6180X_SetAddress
-     /tmp/cciBGufw.s:402    .text.writeReg16:00000000 $t
-     /tmp/cciBGufw.s:407    .text.writeReg16:00000000 writeReg16
-     /tmp/cciBGufw.s:483    .text.writeReg16:00000038 $d
-     /tmp/cciBGufw.s:488    .text.VL6180X_PololuConfigureDefault:00000000 $t
-     /tmp/cciBGufw.s:493    .text.VL6180X_PololuConfigureDefault:00000000 VL6180X_PololuConfigureDefault
-     /tmp/cciBGufw.s:656    .text.readReg:00000000 $t
-     /tmp/cciBGufw.s:661    .text.readReg:00000000 readReg
-     /tmp/cciBGufw.s:752    .text.readReg:0000004c $d
-     /tmp/cciBGufw.s:757    .text.VL6180X_PololuInit:00000000 $t
-     /tmp/cciBGufw.s:762    .text.VL6180X_PololuInit:00000000 VL6180X_PololuInit
-     /tmp/cciBGufw.s:863    .text.VL6180X_PololuInit:0000005c $d
-     /tmp/cciBGufw.s:1892   .rodata.seq.0:00000000 seq.0
-     /tmp/cciBGufw.s:868    .text.VL6180X_CheckModelID:00000000 $t
-     /tmp/cciBGufw.s:873    .text.VL6180X_CheckModelID:00000000 VL6180X_CheckModelID
-     /tmp/cciBGufw.s:922    .text.TOF_InitOne:00000000 $t
-     /tmp/cciBGufw.s:927    .text.TOF_InitOne:00000000 TOF_InitOne
-     /tmp/cciBGufw.s:1190   .text.TOF_InitOne:00000170 $d
-     /tmp/cciBGufw.s:1195   .text.TOF_GetInitStatus:00000000 $t
-     /tmp/cciBGufw.s:1201   .text.TOF_GetInitStatus:00000000 TOF_GetInitStatus
-     /tmp/cciBGufw.s:1216   .text.TOF_GetInitStatus:00000008 $d
-     /tmp/cciBGufw.s:1221   .text.TOF_GetPreInitRogueFlag:00000000 $t
-     /tmp/cciBGufw.s:1227   .text.TOF_GetPreInitRogueFlag:00000000 TOF_GetPreInitRogueFlag
-     /tmp/cciBGufw.s:1242   .text.TOF_GetPreInitRogueFlag:00000008 $d
-     /tmp/cciBGufw.s:1986   .bss.tof_pre_init_rogue:00000000 tof_pre_init_rogue
-     /tmp/cciBGufw.s:1247   .text.TOF_IsReady:00000000 $t
-     /tmp/cciBGufw.s:1253   .text.TOF_IsReady:00000000 TOF_IsReady
-     /tmp/cciBGufw.s:1283   .text.TOF_IsReady:00000018 $d
-     /tmp/cciBGufw.s:1288   .text.TOF_GetLastRangeStatus:00000000 $t
-     /tmp/cciBGufw.s:1294   .text.TOF_GetLastRangeStatus:00000000 TOF_GetLastRangeStatus
-     /tmp/cciBGufw.s:1324   .text.TOF_GetLastRangeStatus:00000018 $d
-     /tmp/cciBGufw.s:1329   .text.TOF_GetInitFailStep:00000000 $t
-     /tmp/cciBGufw.s:1335   .text.TOF_GetInitFailStep:00000000 TOF_GetInitFailStep
-     /tmp/cciBGufw.s:1365   .text.TOF_GetInitFailStep:00000018 $d
-ARM GAS  /tmp/cciBGufw.s 			page 51
+     /tmp/ccwdALXY.s:21     .text.TOF_AddressReady:00000000 $t
+     /tmp/ccwdALXY.s:26     .text.TOF_AddressReady:00000000 TOF_AddressReady
+     /tmp/ccwdALXY.s:56     .text.TOF_AddressReady:00000018 $d
+     /tmp/ccwdALXY.s:61     .text.TOF_DisableSensor:00000000 $t
+     /tmp/ccwdALXY.s:66     .text.TOF_DisableSensor:00000000 TOF_DisableSensor
+     /tmp/ccwdALXY.s:106    .text.TOF_DisableSensor:00000020 $d
+     /tmp/ccwdALXY.s:1997   .data.tof_sensors:00000000 tof_sensors
+     /tmp/ccwdALXY.s:111    .text.TOF_AllShutdown:00000000 $t
+     /tmp/ccwdALXY.s:116    .text.TOF_AllShutdown:00000000 TOF_AllShutdown
+     /tmp/ccwdALXY.s:164    .text.TOF_AllShutdown:0000001c $d
+     /tmp/ccwdALXY.s:1991   .bss.tof_init_status:00000000 tof_init_status
+     /tmp/ccwdALXY.s:169    .text.TOF_EnableSensor:00000000 $t
+     /tmp/ccwdALXY.s:174    .text.TOF_EnableSensor:00000000 TOF_EnableSensor
+     /tmp/ccwdALXY.s:204    .text.TOF_EnableSensor:00000020 $d
+     /tmp/ccwdALXY.s:209    .text.TOF_I2C_Recover:00000000 $t
+     /tmp/ccwdALXY.s:214    .text.TOF_I2C_Recover:00000000 TOF_I2C_Recover
+     /tmp/ccwdALXY.s:269    .text.TOF_I2C_Recover:00000038 $d
+     /tmp/ccwdALXY.s:274    .text.writeReg:00000000 $t
+     /tmp/ccwdALXY.s:279    .text.writeReg:00000000 writeReg
+     /tmp/ccwdALXY.s:350    .text.writeReg:00000034 $d
+     /tmp/ccwdALXY.s:355    .text.VL6180X_SetAddress:00000000 $t
+     /tmp/ccwdALXY.s:360    .text.VL6180X_SetAddress:00000000 VL6180X_SetAddress
+     /tmp/ccwdALXY.s:402    .text.writeReg16:00000000 $t
+     /tmp/ccwdALXY.s:407    .text.writeReg16:00000000 writeReg16
+     /tmp/ccwdALXY.s:483    .text.writeReg16:00000038 $d
+     /tmp/ccwdALXY.s:488    .text.VL6180X_PololuConfigureDefault:00000000 $t
+     /tmp/ccwdALXY.s:493    .text.VL6180X_PololuConfigureDefault:00000000 VL6180X_PololuConfigureDefault
+     /tmp/ccwdALXY.s:656    .text.readReg:00000000 $t
+     /tmp/ccwdALXY.s:661    .text.readReg:00000000 readReg
+     /tmp/ccwdALXY.s:752    .text.readReg:0000004c $d
+     /tmp/ccwdALXY.s:757    .text.VL6180X_PololuInit:00000000 $t
+     /tmp/ccwdALXY.s:762    .text.VL6180X_PololuInit:00000000 VL6180X_PololuInit
+     /tmp/ccwdALXY.s:863    .text.VL6180X_PololuInit:0000005c $d
+     /tmp/ccwdALXY.s:1892   .rodata.seq.0:00000000 seq.0
+     /tmp/ccwdALXY.s:868    .text.VL6180X_CheckModelID:00000000 $t
+     /tmp/ccwdALXY.s:873    .text.VL6180X_CheckModelID:00000000 VL6180X_CheckModelID
+     /tmp/ccwdALXY.s:922    .text.TOF_InitOne:00000000 $t
+     /tmp/ccwdALXY.s:927    .text.TOF_InitOne:00000000 TOF_InitOne
+     /tmp/ccwdALXY.s:1190   .text.TOF_InitOne:00000170 $d
+     /tmp/ccwdALXY.s:1195   .text.TOF_GetInitStatus:00000000 $t
+     /tmp/ccwdALXY.s:1201   .text.TOF_GetInitStatus:00000000 TOF_GetInitStatus
+     /tmp/ccwdALXY.s:1216   .text.TOF_GetInitStatus:00000008 $d
+     /tmp/ccwdALXY.s:1221   .text.TOF_GetPreInitRogueFlag:00000000 $t
+     /tmp/ccwdALXY.s:1227   .text.TOF_GetPreInitRogueFlag:00000000 TOF_GetPreInitRogueFlag
+     /tmp/ccwdALXY.s:1242   .text.TOF_GetPreInitRogueFlag:00000008 $d
+     /tmp/ccwdALXY.s:1986   .bss.tof_pre_init_rogue:00000000 tof_pre_init_rogue
+     /tmp/ccwdALXY.s:1247   .text.TOF_IsReady:00000000 $t
+     /tmp/ccwdALXY.s:1253   .text.TOF_IsReady:00000000 TOF_IsReady
+     /tmp/ccwdALXY.s:1283   .text.TOF_IsReady:00000018 $d
+     /tmp/ccwdALXY.s:1288   .text.TOF_GetLastRangeStatus:00000000 $t
+     /tmp/ccwdALXY.s:1294   .text.TOF_GetLastRangeStatus:00000000 TOF_GetLastRangeStatus
+     /tmp/ccwdALXY.s:1324   .text.TOF_GetLastRangeStatus:00000018 $d
+     /tmp/ccwdALXY.s:1329   .text.TOF_GetInitFailStep:00000000 $t
+     /tmp/ccwdALXY.s:1335   .text.TOF_GetInitFailStep:00000000 TOF_GetInitFailStep
+     /tmp/ccwdALXY.s:1365   .text.TOF_GetInitFailStep:00000018 $d
+ARM GAS  /tmp/ccwdALXY.s 			page 51
 
 
-     /tmp/cciBGufw.s:1370   .text.TOF_GetAddressMask:00000000 $t
-     /tmp/cciBGufw.s:1376   .text.TOF_GetAddressMask:00000000 TOF_GetAddressMask
-     /tmp/cciBGufw.s:1470   .text.TOF_Init:00000000 $t
-     /tmp/cciBGufw.s:1476   .text.TOF_Init:00000000 TOF_Init
-     /tmp/cciBGufw.s:1571   .text.TOF_Init:00000060 $d
-     /tmp/cciBGufw.s:1578   .text.TOF_ReadDistance:00000000 $t
-     /tmp/cciBGufw.s:1584   .text.TOF_ReadDistance:00000000 TOF_ReadDistance
-     /tmp/cciBGufw.s:1823   .text.TOF_ReadDistance:0000012c $d
-     /tmp/cciBGufw.s:1828   .text.TOF_ReadAll:00000000 $t
-     /tmp/cciBGufw.s:1834   .text.TOF_ReadAll:00000000 TOF_ReadAll
-     /tmp/cciBGufw.s:1889   .rodata.seq.0:00000000 $d
-     /tmp/cciBGufw.s:1987   .bss.tof_pre_init_rogue:00000000 $d
-     /tmp/cciBGufw.s:1992   .bss.tof_init_status:00000000 $d
-     /tmp/cciBGufw.s:1994   .data.tof_sensors:00000000 $d
+     /tmp/ccwdALXY.s:1370   .text.TOF_GetAddressMask:00000000 $t
+     /tmp/ccwdALXY.s:1376   .text.TOF_GetAddressMask:00000000 TOF_GetAddressMask
+     /tmp/ccwdALXY.s:1470   .text.TOF_Init:00000000 $t
+     /tmp/ccwdALXY.s:1476   .text.TOF_Init:00000000 TOF_Init
+     /tmp/ccwdALXY.s:1571   .text.TOF_Init:00000060 $d
+     /tmp/ccwdALXY.s:1578   .text.TOF_ReadDistance:00000000 $t
+     /tmp/ccwdALXY.s:1584   .text.TOF_ReadDistance:00000000 TOF_ReadDistance
+     /tmp/ccwdALXY.s:1823   .text.TOF_ReadDistance:0000012c $d
+     /tmp/ccwdALXY.s:1828   .text.TOF_ReadAll:00000000 $t
+     /tmp/ccwdALXY.s:1834   .text.TOF_ReadAll:00000000 TOF_ReadAll
+     /tmp/ccwdALXY.s:1889   .rodata.seq.0:00000000 $d
+     /tmp/ccwdALXY.s:1987   .bss.tof_pre_init_rogue:00000000 $d
+     /tmp/ccwdALXY.s:1992   .bss.tof_init_status:00000000 $d
+     /tmp/ccwdALXY.s:1994   .data.tof_sensors:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_I2C_IsDeviceReady

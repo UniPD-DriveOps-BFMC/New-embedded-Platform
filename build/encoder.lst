@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccye7l56.s 			page 1
+ARM GAS  /tmp/ccHugStQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
   38 0004 F8EEE77A 		vcvt.f32.s32	s15, s15
   39              		.loc 1 18 24 view .LVU4
   40 0008 9FED087A 		vldr.32	s14, .L2
-ARM GAS  /tmp/ccye7l56.s 			page 2
+ARM GAS  /tmp/ccHugStQ.s 			page 2
 
 
   41 000c 67EE877A 		vmul.f32	s15, s15, s14
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
   86              		.loc 1 28 20 is_stmt 0 view .LVU14
   87 0008 01EBD172 		add	r2, r1, r1, lsr #31
   88 000c 5310     		asrs	r3, r2, #1
-ARM GAS  /tmp/ccye7l56.s 			page 3
+ARM GAS  /tmp/ccHugStQ.s 			page 3
 
 
   89              		.loc 1 28 8 view .LVU15
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
  134              		.loc 1 39 13 is_stmt 0 view .LVU27
  135 0002 0F4C     		ldr	r4, .L9
  136 0004 2060     		str	r0, [r4]
-ARM GAS  /tmp/ccye7l56.s 			page 4
+ARM GAS  /tmp/ccHugStQ.s 			page 4
 
 
   40:Core/Src/encoder.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
   55:Core/Src/encoder.c ****     enc_state.z_seen = 0;
  176              		.loc 1 55 5 is_stmt 1 view .LVU48
  177              		.loc 1 55 22 is_stmt 0 view .LVU49
-ARM GAS  /tmp/ccye7l56.s 			page 5
+ARM GAS  /tmp/ccHugStQ.s 			page 5
 
 
  178 002c 83F82020 		strb	r2, [r3, #32]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
  225              		.cfi_offset 14, -4
   65:Core/Src/encoder.c ****     int16_t delta;
  226              		.loc 1 65 5 view .LVU60
-ARM GAS  /tmp/ccye7l56.s 			page 6
+ARM GAS  /tmp/ccHugStQ.s 			page 6
 
 
   66:Core/Src/encoder.c ****     int32_t corrected_counts;
@@ -309,447 +309,408 @@ ARM GAS  /tmp/ccye7l56.s 			page 1
   69:Core/Src/encoder.c ****     int16_t current_counter = (int16_t)__HAL_TIM_GET_COUNTER(enc_tim);
  229              		.loc 1 69 5 view .LVU63
  230              		.loc 1 69 40 is_stmt 0 view .LVU64
- 231 0002 384B     		ldr	r3, .L21
+ 231 0002 2E4B     		ldr	r3, .L16
  232 0004 1B68     		ldr	r3, [r3]
  233 0006 1B68     		ldr	r3, [r3]
- 234 0008 586A     		ldr	r0, [r3, #36]
+ 234 0008 596A     		ldr	r1, [r3, #36]
  235              	.LVL9:
   70:Core/Src/encoder.c ****     delta = current_counter - previous_counter;
  236              		.loc 1 70 5 is_stmt 1 view .LVU65
  237              		.loc 1 70 29 is_stmt 0 view .LVU66
- 238 000a 3749     		ldr	r1, .L21+4
- 239 000c 0B88     		ldrh	r3, [r1]
- 240 000e C31A     		subs	r3, r0, r3
- 241 0010 9AB2     		uxth	r2, r3
- 242              		.loc 1 70 11 view .LVU67
- 243 0012 1BB2     		sxth	r3, r3
- 244              	.LVL10:
+ 238 000a 2D4A     		ldr	r2, .L16+4
+ 239 000c 1388     		ldrh	r3, [r2]
+ 240 000e CB1A     		subs	r3, r1, r3
+ 241              		.loc 1 70 11 view .LVU67
+ 242 0010 1BB2     		sxth	r3, r3
+ 243              	.LVL10:
   71:Core/Src/encoder.c ****     previous_counter = current_counter;
- 245              		.loc 1 71 5 is_stmt 1 view .LVU68
- 246              		.loc 1 71 22 is_stmt 0 view .LVU69
- 247 0014 0880     		strh	r0, [r1]	@ movhi
+ 244              		.loc 1 71 5 is_stmt 1 view .LVU68
+ 245              		.loc 1 71 22 is_stmt 0 view .LVU69
+ 246 0012 1180     		strh	r1, [r2]	@ movhi
   72:Core/Src/encoder.c **** 
-  73:Core/Src/encoder.c ****     if (delta >= -1 && delta <= 1)
- 248              		.loc 1 73 5 is_stmt 1 view .LVU70
- 249              		.loc 1 73 21 is_stmt 0 view .LVU71
- 250 0016 0132     		adds	r2, r2, #1
- 251 0018 92B2     		uxth	r2, r2
- 252              		.loc 1 73 8 view .LVU72
- 253 001a 022A     		cmp	r2, #2
- 254 001c 00D8     		bhi	.L12
-  74:Core/Src/encoder.c ****     {
-  75:Core/Src/encoder.c ****         delta = 0;
- 255              		.loc 1 75 15 view .LVU73
- 256 001e 0023     		movs	r3, #0
- 257              	.LVL11:
- 258              	.L12:
-  76:Core/Src/encoder.c ****     }
-  77:Core/Src/encoder.c **** 
-  78:Core/Src/encoder.c ****     enc_state.delta_counts = delta;
- 259              		.loc 1 78 5 is_stmt 1 view .LVU74
- 260              		.loc 1 78 28 is_stmt 0 view .LVU75
- 261 0020 324C     		ldr	r4, .L21+8
- 262 0022 2380     		strh	r3, [r4]	@ movhi
-  79:Core/Src/encoder.c ****     enc_state.total_counts_raw += delta;
- 263              		.loc 1 79 5 is_stmt 1 view .LVU76
- 264              		.loc 1 79 14 is_stmt 0 view .LVU77
- 265 0024 6268     		ldr	r2, [r4, #4]
- 266              		.loc 1 79 32 view .LVU78
- 267 0026 1344     		add	r3, r3, r2
- 268              	.LVL12:
- 269              		.loc 1 79 32 view .LVU79
-ARM GAS  /tmp/ccye7l56.s 			page 7
+  73:Core/Src/encoder.c ****     enc_state.delta_counts = delta;
+ 247              		.loc 1 73 5 is_stmt 1 view .LVU70
+ 248              		.loc 1 73 28 is_stmt 0 view .LVU71
+ 249 0014 2B4C     		ldr	r4, .L16+8
+ 250 0016 2380     		strh	r3, [r4]	@ movhi
+  74:Core/Src/encoder.c ****     enc_state.total_counts_raw += delta;
+ 251              		.loc 1 74 5 is_stmt 1 view .LVU72
+ 252              		.loc 1 74 14 is_stmt 0 view .LVU73
+ 253 0018 6268     		ldr	r2, [r4, #4]
+ 254              		.loc 1 74 32 view .LVU74
+ 255 001a 1344     		add	r3, r3, r2
+ 256              	.LVL11:
+ 257              		.loc 1 74 32 view .LVU75
+ 258 001c 6360     		str	r3, [r4, #4]
+ 259              	.LVL12:
+  75:Core/Src/encoder.c **** 
+  76:Core/Src/encoder.c ****     corrected_counts = enc_state.total_counts_raw - encoder_offset_counts;
+ 260              		.loc 1 76 5 is_stmt 1 view .LVU76
+ 261              		.loc 1 76 33 is_stmt 0 view .LVU77
+ 262 001e 6068     		ldr	r0, [r4, #4]
+ 263              		.loc 1 76 51 view .LVU78
+ 264 0020 294B     		ldr	r3, .L16+12
+ 265 0022 1B68     		ldr	r3, [r3]
+ 266              		.loc 1 76 22 view .LVU79
+ 267 0024 C01A     		subs	r0, r0, r3
+ 268              	.LVL13:
+  77:Core/Src/encoder.c ****     enc_state.total_counts_corrected = corrected_counts;
+ 269              		.loc 1 77 5 is_stmt 1 view .LVU80
+ 270              		.loc 1 77 38 is_stmt 0 view .LVU81
+ 271 0026 A060     		str	r0, [r4, #8]
+ARM GAS  /tmp/ccHugStQ.s 			page 7
 
 
- 270 0028 6360     		str	r3, [r4, #4]
- 271              	.LVL13:
-  80:Core/Src/encoder.c **** 
-  81:Core/Src/encoder.c ****     corrected_counts = enc_state.total_counts_raw - encoder_offset_counts;
- 272              		.loc 1 81 5 is_stmt 1 view .LVU80
- 273              		.loc 1 81 33 is_stmt 0 view .LVU81
- 274 002a 6068     		ldr	r0, [r4, #4]
+  78:Core/Src/encoder.c **** 
+  79:Core/Src/encoder.c ****     distance_now = Encoder_CountsToMeters(corrected_counts);
+ 272              		.loc 1 79 5 is_stmt 1 view .LVU82
+ 273              		.loc 1 79 20 is_stmt 0 view .LVU83
+ 274 0028 FFF7FEFF 		bl	Encoder_CountsToMeters
  275              	.LVL14:
- 276              		.loc 1 81 51 view .LVU82
- 277 002c 304B     		ldr	r3, .L21+12
- 278 002e 1B68     		ldr	r3, [r3]
- 279              		.loc 1 81 22 view .LVU83
- 280 0030 C01A     		subs	r0, r0, r3
- 281              	.LVL15:
-  82:Core/Src/encoder.c ****     enc_state.total_counts_corrected = corrected_counts;
- 282              		.loc 1 82 5 is_stmt 1 view .LVU84
- 283              		.loc 1 82 38 is_stmt 0 view .LVU85
- 284 0032 A060     		str	r0, [r4, #8]
+  80:Core/Src/encoder.c **** 
+  81:Core/Src/encoder.c ****     enc_state.velocity_mps =
+ 276              		.loc 1 81 5 is_stmt 1 view .LVU84
+  82:Core/Src/encoder.c ****         (distance_now - previous_distance_m) / ENCODER_TS_S;
+ 277              		.loc 1 82 23 is_stmt 0 view .LVU85
+ 278 002c 274B     		ldr	r3, .L16+16
+ 279 002e D3ED007A 		vldr.32	s15, [r3]
+ 280 0032 70EE677A 		vsub.f32	s15, s0, s15
+ 281              		.loc 1 82 46 view .LVU86
+ 282 0036 DFED266A 		vldr.32	s13, .L16+20
+ 283 003a 87EEA67A 		vdiv.f32	s14, s15, s13
+  81:Core/Src/encoder.c ****         (distance_now - previous_distance_m) / ENCODER_TS_S;
+ 284              		.loc 1 81 28 view .LVU87
+ 285 003e 84ED057A 		vstr.32	s14, [r4, #20]
   83:Core/Src/encoder.c **** 
-  84:Core/Src/encoder.c ****     distance_now = Encoder_CountsToMeters(corrected_counts);
- 285              		.loc 1 84 5 is_stmt 1 view .LVU86
- 286              		.loc 1 84 20 is_stmt 0 view .LVU87
- 287 0034 FFF7FEFF 		bl	Encoder_CountsToMeters
- 288              	.LVL16:
-  85:Core/Src/encoder.c **** 
-  86:Core/Src/encoder.c ****     enc_state.velocity_mps =
- 289              		.loc 1 86 5 is_stmt 1 view .LVU88
-  87:Core/Src/encoder.c ****         (distance_now - previous_distance_m) / ENCODER_TS_S;
- 290              		.loc 1 87 23 is_stmt 0 view .LVU89
- 291 0038 2E4B     		ldr	r3, .L21+16
- 292 003a D3ED007A 		vldr.32	s15, [r3]
- 293 003e 70EE677A 		vsub.f32	s15, s0, s15
- 294              		.loc 1 87 46 view .LVU90
- 295 0042 DFED2D6A 		vldr.32	s13, .L21+20
- 296 0046 87EEA67A 		vdiv.f32	s14, s15, s13
-  86:Core/Src/encoder.c ****         (distance_now - previous_distance_m) / ENCODER_TS_S;
- 297              		.loc 1 86 28 view .LVU91
- 298 004a 84ED057A 		vstr.32	s14, [r4, #20]
-  88:Core/Src/encoder.c **** 
-  89:Core/Src/encoder.c ****     if (fabsf(enc_state.velocity_mps) < 1e-10f)
- 299              		.loc 1 89 5 is_stmt 1 view .LVU92
- 300              		.loc 1 89 24 is_stmt 0 view .LVU93
- 301 004e D4ED057A 		vldr.32	s15, [r4, #20]
- 302              		.loc 1 89 9 view .LVU94
- 303 0052 F0EEE77A 		vabs.f32	s15, s15
- 304              		.loc 1 89 8 view .LVU95
- 305 0056 9FED297A 		vldr.32	s14, .L21+24
- 306 005a F4EEC77A 		vcmpe.f32	s15, s14
- 307 005e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 308 0062 01D5     		bpl	.L13
-  90:Core/Src/encoder.c ****     {
-  91:Core/Src/encoder.c ****         enc_state.velocity_mps = 0.0f;
- 309              		.loc 1 91 9 is_stmt 1 view .LVU96
- 310              		.loc 1 91 32 is_stmt 0 view .LVU97
- 311 0064 0022     		movs	r2, #0
- 312 0066 6261     		str	r2, [r4, #20]	@ float
- 313              	.L13:
-ARM GAS  /tmp/ccye7l56.s 			page 8
+  84:Core/Src/encoder.c ****     enc_state.velocity_mps_filtered =
+ 286              		.loc 1 84 5 is_stmt 1 view .LVU88
+  85:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
+ 287              		.loc 1 85 40 is_stmt 0 view .LVU89
+ 288 0042 D4ED057A 		vldr.32	s15, [r4, #20]
+ 289              		.loc 1 85 29 view .LVU90
+ 290 0046 9FED237A 		vldr.32	s14, .L16+24
+ 291 004a 67EE877A 		vmul.f32	s15, s15, s14
+  86:Core/Src/encoder.c ****         ((1.0f - VELOCITY_LPF_ALPHA) * enc_state.velocity_mps_filtered);
+ 292              		.loc 1 86 49 view .LVU91
+ 293 004e 94ED067A 		vldr.32	s14, [r4, #24]
+ 294              		.loc 1 86 38 view .LVU92
+ 295 0052 DFED216A 		vldr.32	s13, .L16+28
+ 296 0056 27EE267A 		vmul.f32	s14, s14, s13
+  85:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
+ 297              		.loc 1 85 55 view .LVU93
+ 298 005a 77EE877A 		vadd.f32	s15, s15, s14
+  84:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
+ 299              		.loc 1 84 37 view .LVU94
+ 300 005e C4ED067A 		vstr.32	s15, [r4, #24]
+  87:Core/Src/encoder.c **** 
+  88:Core/Src/encoder.c ****     if (fabsf(enc_state.velocity_mps_filtered) < 1e-10f)
+ 301              		.loc 1 88 5 is_stmt 1 view .LVU95
+ 302              		.loc 1 88 24 is_stmt 0 view .LVU96
+ 303 0062 D4ED067A 		vldr.32	s15, [r4, #24]
+ 304              		.loc 1 88 9 view .LVU97
+ 305 0066 F0EEE77A 		vabs.f32	s15, s15
+ 306              		.loc 1 88 8 view .LVU98
+ 307 006a 9FED1C7A 		vldr.32	s14, .L16+32
+ 308 006e F4EEC77A 		vcmpe.f32	s15, s14
+ 309 0072 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 310 0076 01D5     		bpl	.L12
+  89:Core/Src/encoder.c ****     {
+  90:Core/Src/encoder.c ****         enc_state.velocity_mps_filtered = 0.0f;
+ 311              		.loc 1 90 9 is_stmt 1 view .LVU99
+ 312              		.loc 1 90 41 is_stmt 0 view .LVU100
+ARM GAS  /tmp/ccHugStQ.s 			page 8
 
 
-  92:Core/Src/encoder.c ****     }
-  93:Core/Src/encoder.c **** 
-  94:Core/Src/encoder.c ****     enc_state.velocity_mps_filtered =
- 314              		.loc 1 94 5 is_stmt 1 view .LVU98
-  95:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
- 315              		.loc 1 95 40 is_stmt 0 view .LVU99
- 316 0068 204B     		ldr	r3, .L21+8
- 317 006a D3ED057A 		vldr.32	s15, [r3, #20]
- 318              		.loc 1 95 29 view .LVU100
- 319 006e 9FED247A 		vldr.32	s14, .L21+28
- 320 0072 67EE877A 		vmul.f32	s15, s15, s14
-  96:Core/Src/encoder.c ****         ((1.0f - VELOCITY_LPF_ALPHA) * enc_state.velocity_mps_filtered);
- 321              		.loc 1 96 49 view .LVU101
- 322 0076 93ED067A 		vldr.32	s14, [r3, #24]
- 323              		.loc 1 96 38 view .LVU102
- 324 007a DFED226A 		vldr.32	s13, .L21+32
- 325 007e 27EE267A 		vmul.f32	s14, s14, s13
-  95:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
- 326              		.loc 1 95 55 view .LVU103
- 327 0082 77EE877A 		vadd.f32	s15, s15, s14
-  94:Core/Src/encoder.c ****         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
- 328              		.loc 1 94 37 view .LVU104
- 329 0086 C3ED067A 		vstr.32	s15, [r3, #24]
-  97:Core/Src/encoder.c **** 
-  98:Core/Src/encoder.c ****     if (fabsf(enc_state.velocity_mps_filtered) < 1e-10f)
- 330              		.loc 1 98 5 is_stmt 1 view .LVU105
- 331              		.loc 1 98 24 is_stmt 0 view .LVU106
- 332 008a D3ED067A 		vldr.32	s15, [r3, #24]
- 333              		.loc 1 98 9 view .LVU107
- 334 008e F0EEE77A 		vabs.f32	s15, s15
- 335              		.loc 1 98 8 view .LVU108
- 336 0092 9FED1A7A 		vldr.32	s14, .L21+24
- 337 0096 F4EEC77A 		vcmpe.f32	s15, s14
- 338 009a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 339 009e 01D5     		bpl	.L15
-  99:Core/Src/encoder.c ****     {
- 100:Core/Src/encoder.c ****         enc_state.velocity_mps_filtered = 0.0f;
- 340              		.loc 1 100 9 is_stmt 1 view .LVU109
- 341              		.loc 1 100 41 is_stmt 0 view .LVU110
- 342 00a0 0022     		movs	r2, #0
- 343 00a2 9A61     		str	r2, [r3, #24]	@ float
- 344              	.L15:
- 101:Core/Src/encoder.c ****     }
- 102:Core/Src/encoder.c **** 
- 103:Core/Src/encoder.c ****     enc_state.distance_m_filtered += enc_state.velocity_mps_filtered * ENCODER_TS_S;
- 345              		.loc 1 103 5 is_stmt 1 view .LVU111
- 346              		.loc 1 103 47 is_stmt 0 view .LVU112
- 347 00a4 114B     		ldr	r3, .L21+8
- 348 00a6 93ED067A 		vldr.32	s14, [r3, #24]
- 349              		.loc 1 103 70 view .LVU113
- 350 00aa DFED136A 		vldr.32	s13, .L21+20
- 351 00ae 27EE267A 		vmul.f32	s14, s14, s13
- 352              		.loc 1 103 14 view .LVU114
- 353 00b2 D3ED047A 		vldr.32	s15, [r3, #16]
- 354              		.loc 1 103 35 view .LVU115
- 355 00b6 77EE877A 		vadd.f32	s15, s15, s14
- 356 00ba C3ED047A 		vstr.32	s15, [r3, #16]
-ARM GAS  /tmp/ccye7l56.s 			page 9
+ 313 0078 0022     		movs	r2, #0
+ 314 007a A261     		str	r2, [r4, #24]	@ float
+ 315              	.L12:
+  91:Core/Src/encoder.c ****     }
+  92:Core/Src/encoder.c **** 
+  93:Core/Src/encoder.c ****     enc_state.distance_m_filtered += enc_state.velocity_mps_filtered * ENCODER_TS_S;
+ 316              		.loc 1 93 5 is_stmt 1 view .LVU101
+ 317              		.loc 1 93 47 is_stmt 0 view .LVU102
+ 318 007c 114B     		ldr	r3, .L16+8
+ 319 007e 93ED067A 		vldr.32	s14, [r3, #24]
+ 320              		.loc 1 93 70 view .LVU103
+ 321 0082 DFED136A 		vldr.32	s13, .L16+20
+ 322 0086 27EE267A 		vmul.f32	s14, s14, s13
+ 323              		.loc 1 93 14 view .LVU104
+ 324 008a D3ED047A 		vldr.32	s15, [r3, #16]
+ 325              		.loc 1 93 35 view .LVU105
+ 326 008e 77EE877A 		vadd.f32	s15, s15, s14
+ 327 0092 C3ED047A 		vstr.32	s15, [r3, #16]
+  94:Core/Src/encoder.c **** 
+  95:Core/Src/encoder.c ****     enc_state.acceleration_mps2 =
+ 328              		.loc 1 95 5 is_stmt 1 view .LVU106
+  96:Core/Src/encoder.c ****         (enc_state.velocity_mps_filtered - previous_velocity_mps) /
+ 329              		.loc 1 96 19 is_stmt 0 view .LVU107
+ 330 0096 D3ED067A 		vldr.32	s15, [r3, #24]
+ 331              		.loc 1 96 42 view .LVU108
+ 332 009a 114A     		ldr	r2, .L16+36
+ 333 009c 92ED007A 		vldr.32	s14, [r2]
+ 334 00a0 77EEC77A 		vsub.f32	s15, s15, s14
+ 335              		.loc 1 96 67 view .LVU109
+ 336 00a4 87EEA67A 		vdiv.f32	s14, s15, s13
+  95:Core/Src/encoder.c ****         (enc_state.velocity_mps_filtered - previous_velocity_mps) /
+ 337              		.loc 1 95 33 view .LVU110
+ 338 00a8 83ED077A 		vstr.32	s14, [r3, #28]
+  97:Core/Src/encoder.c ****         ENCODER_TS_S;
+  98:Core/Src/encoder.c **** 
+  99:Core/Src/encoder.c ****     enc_state.distance_m = distance_now;
+ 339              		.loc 1 99 5 is_stmt 1 view .LVU111
+ 340              		.loc 1 99 26 is_stmt 0 view .LVU112
+ 341 00ac 83ED030A 		vstr.32	s0, [r3, #12]
+ 100:Core/Src/encoder.c **** 
+ 101:Core/Src/encoder.c ****     previous_distance_m = distance_now;
+ 342              		.loc 1 101 5 is_stmt 1 view .LVU113
+ 343              		.loc 1 101 25 is_stmt 0 view .LVU114
+ 344 00b0 0649     		ldr	r1, .L16+16
+ 345 00b2 81ED000A 		vstr.32	s0, [r1]
+ 102:Core/Src/encoder.c ****     previous_velocity_mps = enc_state.velocity_mps_filtered;
+ 346              		.loc 1 102 5 is_stmt 1 view .LVU115
+ 347              		.loc 1 102 38 is_stmt 0 view .LVU116
+ 348 00b6 9B69     		ldr	r3, [r3, #24]	@ float
+ 349              		.loc 1 102 27 view .LVU117
+ 350 00b8 1360     		str	r3, [r2]	@ float
+ 103:Core/Src/encoder.c **** }
+ 351              		.loc 1 103 1 view .LVU118
+ 352 00ba 10BD     		pop	{r4, pc}
+ 353              	.L17:
+ 354              		.align	2
+ 355              	.L16:
+ARM GAS  /tmp/ccHugStQ.s 			page 9
 
 
+ 356 00bc 00000000 		.word	enc_tim
+ 357 00c0 00000000 		.word	previous_counter
+ 358 00c4 00000000 		.word	enc_state
+ 359 00c8 00000000 		.word	encoder_offset_counts
+ 360 00cc 00000000 		.word	previous_distance_m
+ 361 00d0 0AD7A33C 		.word	1017370378
+ 362 00d4 8FC2F53C 		.word	1022739087
+ 363 00d8 EC51783F 		.word	1064849900
+ 364 00dc FFE6DB2E 		.word	786163455
+ 365 00e0 00000000 		.word	previous_velocity_mps
+ 366              		.cfi_endproc
+ 367              	.LFE223:
+ 369              		.section	.text.Encoder_Z_ISR,"ax",%progbits
+ 370              		.align	1
+ 371              		.global	Encoder_Z_ISR
+ 372              		.syntax unified
+ 373              		.thumb
+ 374              		.thumb_func
+ 376              	Encoder_Z_ISR:
+ 377              	.LFB224:
  104:Core/Src/encoder.c **** 
- 105:Core/Src/encoder.c ****     enc_state.acceleration_mps2 =
- 357              		.loc 1 105 5 is_stmt 1 view .LVU116
- 106:Core/Src/encoder.c ****         (enc_state.velocity_mps_filtered - previous_velocity_mps) /
- 358              		.loc 1 106 19 is_stmt 0 view .LVU117
- 359 00be D3ED067A 		vldr.32	s15, [r3, #24]
- 360              		.loc 1 106 42 view .LVU118
- 361 00c2 114A     		ldr	r2, .L21+36
- 362 00c4 92ED007A 		vldr.32	s14, [r2]
- 363 00c8 77EEC77A 		vsub.f32	s15, s15, s14
- 364              		.loc 1 106 67 view .LVU119
- 365 00cc 87EEA67A 		vdiv.f32	s14, s15, s13
- 105:Core/Src/encoder.c ****         (enc_state.velocity_mps_filtered - previous_velocity_mps) /
- 366              		.loc 1 105 33 view .LVU120
- 367 00d0 83ED077A 		vstr.32	s14, [r3, #28]
- 107:Core/Src/encoder.c ****         ENCODER_TS_S;
- 108:Core/Src/encoder.c **** 
- 109:Core/Src/encoder.c ****     enc_state.distance_m = distance_now;
- 368              		.loc 1 109 5 is_stmt 1 view .LVU121
- 369              		.loc 1 109 26 is_stmt 0 view .LVU122
- 370 00d4 83ED030A 		vstr.32	s0, [r3, #12]
- 110:Core/Src/encoder.c **** 
- 111:Core/Src/encoder.c ****     previous_distance_m = distance_now;
- 371              		.loc 1 111 5 is_stmt 1 view .LVU123
- 372              		.loc 1 111 25 is_stmt 0 view .LVU124
- 373 00d8 0649     		ldr	r1, .L21+16
- 374 00da 81ED000A 		vstr.32	s0, [r1]
- 112:Core/Src/encoder.c ****     previous_velocity_mps = enc_state.velocity_mps_filtered;
- 375              		.loc 1 112 5 is_stmt 1 view .LVU125
- 376              		.loc 1 112 38 is_stmt 0 view .LVU126
- 377 00de 9B69     		ldr	r3, [r3, #24]	@ float
- 378              		.loc 1 112 27 view .LVU127
- 379 00e0 1360     		str	r3, [r2]	@ float
- 113:Core/Src/encoder.c **** }
- 380              		.loc 1 113 1 view .LVU128
- 381 00e2 10BD     		pop	{r4, pc}
- 382              	.L22:
- 383              		.align	2
- 384              	.L21:
- 385 00e4 00000000 		.word	enc_tim
- 386 00e8 00000000 		.word	previous_counter
- 387 00ec 00000000 		.word	enc_state
- 388 00f0 00000000 		.word	encoder_offset_counts
- 389 00f4 00000000 		.word	previous_distance_m
- 390 00f8 6F12833A 		.word	981668463
- 391 00fc FFE6DB2E 		.word	786163455
- 392 0100 CDCCCC3D 		.word	1036831949
- 393 0104 6666663F 		.word	1063675494
- 394 0108 00000000 		.word	previous_velocity_mps
- 395              		.cfi_endproc
- 396              	.LFE223:
- 398              		.section	.text.Encoder_Z_ISR,"ax",%progbits
- 399              		.align	1
- 400              		.global	Encoder_Z_ISR
- 401              		.syntax unified
- 402              		.thumb
- 403              		.thumb_func
-ARM GAS  /tmp/ccye7l56.s 			page 10
+ 105:Core/Src/encoder.c **** void Encoder_Z_ISR(void)
+ 106:Core/Src/encoder.c **** {
+ 378              		.loc 1 106 1 is_stmt 1 view -0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382 0000 38B5     		push	{r3, r4, r5, lr}
+ 383              	.LCFI2:
+ 384              		.cfi_def_cfa_offset 16
+ 385              		.cfi_offset 3, -16
+ 386              		.cfi_offset 4, -12
+ 387              		.cfi_offset 5, -8
+ 388              		.cfi_offset 14, -4
+ 107:Core/Src/encoder.c ****     int32_t corrected_counts =
+ 389              		.loc 1 107 5 view .LVU120
+ 108:Core/Src/encoder.c ****         enc_state.total_counts_raw - encoder_offset_counts;
+ 390              		.loc 1 108 18 is_stmt 0 view .LVU121
+ 391 0002 0F4C     		ldr	r4, .L20
+ 392 0004 6068     		ldr	r0, [r4, #4]
+ 393              		.loc 1 108 36 view .LVU122
+ 394 0006 0F4D     		ldr	r5, .L20+4
+ 395 0008 2B68     		ldr	r3, [r5]
+ 396              	.LVL15:
+ 109:Core/Src/encoder.c **** 
+ 110:Core/Src/encoder.c ****     int32_t residual =
+ 397              		.loc 1 110 5 is_stmt 1 view .LVU123
+ 111:Core/Src/encoder.c ****         Encoder_ModNearest(corrected_counts, ENCODER_CPR);
+ 398              		.loc 1 111 9 is_stmt 0 view .LVU124
+ 399 000a 4FF40051 		mov	r1, #8192
+ 400 000e C01A     		subs	r0, r0, r3
+ 401              	.LVL16:
+ 402              		.loc 1 111 9 view .LVU125
+ 403 0010 FFF7FEFF 		bl	Encoder_ModNearest
+ 404              	.LVL17:
+ 405              		.loc 1 111 9 view .LVU126
+ 406 0014 07EE900A 		vmov	s15, r0	@ int
+ARM GAS  /tmp/ccHugStQ.s 			page 10
 
 
- 405              	Encoder_Z_ISR:
- 406              	.LFB224:
- 114:Core/Src/encoder.c **** 
- 115:Core/Src/encoder.c **** void Encoder_Z_ISR(void)
- 116:Core/Src/encoder.c **** {
- 407              		.loc 1 116 1 is_stmt 1 view -0
- 408              		.cfi_startproc
- 409              		@ args = 0, pretend = 0, frame = 0
- 410              		@ frame_needed = 0, uses_anonymous_args = 0
- 411 0000 38B5     		push	{r3, r4, r5, lr}
- 412              	.LCFI2:
- 413              		.cfi_def_cfa_offset 16
- 414              		.cfi_offset 3, -16
- 415              		.cfi_offset 4, -12
- 416              		.cfi_offset 5, -8
- 417              		.cfi_offset 14, -4
- 117:Core/Src/encoder.c ****     int32_t corrected_counts =
- 418              		.loc 1 117 5 view .LVU130
- 118:Core/Src/encoder.c ****         enc_state.total_counts_raw - encoder_offset_counts;
- 419              		.loc 1 118 18 is_stmt 0 view .LVU131
- 420 0002 0F4C     		ldr	r4, .L25
- 421 0004 6068     		ldr	r0, [r4, #4]
- 422              		.loc 1 118 36 view .LVU132
- 423 0006 0F4D     		ldr	r5, .L25+4
- 424 0008 2B68     		ldr	r3, [r5]
- 425              	.LVL17:
- 119:Core/Src/encoder.c **** 
- 120:Core/Src/encoder.c ****     int32_t residual =
- 426              		.loc 1 120 5 is_stmt 1 view .LVU133
- 121:Core/Src/encoder.c ****         Encoder_ModNearest(corrected_counts, ENCODER_CPR);
- 427              		.loc 1 121 9 is_stmt 0 view .LVU134
- 428 000a 4FF40051 		mov	r1, #8192
- 429 000e C01A     		subs	r0, r0, r3
- 430              	.LVL18:
- 431              		.loc 1 121 9 view .LVU135
- 432 0010 FFF7FEFF 		bl	Encoder_ModNearest
- 433              	.LVL19:
- 434              		.loc 1 121 9 view .LVU136
- 435 0014 07EE900A 		vmov	s15, r0	@ int
- 436              	.LVL20:
- 122:Core/Src/encoder.c **** 
- 123:Core/Src/encoder.c ****     int32_t correction =
- 437              		.loc 1 123 5 is_stmt 1 view .LVU137
- 124:Core/Src/encoder.c ****         (int32_t)(Z_CORRECTION_GAIN * (float)residual);
- 438              		.loc 1 124 39 is_stmt 0 view .LVU138
- 439 0018 F8EEE77A 		vcvt.f32.s32	s15, s15
- 440              		.loc 1 124 37 view .LVU139
- 441 001c 9FED0A7A 		vldr.32	s14, .L25+8
- 442 0020 67EE877A 		vmul.f32	s15, s15, s14
- 123:Core/Src/encoder.c ****         (int32_t)(Z_CORRECTION_GAIN * (float)residual);
- 443              		.loc 1 123 13 view .LVU140
- 444 0024 FDEEE77A 		vcvt.s32.f32	s15, s15
- 445              	.LVL21:
- 125:Core/Src/encoder.c **** 
- 126:Core/Src/encoder.c ****     encoder_offset_counts += correction;
- 446              		.loc 1 126 5 is_stmt 1 view .LVU141
- 447              		.loc 1 126 27 is_stmt 0 view .LVU142
-ARM GAS  /tmp/ccye7l56.s 			page 11
+ 407              	.LVL18:
+ 112:Core/Src/encoder.c **** 
+ 113:Core/Src/encoder.c ****     int32_t correction =
+ 408              		.loc 1 113 5 is_stmt 1 view .LVU127
+ 114:Core/Src/encoder.c ****         (int32_t)(Z_CORRECTION_GAIN * (float)residual);
+ 409              		.loc 1 114 39 is_stmt 0 view .LVU128
+ 410 0018 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 411              		.loc 1 114 37 view .LVU129
+ 412 001c 9FED0A7A 		vldr.32	s14, .L20+8
+ 413 0020 67EE877A 		vmul.f32	s15, s15, s14
+ 113:Core/Src/encoder.c ****         (int32_t)(Z_CORRECTION_GAIN * (float)residual);
+ 414              		.loc 1 113 13 view .LVU130
+ 415 0024 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 416              	.LVL19:
+ 115:Core/Src/encoder.c **** 
+ 116:Core/Src/encoder.c ****     encoder_offset_counts += correction;
+ 417              		.loc 1 116 5 is_stmt 1 view .LVU131
+ 418              		.loc 1 116 27 is_stmt 0 view .LVU132
+ 419 0028 2B68     		ldr	r3, [r5]
+ 420 002a 17EE902A 		vmov	r2, s15	@ int
+ 421 002e 1344     		add	r3, r3, r2
+ 422 0030 2B60     		str	r3, [r5]
+ 117:Core/Src/encoder.c **** 
+ 118:Core/Src/encoder.c ****     enc_state.z_seen = 1;
+ 423              		.loc 1 118 5 is_stmt 1 view .LVU133
+ 424              		.loc 1 118 22 is_stmt 0 view .LVU134
+ 425 0032 0123     		movs	r3, #1
+ 426 0034 84F82030 		strb	r3, [r4, #32]
+ 119:Core/Src/encoder.c ****     enc_state.z_count++;
+ 427              		.loc 1 119 5 is_stmt 1 view .LVU135
+ 428              		.loc 1 119 14 is_stmt 0 view .LVU136
+ 429 0038 636A     		ldr	r3, [r4, #36]
+ 430              		.loc 1 119 22 view .LVU137
+ 431 003a 0133     		adds	r3, r3, #1
+ 432 003c 6362     		str	r3, [r4, #36]
+ 120:Core/Src/encoder.c **** }
+ 433              		.loc 1 120 1 view .LVU138
+ 434 003e 38BD     		pop	{r3, r4, r5, pc}
+ 435              	.L21:
+ 436              		.align	2
+ 437              	.L20:
+ 438 0040 00000000 		.word	enc_state
+ 439 0044 00000000 		.word	encoder_offset_counts
+ 440 0048 CDCC4C3E 		.word	1045220557
+ 441              		.cfi_endproc
+ 442              	.LFE224:
+ 444              		.section	.text.Encoder_GetState,"ax",%progbits
+ 445              		.align	1
+ 446              		.global	Encoder_GetState
+ 447              		.syntax unified
+ 448              		.thumb
+ 449              		.thumb_func
+ 451              	Encoder_GetState:
+ 452              	.LVL20:
+ 453              	.LFB225:
+ 121:Core/Src/encoder.c **** 
+ 122:Core/Src/encoder.c **** Encoder_State_t Encoder_GetState(void)
+ARM GAS  /tmp/ccHugStQ.s 			page 11
 
 
- 448 0028 2B68     		ldr	r3, [r5]
- 449 002a 17EE902A 		vmov	r2, s15	@ int
- 450 002e 1344     		add	r3, r3, r2
- 451 0030 2B60     		str	r3, [r5]
- 127:Core/Src/encoder.c **** 
- 128:Core/Src/encoder.c ****     enc_state.z_seen = 1;
- 452              		.loc 1 128 5 is_stmt 1 view .LVU143
- 453              		.loc 1 128 22 is_stmt 0 view .LVU144
- 454 0032 0123     		movs	r3, #1
- 455 0034 84F82030 		strb	r3, [r4, #32]
- 129:Core/Src/encoder.c ****     enc_state.z_count++;
- 456              		.loc 1 129 5 is_stmt 1 view .LVU145
- 457              		.loc 1 129 14 is_stmt 0 view .LVU146
- 458 0038 636A     		ldr	r3, [r4, #36]
- 459              		.loc 1 129 22 view .LVU147
- 460 003a 0133     		adds	r3, r3, #1
- 461 003c 6362     		str	r3, [r4, #36]
- 130:Core/Src/encoder.c **** }
- 462              		.loc 1 130 1 view .LVU148
- 463 003e 38BD     		pop	{r3, r4, r5, pc}
- 464              	.L26:
- 465              		.align	2
- 466              	.L25:
- 467 0040 00000000 		.word	enc_state
- 468 0044 00000000 		.word	encoder_offset_counts
- 469 0048 CDCC4C3E 		.word	1045220557
- 470              		.cfi_endproc
- 471              	.LFE224:
- 473              		.section	.text.Encoder_GetState,"ax",%progbits
- 474              		.align	1
- 475              		.global	Encoder_GetState
- 476              		.syntax unified
- 477              		.thumb
- 478              		.thumb_func
- 480              	Encoder_GetState:
- 481              	.LVL22:
- 482              	.LFB225:
- 131:Core/Src/encoder.c **** 
- 132:Core/Src/encoder.c **** Encoder_State_t Encoder_GetState(void)
- 133:Core/Src/encoder.c **** {
- 483              		.loc 1 133 1 is_stmt 1 view -0
- 484              		.cfi_startproc
- 485              		@ args = 0, pretend = 0, frame = 0
- 486              		@ frame_needed = 0, uses_anonymous_args = 0
- 487              		.loc 1 133 1 is_stmt 0 view .LVU150
- 488 0000 10B5     		push	{r4, lr}
- 489              	.LCFI3:
- 490              		.cfi_def_cfa_offset 8
- 491              		.cfi_offset 4, -8
- 492              		.cfi_offset 14, -4
- 493 0002 8646     		mov	lr, r0
- 134:Core/Src/encoder.c ****     return enc_state;
- 494              		.loc 1 134 5 is_stmt 1 view .LVU151
- 495              		.loc 1 134 12 is_stmt 0 view .LVU152
- 496 0004 8446     		mov	ip, r0
- 497 0006 064C     		ldr	r4, .L29
- 498 0008 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
-ARM GAS  /tmp/ccye7l56.s 			page 12
+ 123:Core/Src/encoder.c **** {
+ 454              		.loc 1 123 1 is_stmt 1 view -0
+ 455              		.cfi_startproc
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 458              		.loc 1 123 1 is_stmt 0 view .LVU140
+ 459 0000 10B5     		push	{r4, lr}
+ 460              	.LCFI3:
+ 461              		.cfi_def_cfa_offset 8
+ 462              		.cfi_offset 4, -8
+ 463              		.cfi_offset 14, -4
+ 464 0002 8646     		mov	lr, r0
+ 124:Core/Src/encoder.c ****     return enc_state;
+ 465              		.loc 1 124 5 is_stmt 1 view .LVU141
+ 466              		.loc 1 124 12 is_stmt 0 view .LVU142
+ 467 0004 8446     		mov	ip, r0
+ 468 0006 064C     		ldr	r4, .L24
+ 469 0008 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 470              	.LVL21:
+ 471              		.loc 1 124 12 view .LVU143
+ 472 000a ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 473              	.LVL22:
+ 474              		.loc 1 124 12 view .LVU144
+ 475 000e 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 476 0010 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 477 0014 94E80300 		ldm	r4, {r0, r1}
+ 478 0018 8CE80300 		stm	ip, {r0, r1}
+ 125:Core/Src/encoder.c **** }
+ 479              		.loc 1 125 1 view .LVU145
+ 480 001c 7046     		mov	r0, lr
+ 481 001e 10BD     		pop	{r4, pc}
+ 482              	.L25:
+ 483              		.align	2
+ 484              	.L24:
+ 485 0020 00000000 		.word	enc_state
+ 486              		.cfi_endproc
+ 487              	.LFE225:
+ 489              		.section	.bss.previous_counter,"aw",%nobits
+ 490              		.align	1
+ 493              	previous_counter:
+ 494 0000 0000     		.space	2
+ 495              		.section	.bss.previous_distance_m,"aw",%nobits
+ 496              		.align	2
+ 499              	previous_distance_m:
+ 500 0000 00000000 		.space	4
+ 501              		.section	.bss.previous_velocity_mps,"aw",%nobits
+ 502              		.align	2
+ 505              	previous_velocity_mps:
+ 506 0000 00000000 		.space	4
+ 507              		.section	.bss.encoder_offset_counts,"aw",%nobits
+ 508              		.align	2
+ 511              	encoder_offset_counts:
+ 512 0000 00000000 		.space	4
+ 513              		.section	.bss.enc_state,"aw",%nobits
+ 514              		.align	2
+ 517              	enc_state:
+ 518 0000 00000000 		.space	40
+ARM GAS  /tmp/ccHugStQ.s 			page 12
 
 
- 499              	.LVL23:
- 500              		.loc 1 134 12 view .LVU153
- 501 000a ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
- 502              	.LVL24:
- 503              		.loc 1 134 12 view .LVU154
- 504 000e 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
- 505 0010 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
- 506 0014 94E80300 		ldm	r4, {r0, r1}
- 507 0018 8CE80300 		stm	ip, {r0, r1}
- 135:Core/Src/encoder.c **** }
- 508              		.loc 1 135 1 view .LVU155
- 509 001c 7046     		mov	r0, lr
- 510 001e 10BD     		pop	{r4, pc}
- 511              	.L30:
- 512              		.align	2
- 513              	.L29:
- 514 0020 00000000 		.word	enc_state
- 515              		.cfi_endproc
- 516              	.LFE225:
- 518              		.section	.bss.previous_counter,"aw",%nobits
- 519              		.align	1
- 522              	previous_counter:
- 523 0000 0000     		.space	2
- 524              		.section	.bss.previous_distance_m,"aw",%nobits
- 525              		.align	2
- 528              	previous_distance_m:
- 529 0000 00000000 		.space	4
- 530              		.section	.bss.previous_velocity_mps,"aw",%nobits
- 531              		.align	2
- 534              	previous_velocity_mps:
- 535 0000 00000000 		.space	4
- 536              		.section	.bss.encoder_offset_counts,"aw",%nobits
- 537              		.align	2
- 540              	encoder_offset_counts:
- 541 0000 00000000 		.space	4
- 542              		.section	.bss.enc_state,"aw",%nobits
- 543              		.align	2
- 546              	enc_state:
- 547 0000 00000000 		.space	40
- 547      00000000 
- 547      00000000 
- 547      00000000 
- 547      00000000 
- 548              		.section	.bss.enc_tim,"aw",%nobits
- 549              		.align	2
- 552              	enc_tim:
- 553 0000 00000000 		.space	4
- 554              		.text
- 555              	.Letext0:
- 556              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
- 557              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 558              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 559              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 560              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 561              		.file 7 "Core/Inc/encoder.h"
-ARM GAS  /tmp/ccye7l56.s 			page 13
+ 518      00000000 
+ 518      00000000 
+ 518      00000000 
+ 518      00000000 
+ 519              		.section	.bss.enc_tim,"aw",%nobits
+ 520              		.align	2
+ 523              	enc_tim:
+ 524 0000 00000000 		.space	4
+ 525              		.text
+ 526              	.Letext0:
+ 527              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 528              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 529              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 530              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 531              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 532              		.file 7 "Core/Inc/encoder.h"
+ARM GAS  /tmp/ccHugStQ.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 encoder.c
-     /tmp/ccye7l56.s:21     .text.Encoder_CountsToMeters:00000000 $t
-     /tmp/ccye7l56.s:26     .text.Encoder_CountsToMeters:00000000 Encoder_CountsToMeters
-     /tmp/ccye7l56.s:59     .text.Encoder_CountsToMeters:0000002c $d
-     /tmp/ccye7l56.s:67     .text.Encoder_ModNearest:00000000 $t
-     /tmp/ccye7l56.s:72     .text.Encoder_ModNearest:00000000 Encoder_ModNearest
-     /tmp/ccye7l56.s:114    .text.Encoder_Init:00000000 $t
-     /tmp/ccye7l56.s:120    .text.Encoder_Init:00000000 Encoder_Init
-     /tmp/ccye7l56.s:199    .text.Encoder_Init:00000040 $d
-     /tmp/ccye7l56.s:552    .bss.enc_tim:00000000 enc_tim
-     /tmp/ccye7l56.s:522    .bss.previous_counter:00000000 previous_counter
-     /tmp/ccye7l56.s:546    .bss.enc_state:00000000 enc_state
-     /tmp/ccye7l56.s:540    .bss.encoder_offset_counts:00000000 encoder_offset_counts
-     /tmp/ccye7l56.s:534    .bss.previous_velocity_mps:00000000 previous_velocity_mps
-     /tmp/ccye7l56.s:528    .bss.previous_distance_m:00000000 previous_distance_m
-     /tmp/ccye7l56.s:209    .text.Encoder_Update_ISR:00000000 $t
-     /tmp/ccye7l56.s:215    .text.Encoder_Update_ISR:00000000 Encoder_Update_ISR
-     /tmp/ccye7l56.s:385    .text.Encoder_Update_ISR:000000e4 $d
-     /tmp/ccye7l56.s:399    .text.Encoder_Z_ISR:00000000 $t
-     /tmp/ccye7l56.s:405    .text.Encoder_Z_ISR:00000000 Encoder_Z_ISR
-     /tmp/ccye7l56.s:467    .text.Encoder_Z_ISR:00000040 $d
-     /tmp/ccye7l56.s:474    .text.Encoder_GetState:00000000 $t
-     /tmp/ccye7l56.s:480    .text.Encoder_GetState:00000000 Encoder_GetState
-     /tmp/ccye7l56.s:514    .text.Encoder_GetState:00000020 $d
-     /tmp/ccye7l56.s:519    .bss.previous_counter:00000000 $d
-     /tmp/ccye7l56.s:525    .bss.previous_distance_m:00000000 $d
-     /tmp/ccye7l56.s:531    .bss.previous_velocity_mps:00000000 $d
-     /tmp/ccye7l56.s:537    .bss.encoder_offset_counts:00000000 $d
-     /tmp/ccye7l56.s:543    .bss.enc_state:00000000 $d
-     /tmp/ccye7l56.s:549    .bss.enc_tim:00000000 $d
+     /tmp/ccHugStQ.s:21     .text.Encoder_CountsToMeters:00000000 $t
+     /tmp/ccHugStQ.s:26     .text.Encoder_CountsToMeters:00000000 Encoder_CountsToMeters
+     /tmp/ccHugStQ.s:59     .text.Encoder_CountsToMeters:0000002c $d
+     /tmp/ccHugStQ.s:67     .text.Encoder_ModNearest:00000000 $t
+     /tmp/ccHugStQ.s:72     .text.Encoder_ModNearest:00000000 Encoder_ModNearest
+     /tmp/ccHugStQ.s:114    .text.Encoder_Init:00000000 $t
+     /tmp/ccHugStQ.s:120    .text.Encoder_Init:00000000 Encoder_Init
+     /tmp/ccHugStQ.s:199    .text.Encoder_Init:00000040 $d
+     /tmp/ccHugStQ.s:523    .bss.enc_tim:00000000 enc_tim
+     /tmp/ccHugStQ.s:493    .bss.previous_counter:00000000 previous_counter
+     /tmp/ccHugStQ.s:517    .bss.enc_state:00000000 enc_state
+     /tmp/ccHugStQ.s:511    .bss.encoder_offset_counts:00000000 encoder_offset_counts
+     /tmp/ccHugStQ.s:505    .bss.previous_velocity_mps:00000000 previous_velocity_mps
+     /tmp/ccHugStQ.s:499    .bss.previous_distance_m:00000000 previous_distance_m
+     /tmp/ccHugStQ.s:209    .text.Encoder_Update_ISR:00000000 $t
+     /tmp/ccHugStQ.s:215    .text.Encoder_Update_ISR:00000000 Encoder_Update_ISR
+     /tmp/ccHugStQ.s:356    .text.Encoder_Update_ISR:000000bc $d
+     /tmp/ccHugStQ.s:370    .text.Encoder_Z_ISR:00000000 $t
+     /tmp/ccHugStQ.s:376    .text.Encoder_Z_ISR:00000000 Encoder_Z_ISR
+     /tmp/ccHugStQ.s:438    .text.Encoder_Z_ISR:00000040 $d
+     /tmp/ccHugStQ.s:445    .text.Encoder_GetState:00000000 $t
+     /tmp/ccHugStQ.s:451    .text.Encoder_GetState:00000000 Encoder_GetState
+     /tmp/ccHugStQ.s:485    .text.Encoder_GetState:00000020 $d
+     /tmp/ccHugStQ.s:490    .bss.previous_counter:00000000 $d
+     /tmp/ccHugStQ.s:496    .bss.previous_distance_m:00000000 $d
+     /tmp/ccHugStQ.s:502    .bss.previous_velocity_mps:00000000 $d
+     /tmp/ccHugStQ.s:508    .bss.encoder_offset_counts:00000000 $d
+     /tmp/ccHugStQ.s:514    .bss.enc_state:00000000 $d
+     /tmp/ccHugStQ.s:520    .bss.enc_tim:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_Encoder_Start

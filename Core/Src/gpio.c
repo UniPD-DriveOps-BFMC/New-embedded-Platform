@@ -63,7 +63,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Encoder_Z_Pin_Pin */
-  GPIO_InitStruct.Pin = Encoder_Z_Pin_Pin;
+  GPIO_InitStruct.Pin = Encoder_Z_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(Encoder_Z_Pin_GPIO_Port, &GPIO_InitStruct);

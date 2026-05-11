@@ -15,10 +15,10 @@ extern "C" {
 
 #define ENCODER_TS_S         0.02f
 
-#define VELOCITY_LPF_ALPHA   0.10f
+#define VELOCITY_LPF_ALPHA   0.03f
 #define Z_CORRECTION_GAIN    0.20f
 
-#define TWO_PI 6.28318530718f
+#define TWO_PI 			     6.28318530718f
 
 #define TRANSMISSION_RATIO 		((float)GEAR_DEN / (float)GEAR_NUM)
 
