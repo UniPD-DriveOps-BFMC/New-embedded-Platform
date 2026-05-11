@@ -13,8 +13,7 @@ extern "C" {
 #define GEAR_DEN             527
 #define WHEEL_RADIUS       	 0.03224f
 
-/* Your existing TIM11 is 1 ms, so use 0.001 s */
-#define ENCODER_TS_S         0.001f
+#define ENCODER_TS_S         0.02f
 
 #define VELOCITY_LPF_ALPHA   0.10f
 #define Z_CORRECTION_GAIN    0.20f

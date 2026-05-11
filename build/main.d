@@ -44,8 +44,8 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Core/Inc/adc.h Core/Inc/main.h Core/Inc/dma.h Core/Inc/i2c.h \
  Core/Inc/tim.h Core/Inc/usart.h Core/Inc/gpio.h \
  Middlewares/ST/ARM/DSP/Inc/arm_math.h \
- Drivers/CMSIS/Include/cmsis_compiler.h Core/Inc/vl6180.h \
- Core/Inc/speaker.h Core/Inc/tim.h
+ Drivers/CMSIS/Include/cmsis_compiler.h Core/Inc/tof.h Core/Inc/speaker.h \
+ Core/Inc/tim.h
 Core/Inc/main.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 Core/Inc/stm32f4xx_hal_conf.h:
@@ -100,6 +100,6 @@ Core/Inc/usart.h:
 Core/Inc/gpio.h:
 Middlewares/ST/ARM/DSP/Inc/arm_math.h:
 Drivers/CMSIS/Include/cmsis_compiler.h:
-Core/Inc/vl6180.h:
+Core/Inc/tof.h:
 Core/Inc/speaker.h:
 Core/Inc/tim.h:

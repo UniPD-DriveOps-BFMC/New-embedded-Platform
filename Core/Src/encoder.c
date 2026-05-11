@@ -18,7 +18,7 @@ static float Encoder_CountsToMeters(int32_t counts)
         ((float)counts * (float)GEAR_NUM) /
         ((float)ENCODER_CPR * (float)GEAR_DEN);
 
-    return rev_factor * TWO_PI * WHEEL_RADIUS;
+    return counts;
 }
 
 static int32_t Encoder_ModNearest(int32_t value, int32_t modulo)
@@ -70,15 +70,10 @@ void Encoder_Update_ISR(void)
     delta = current_counter - previous_counter;
     previous_counter = current_counter;
 
-    if (delta >= -1 && delta <= 1)
-    {
-        delta = 0;
-    }
-
     enc_state.delta_counts = delta;
     enc_state.total_counts_raw += delta;
 
-    corrected_counts = enc_state.total_counts_raw - encoder_offset_counts;
+    corrected_counts = enc_state.total_counts_raw;
     enc_state.total_counts_corrected = corrected_counts;
 
     distance_now = Encoder_CountsToMeters(corrected_counts);
@@ -86,19 +81,9 @@ void Encoder_Update_ISR(void)
     enc_state.velocity_mps =
         (distance_now - previous_distance_m) / ENCODER_TS_S;
 
-    if (fabsf(enc_state.velocity_mps) < 1e-10f)
-    {
-        enc_state.velocity_mps = 0.0f;
-    }
-
     enc_state.velocity_mps_filtered =
         (VELOCITY_LPF_ALPHA * enc_state.velocity_mps) +
         ((1.0f - VELOCITY_LPF_ALPHA) * enc_state.velocity_mps_filtered);
-
-    if (fabsf(enc_state.velocity_mps_filtered) < 1e-10f)
-    {
-        enc_state.velocity_mps_filtered = 0.0f;
-    }
 
     enc_state.distance_m_filtered += enc_state.velocity_mps_filtered * ENCODER_TS_S;
 

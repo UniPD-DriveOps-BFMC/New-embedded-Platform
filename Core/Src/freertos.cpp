@@ -31,11 +31,11 @@ extern "C" {
 #include "encoder.h"
 //#include "arm_math.h"
 #include "pid.h"
-#include "vl6180.h"
+#include "tof.h"
 #include "speaker.h"
 
 
-/* Private includes ----------------------------------------------------------*/
+/* Private includes -----------------f-----------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
 #include <cmath>       // For std::abs
@@ -109,21 +109,10 @@ volatile bool checkEmergencyBrakeArena = false;
 bool inRangeForEmergencyBrakeArena = false;
 bool flagLed = false;
 
-
-////Finite Impulse Response filter
-//float32_t fir_coefficients[FIR_LENGHT] = {
-//		0.0120f, 0.0213f, 0.0470f, 0.0822f,
-//		0.1175f, 0.1435f, 0.1531f, 0.1435f,
-//		0.1175f, 0.0822f, 0.0470f, 0.0213f,
-//		0.0120f
-//};
-//arm_fir_instance_f32 fir_instance;
-//float32_t fir_in_arm, fir_out_arm, fir_state[FIR_LENGHT];
-
-// VL6180X TOF sensor definition
-VL6180X_Sensor sensorsTOF[NUMBER_OF_VL6180X_ID];
-uint8_t TOFcounterToInitialize = 0;
-uint8_t TenMsCounter = 0;
+volatile uint8_t tof_distances[4] = {0};
+volatile uint8_t tof_status_debug = 0;
+volatile uint8_t tof_addr_mask_debug = 0;
+volatile uint8_t tof_range_status_debug[4] = {0};
 
 
 uint8_t samplingPID = (uint8_t)((ENC_COUNT_MAX + 1) / 1e3); // [ms]
@@ -272,6 +261,7 @@ void StartDefaultTask(void *argument)
       //printf("Error on default allocators (line %d)\n", __LINE__);
   }
 
+
   // micro-ROS app
   rclc_support_t support;
   rcl_allocator_t allocator;
@@ -284,6 +274,8 @@ void StartDefaultTask(void *argument)
   rcl_publisher_t posFeedback_pub;
   rcl_publisher_t tof_front_pub;
   rcl_publisher_t tof_left_pub;
+  rcl_publisher_t tof_right_pub;
+  rcl_publisher_t tof_back_pub;
 
   // micro-ROS Subscriber handles
   rcl_subscription_t speed_sub;
@@ -308,6 +300,8 @@ void StartDefaultTask(void *argument)
   std_msgs__msg__Bool posFeedback_msg_out;
   std_msgs__msg__UInt8 tof_front_msg_out;
   std_msgs__msg__UInt8 tof_left_msg_out;
+  std_msgs__msg__UInt8 tof_right_msg_out;
+  std_msgs__msg__UInt8 tof_back_msg_out;
 
   allocator = rcl_get_default_allocator();
 
@@ -328,6 +322,10 @@ void StartDefaultTask(void *argument)
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/front");
   rclc_publisher_init_default(&tof_left_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/left");
+  rclc_publisher_init_default(&tof_right_pub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/right");
+  rclc_publisher_init_default(&tof_back_pub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/back");
   rclc_publisher_init_default(&acceleration_pub,&node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),"automobile/encoder/acceleration");
 
@@ -375,20 +373,11 @@ void StartDefaultTask(void *argument)
   PositionController.SetSampleTime(samplingPID);// set sample time in [ms]
   PositionController.EnableProportionalFilter(false);
 
-  //initialize the filter
-//  arm_fir_init_f32(&fir_instance, FIR_LENGHT, fir_coefficients, fir_state, 1);
 
-  // VL6180X TOF sensors initialization
-  VL6180X_Setup(&sensorsTOF[0]);
-  VL6180X_i2c_Init(&sensorsTOF[0]);
-  VL6180X_ReadAllDistancesPolling(&sensorsTOF[0], &TOFcounterToInitialize);
-  //VL6180X_Setup(&sensorsTOF[0]);
-  //VL6180X_i2c_Init(&sensorsTOF[0]);
-  //VL6180X_ReadAllDistances(&sensorsTOF[0], &TOFcounterToInitialize);
+//  TOF_Init();
+  tof_status_debug = TOF_Init();
+  tof_addr_mask_debug = TOF_GetAddressMask();
 
- if (TOFcounterToInitialize != 0){
-  	//printf("Error initializig TOF sensors! \r\n");
-  }
 
   // 1. Overwrite the bad CubeMX settings
   TIM2->ARR = 39999;
@@ -418,6 +407,25 @@ void StartDefaultTask(void *argument)
 	      if (ret == RCL_RET_OK) {
 
 	          if (pub_flag) {
+
+	        	  static uint8_t tof_counter = 0;
+
+	        	  tof_counter++;
+
+	        	  if (tof_counter >= 10)   // 100 ms if htim10 is 10 ms
+	        	  {
+	        	      tof_counter = 0;
+
+	        	      TOF_ReadAll(tof_distances);
+
+	        	      tof_addr_mask_debug = TOF_GetAddressMask();
+
+	        	      tof_range_status_debug[0] = TOF_GetLastRangeStatus(0);
+	        	      tof_range_status_debug[1] = TOF_GetLastRangeStatus(1);
+	        	      tof_range_status_debug[2] = TOF_GetLastRangeStatus(2);
+	        	      tof_range_status_debug[3] = TOF_GetLastRangeStatus(3);
+	        	  }
+
 	        	  carSpeed_msg_out.data = (float)carSpeedfiltered;
 				  rcl_publish(&carSpeed_pub, &carSpeed_msg_out, NULL);
 
@@ -435,11 +443,17 @@ void StartDefaultTask(void *argument)
 				  }
 
 
-				  tof_front_msg_out.data = sensorsTOF[1].distance;
+				  tof_front_msg_out.data = tof_distances[0];
 				  rcl_publish(&tof_front_pub, &tof_front_msg_out, NULL);
 
-				  tof_left_msg_out.data = sensorsTOF[0].distance;
+				  tof_left_msg_out.data = tof_distances[1];
 				  rcl_publish(&tof_left_pub, &tof_left_msg_out, NULL);
+
+				  tof_right_msg_out.data = tof_distances[2];
+				  rcl_publish(&tof_right_pub, &tof_right_msg_out, NULL);
+
+				  tof_back_msg_out.data = tof_distances[3];
+				  rcl_publish(&tof_back_pub, &tof_back_msg_out, NULL);
 
 				  // Reset the flag (set by your 10ms Timer Interrupt)
 				  pub_flag = false;
@@ -452,15 +466,6 @@ void StartDefaultTask(void *argument)
   /* USER CODE END StartDefaultTask */
 }
 
-
-//void StartDefaultTask(void *argument)
-//{
-//  for (;;)
-//  {
-//    HAL_UART_Transmit(&huart2, (uint8_t*)"FREERTOS HELLO\r\n", 16, 100);
-//    osDelay(1000);
-//  }
-//}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
@@ -609,37 +614,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == B1_Pin){
 
 		stop(0.0);
-        // Used for scalling the Graph in debugging, press twice the blue button so it gets scalled
-		/*
-		if (counter % 2 == 0){
-			input=-1;
-			output=-1;
-			setpoint=-1;
-		}
-		else{
-			input=1;
-			output=1;
-			setpoint=1;
-		}
-		counter++;
-		 */
-
-
-		//Update PID gains
-		//printf("KP = %f , KI = %f , KD = %f \r\n",KP,KI,KD);
-		//SpeedController.EnableProportionalFilter(false);
-		//SpeedController.SetTunings((double)KP,(double)KI,(double)KD);
-		//SpeedController.SetProportionalFilterWindow(pFilterWindow);
-		//SpeedController.SetMode(_PID_MODE_AUTOMATIC);// AUTOMATIC MODE
-		//SpeedController.SetOutputLimits(-0.009, 0.0119);// PWM Output limits
-		//SpeedController.SetSampleTime(samplingPID);// set sample time in [ms]
-
-		//PositionController.SetTunings((double)KP,(double)KI,(double)KD);
-		//PositionController.SetMode(_PID_MODE_AUTOMATIC);// AUTOMATIC MODE
-		//PositionController.SetOutputLimits(-0.2, 0.2);// PWM Output limits
-		//PositionController.SetSampleTime(samplingPID);// set sample time in [ms]
 
 	}
+
+    if (GPIO_Pin == ENCODER_Z_Pin)   /* whatever you named it */
+    {
+        Encoder_Z_ISR();
+    }
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -668,10 +649,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		localDistance = globalDistance - localDistanceOrigin;
 
 
-		if (sensorsTOF[1].distance > 5 && sensorsTOF[1].distance < 80){
+		if (tof_distances[0] > 5 && tof_distances[0] < 80){
 			inRangeForEmergencyBrakeArena = true;
 		}
-		if (inRangeForEmergencyBrakeArena == true && sensorsTOF[1].distance > 100){
+		if (inRangeForEmergencyBrakeArena == true && tof_distances[0] > 100){
 			inRangeForEmergencyBrakeArena = false;
 		}
 
@@ -716,55 +697,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		drive_pwm(speedTarget);
 
 
-		// Drive with pwm from topics
-		//drive_pwm(speedTarget);
-
-		//for plotting on SWM graph
-		//input=(float32_t)carSpeed;
-		//output=(float)motorPWM * 100;
-		//setpoint=(float)speedRef;
-
-//		input=(float)fir_out_arm*100;
-//		output=(float)motorSpeed * 100;
-
-		//input=(float)localDistance;
-		//output=(float)speedTargetPos;
-		//setpoint=(float)localDistanceRef;
-
-		// ---------- RESET ENCODER COUNTER ----------
-		//__HAL_TIM_SET_COUNTER(&htim3,0);
 
 	}
 
 	if(htim == &htim10){  //every 10ms
 		pub_flag = true;
 
-		/* For TOF sensors */
-
-		TenMsCounter++;
-
-
-		if (TenMsCounter == 1){
-			/* at millisecond 10 prepare sensor to read values */
-			VL6180X_SendMsgToRead(&sensorsTOF[0]);
-		} else if (TenMsCounter == 8){
-			/* at millisecond 70 read values */
-			VL6180X_ReadDistances(&sensorsTOF[0], &TOFcounterToInitialize);
-			//VL6180X_PrintAllDistances(&sensorsTOF[0]);
-			TenMsCounter = 0; // Reset counter
-		}
 	}
 
-	//if (TenMsCounter == 1){
-		/* at millisecond 10 prepare sensor to read values */
-	//	VL6180X_SendMsgToRead(&sensorsTOF[0]);
-	//}
-	//if (TenMsCounter == 8){
-		/* at millisecond 70 read values */
-	//	VL6180X_ReadDistances(&sensorsTOF[0], &TOFcounterToInitialize);
-		//VL6180X_PrintAllDistances(&sensorsTOF[0]);
-	//	TenMsCounter = 0; // Reset counter
-	//}
 
   /* USER CODE END Callback 1 */
 }

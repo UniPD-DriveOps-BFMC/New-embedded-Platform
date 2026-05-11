@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cceVGA75.s 			page 1
+ARM GAS  /tmp/ccx6731F.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
   42 0002 78B1     		cbz	r0, .L5
   15:Core/Src/speaker.c **** 		htim4.Instance->CCR1 = 0;  // Silence
   16:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
-ARM GAS  /tmp/cceVGA75.s 			page 2
+ARM GAS  /tmp/ccx6731F.s 			page 2
 
 
   17:Core/Src/speaker.c **** 		return;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
   15:Core/Src/speaker.c **** 		HAL_Delay(duration_ms);
   85              		.loc 1 15 24 view .LVU21
   86 0028 0022     		movs	r2, #0
-ARM GAS  /tmp/cceVGA75.s 			page 3
+ARM GAS  /tmp/ccx6731F.s 			page 3
 
 
   87 002a 5A63     		str	r2, [r3, #52]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  137              		.loc 1 29 2 view .LVU30
  138 000c 10E0     		b	.L9
  139              	.LVL12:
-ARM GAS  /tmp/cceVGA75.s 			page 4
+ARM GAS  /tmp/ccx6731F.s 			page 4
 
 
  140              	.L10:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
   30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
  182              		.loc 1 30 50 view .LVU43
  183 0042 4988     		ldrh	r1, [r1, #2]
-ARM GAS  /tmp/cceVGA75.s 			page 5
+ARM GAS  /tmp/ccx6731F.s 			page 5
 
 
   30:Core/Src/speaker.c **** 		playTone(melody[i][0], duration);
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  232              		.loc 1 40 7 view .LVU52
  233              	.LVL20:
  234              		.loc 1 40 16 is_stmt 0 view .LVU53
-ARM GAS  /tmp/cceVGA75.s 			page 6
+ARM GAS  /tmp/ccx6731F.s 			page 6
 
 
  235 0004 0025     		movs	r5, #0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  277 002e 0135     		adds	r5, r5, #1
  278              	.LVL28:
  279              	.L17:
-ARM GAS  /tmp/cceVGA75.s 			page 7
+ARM GAS  /tmp/ccx6731F.s 			page 7
 
 
   40:Core/Src/speaker.c **** 		// Rising pitch
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  326              		.loc 1 55 2 view .LVU74
  327              		.loc 1 55 7 is_stmt 0 view .LVU75
  328 000e 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/cceVGA75.s 			page 8
+ARM GAS  /tmp/ccx6731F.s 			page 8
 
 
  329              		.loc 1 55 23 view .LVU76
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  368              	.L32:
  369 000e 00BF     		.align	2
  370              	.L31:
-ARM GAS  /tmp/cceVGA75.s 			page 9
+ARM GAS  /tmp/ccx6731F.s 			page 9
 
 
  371 0010 00000000 		.word	odeToJoy.1
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  420 000c B900     		.short	185
  421 000e 0400     		.short	4
  422 0010 AF00     		.short	175
-ARM GAS  /tmp/cceVGA75.s 			page 10
+ARM GAS  /tmp/ccx6731F.s 			page 10
 
 
  423 0012 0600     		.short	6
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  479 0038 2601     		.short	294
  480 003a 0200     		.short	2
  481 003c 4A01     		.short	330
-ARM GAS  /tmp/cceVGA75.s 			page 11
+ARM GAS  /tmp/ccx6731F.s 			page 11
 
 
  482 003e 0400     		.short	4
@@ -639,32 +639,32 @@ ARM GAS  /tmp/cceVGA75.s 			page 1
  517              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
  518              		.file 7 "Core/Inc/tim.h"
  519              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/cceVGA75.s 			page 12
+ARM GAS  /tmp/ccx6731F.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 speaker.c
-     /tmp/cceVGA75.s:21     .text.playTone:00000000 $t
-     /tmp/cceVGA75.s:27     .text.playTone:00000000 playTone
-     /tmp/cceVGA75.s:99     .text.playTone:00000034 $d
-     /tmp/cceVGA75.s:105    .text.playMelody:00000000 $t
-     /tmp/cceVGA75.s:111    .text.playMelody:00000000 playMelody
-     /tmp/cceVGA75.s:202    .text.playMelody:00000054 $d
-     /tmp/cceVGA75.s:208    .text.policeSiren:00000000 $t
-     /tmp/cceVGA75.s:214    .text.policeSiren:00000000 policeSiren
-     /tmp/cceVGA75.s:297    .text.playClick:00000000 $t
-     /tmp/cceVGA75.s:303    .text.playClick:00000000 playClick
-     /tmp/cceVGA75.s:337    .text.playClick:00000018 $d
-     /tmp/cceVGA75.s:342    .text.playOdeToJoy:00000000 $t
-     /tmp/cceVGA75.s:348    .text.playOdeToJoy:00000000 playOdeToJoy
-     /tmp/cceVGA75.s:371    .text.playOdeToJoy:00000010 $d
-     /tmp/cceVGA75.s:450    .rodata.odeToJoy.1:00000000 odeToJoy.1
-     /tmp/cceVGA75.s:376    .text.playInTheEnd:00000000 $t
-     /tmp/cceVGA75.s:382    .text.playInTheEnd:00000000 playInTheEnd
-     /tmp/cceVGA75.s:405    .text.playInTheEnd:00000010 $d
-     /tmp/cceVGA75.s:413    .rodata.inTheEnd.0:00000000 inTheEnd.0
-     /tmp/cceVGA75.s:410    .rodata.inTheEnd.0:00000000 $d
-     /tmp/cceVGA75.s:447    .rodata.odeToJoy.1:00000000 $d
+     /tmp/ccx6731F.s:21     .text.playTone:00000000 $t
+     /tmp/ccx6731F.s:27     .text.playTone:00000000 playTone
+     /tmp/ccx6731F.s:99     .text.playTone:00000034 $d
+     /tmp/ccx6731F.s:105    .text.playMelody:00000000 $t
+     /tmp/ccx6731F.s:111    .text.playMelody:00000000 playMelody
+     /tmp/ccx6731F.s:202    .text.playMelody:00000054 $d
+     /tmp/ccx6731F.s:208    .text.policeSiren:00000000 $t
+     /tmp/ccx6731F.s:214    .text.policeSiren:00000000 policeSiren
+     /tmp/ccx6731F.s:297    .text.playClick:00000000 $t
+     /tmp/ccx6731F.s:303    .text.playClick:00000000 playClick
+     /tmp/ccx6731F.s:337    .text.playClick:00000018 $d
+     /tmp/ccx6731F.s:342    .text.playOdeToJoy:00000000 $t
+     /tmp/ccx6731F.s:348    .text.playOdeToJoy:00000000 playOdeToJoy
+     /tmp/ccx6731F.s:371    .text.playOdeToJoy:00000010 $d
+     /tmp/ccx6731F.s:450    .rodata.odeToJoy.1:00000000 odeToJoy.1
+     /tmp/ccx6731F.s:376    .text.playInTheEnd:00000000 $t
+     /tmp/ccx6731F.s:382    .text.playInTheEnd:00000000 playInTheEnd
+     /tmp/ccx6731F.s:405    .text.playInTheEnd:00000010 $d
+     /tmp/ccx6731F.s:413    .rodata.inTheEnd.0:00000000 inTheEnd.0
+     /tmp/ccx6731F.s:410    .rodata.inTheEnd.0:00000000 $d
+     /tmp/ccx6731F.s:447    .rodata.odeToJoy.1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay

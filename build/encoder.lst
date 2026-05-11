@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccWy36pB.s 			page 1
+ARM GAS  /tmp/ccye7l56.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
   38 0004 F8EEE77A 		vcvt.f32.s32	s15, s15
   39              		.loc 1 18 24 view .LVU4
   40 0008 9FED087A 		vldr.32	s14, .L2
-ARM GAS  /tmp/ccWy36pB.s 			page 2
+ARM GAS  /tmp/ccye7l56.s 			page 2
 
 
   41 000c 67EE877A 		vmul.f32	s15, s15, s14
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
   86              		.loc 1 28 20 is_stmt 0 view .LVU14
   87 0008 01EBD172 		add	r2, r1, r1, lsr #31
   88 000c 5310     		asrs	r3, r2, #1
-ARM GAS  /tmp/ccWy36pB.s 			page 3
+ARM GAS  /tmp/ccye7l56.s 			page 3
 
 
   89              		.loc 1 28 8 view .LVU15
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  134              		.loc 1 39 13 is_stmt 0 view .LVU27
  135 0002 0F4C     		ldr	r4, .L9
  136 0004 2060     		str	r0, [r4]
-ARM GAS  /tmp/ccWy36pB.s 			page 4
+ARM GAS  /tmp/ccye7l56.s 			page 4
 
 
   40:Core/Src/encoder.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
   55:Core/Src/encoder.c ****     enc_state.z_seen = 0;
  176              		.loc 1 55 5 is_stmt 1 view .LVU48
  177              		.loc 1 55 22 is_stmt 0 view .LVU49
-ARM GAS  /tmp/ccWy36pB.s 			page 5
+ARM GAS  /tmp/ccye7l56.s 			page 5
 
 
  178 002c 83F82020 		strb	r2, [r3, #32]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  225              		.cfi_offset 14, -4
   65:Core/Src/encoder.c ****     int16_t delta;
  226              		.loc 1 65 5 view .LVU60
-ARM GAS  /tmp/ccWy36pB.s 			page 6
+ARM GAS  /tmp/ccye7l56.s 			page 6
 
 
   66:Core/Src/encoder.c ****     int32_t corrected_counts;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  267 0026 1344     		add	r3, r3, r2
  268              	.LVL12:
  269              		.loc 1 79 32 view .LVU79
-ARM GAS  /tmp/ccWy36pB.s 			page 7
+ARM GAS  /tmp/ccye7l56.s 			page 7
 
 
  270 0028 6360     		str	r3, [r4, #4]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  311 0064 0022     		movs	r2, #0
  312 0066 6261     		str	r2, [r4, #20]	@ float
  313              	.L13:
-ARM GAS  /tmp/ccWy36pB.s 			page 8
+ARM GAS  /tmp/ccye7l56.s 			page 8
 
 
   92:Core/Src/encoder.c ****     }
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  354              		.loc 1 103 35 view .LVU115
  355 00b6 77EE877A 		vadd.f32	s15, s15, s14
  356 00ba C3ED047A 		vstr.32	s15, [r3, #16]
-ARM GAS  /tmp/ccWy36pB.s 			page 9
+ARM GAS  /tmp/ccye7l56.s 			page 9
 
 
  104:Core/Src/encoder.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  401              		.syntax unified
  402              		.thumb
  403              		.thumb_func
-ARM GAS  /tmp/ccWy36pB.s 			page 10
+ARM GAS  /tmp/ccye7l56.s 			page 10
 
 
  405              	Encoder_Z_ISR:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  126:Core/Src/encoder.c ****     encoder_offset_counts += correction;
  446              		.loc 1 126 5 is_stmt 1 view .LVU141
  447              		.loc 1 126 27 is_stmt 0 view .LVU142
-ARM GAS  /tmp/ccWy36pB.s 			page 11
+ARM GAS  /tmp/ccye7l56.s 			page 11
 
 
  448 0028 2B68     		ldr	r3, [r5]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  496 0004 8446     		mov	ip, r0
  497 0006 064C     		ldr	r4, .L29
  498 0008 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
-ARM GAS  /tmp/ccWy36pB.s 			page 12
+ARM GAS  /tmp/ccye7l56.s 			page 12
 
 
  499              	.LVL23:
@@ -716,40 +716,40 @@ ARM GAS  /tmp/ccWy36pB.s 			page 1
  559              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  560              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
  561              		.file 7 "Core/Inc/encoder.h"
-ARM GAS  /tmp/ccWy36pB.s 			page 13
+ARM GAS  /tmp/ccye7l56.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 encoder.c
-     /tmp/ccWy36pB.s:21     .text.Encoder_CountsToMeters:00000000 $t
-     /tmp/ccWy36pB.s:26     .text.Encoder_CountsToMeters:00000000 Encoder_CountsToMeters
-     /tmp/ccWy36pB.s:59     .text.Encoder_CountsToMeters:0000002c $d
-     /tmp/ccWy36pB.s:67     .text.Encoder_ModNearest:00000000 $t
-     /tmp/ccWy36pB.s:72     .text.Encoder_ModNearest:00000000 Encoder_ModNearest
-     /tmp/ccWy36pB.s:114    .text.Encoder_Init:00000000 $t
-     /tmp/ccWy36pB.s:120    .text.Encoder_Init:00000000 Encoder_Init
-     /tmp/ccWy36pB.s:199    .text.Encoder_Init:00000040 $d
-     /tmp/ccWy36pB.s:552    .bss.enc_tim:00000000 enc_tim
-     /tmp/ccWy36pB.s:522    .bss.previous_counter:00000000 previous_counter
-     /tmp/ccWy36pB.s:546    .bss.enc_state:00000000 enc_state
-     /tmp/ccWy36pB.s:540    .bss.encoder_offset_counts:00000000 encoder_offset_counts
-     /tmp/ccWy36pB.s:534    .bss.previous_velocity_mps:00000000 previous_velocity_mps
-     /tmp/ccWy36pB.s:528    .bss.previous_distance_m:00000000 previous_distance_m
-     /tmp/ccWy36pB.s:209    .text.Encoder_Update_ISR:00000000 $t
-     /tmp/ccWy36pB.s:215    .text.Encoder_Update_ISR:00000000 Encoder_Update_ISR
-     /tmp/ccWy36pB.s:385    .text.Encoder_Update_ISR:000000e4 $d
-     /tmp/ccWy36pB.s:399    .text.Encoder_Z_ISR:00000000 $t
-     /tmp/ccWy36pB.s:405    .text.Encoder_Z_ISR:00000000 Encoder_Z_ISR
-     /tmp/ccWy36pB.s:467    .text.Encoder_Z_ISR:00000040 $d
-     /tmp/ccWy36pB.s:474    .text.Encoder_GetState:00000000 $t
-     /tmp/ccWy36pB.s:480    .text.Encoder_GetState:00000000 Encoder_GetState
-     /tmp/ccWy36pB.s:514    .text.Encoder_GetState:00000020 $d
-     /tmp/ccWy36pB.s:519    .bss.previous_counter:00000000 $d
-     /tmp/ccWy36pB.s:525    .bss.previous_distance_m:00000000 $d
-     /tmp/ccWy36pB.s:531    .bss.previous_velocity_mps:00000000 $d
-     /tmp/ccWy36pB.s:537    .bss.encoder_offset_counts:00000000 $d
-     /tmp/ccWy36pB.s:543    .bss.enc_state:00000000 $d
-     /tmp/ccWy36pB.s:549    .bss.enc_tim:00000000 $d
+     /tmp/ccye7l56.s:21     .text.Encoder_CountsToMeters:00000000 $t
+     /tmp/ccye7l56.s:26     .text.Encoder_CountsToMeters:00000000 Encoder_CountsToMeters
+     /tmp/ccye7l56.s:59     .text.Encoder_CountsToMeters:0000002c $d
+     /tmp/ccye7l56.s:67     .text.Encoder_ModNearest:00000000 $t
+     /tmp/ccye7l56.s:72     .text.Encoder_ModNearest:00000000 Encoder_ModNearest
+     /tmp/ccye7l56.s:114    .text.Encoder_Init:00000000 $t
+     /tmp/ccye7l56.s:120    .text.Encoder_Init:00000000 Encoder_Init
+     /tmp/ccye7l56.s:199    .text.Encoder_Init:00000040 $d
+     /tmp/ccye7l56.s:552    .bss.enc_tim:00000000 enc_tim
+     /tmp/ccye7l56.s:522    .bss.previous_counter:00000000 previous_counter
+     /tmp/ccye7l56.s:546    .bss.enc_state:00000000 enc_state
+     /tmp/ccye7l56.s:540    .bss.encoder_offset_counts:00000000 encoder_offset_counts
+     /tmp/ccye7l56.s:534    .bss.previous_velocity_mps:00000000 previous_velocity_mps
+     /tmp/ccye7l56.s:528    .bss.previous_distance_m:00000000 previous_distance_m
+     /tmp/ccye7l56.s:209    .text.Encoder_Update_ISR:00000000 $t
+     /tmp/ccye7l56.s:215    .text.Encoder_Update_ISR:00000000 Encoder_Update_ISR
+     /tmp/ccye7l56.s:385    .text.Encoder_Update_ISR:000000e4 $d
+     /tmp/ccye7l56.s:399    .text.Encoder_Z_ISR:00000000 $t
+     /tmp/ccye7l56.s:405    .text.Encoder_Z_ISR:00000000 Encoder_Z_ISR
+     /tmp/ccye7l56.s:467    .text.Encoder_Z_ISR:00000040 $d
+     /tmp/ccye7l56.s:474    .text.Encoder_GetState:00000000 $t
+     /tmp/ccye7l56.s:480    .text.Encoder_GetState:00000000 Encoder_GetState
+     /tmp/ccye7l56.s:514    .text.Encoder_GetState:00000020 $d
+     /tmp/ccye7l56.s:519    .bss.previous_counter:00000000 $d
+     /tmp/ccye7l56.s:525    .bss.previous_distance_m:00000000 $d
+     /tmp/ccye7l56.s:531    .bss.previous_velocity_mps:00000000 $d
+     /tmp/ccye7l56.s:537    .bss.encoder_offset_counts:00000000 $d
+     /tmp/ccye7l56.s:543    .bss.enc_state:00000000 $d
+     /tmp/ccye7l56.s:549    .bss.enc_tim:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_Encoder_Start
