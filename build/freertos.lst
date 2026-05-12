@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwbgilY.s 			page 1
+ARM GAS  /tmp/ccZY7RUS.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   26:Core/Src/freertos.cpp **** /* Includes ------------------------------------------------------------------*/
   27:Core/Src/freertos.cpp **** #include "FreeRTOS.h"
   28:Core/Src/freertos.cpp **** #include "task.h"
-ARM GAS  /tmp/ccwbgilY.s 			page 2
+ARM GAS  /tmp/ccZY7RUS.s 			page 2
 
 
   29:Core/Src/freertos.cpp **** #include "main.h"
@@ -106,7 +106,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   71:Core/Src/freertos.cpp **** /* Private macro -------------------------------------------------------------*/
   72:Core/Src/freertos.cpp **** /* USER CODE BEGIN PM */
   73:Core/Src/freertos.cpp **** #define STEER_DEG2PWM_RATIO 	0.0009505		// [deg] -> [pwm]
-  74:Core/Src/freertos.cpp **** #define STEER_DEG2PWM_OFFSET	0.07620			// [pwm]
+  74:Core/Src/freertos.cpp **** #define STEER_DEG2PWM_OFFSET	0.07578			// [pwm]
   75:Core/Src/freertos.cpp **** #define MOTOR_SPEED_OFFSET 		0.075568        // [pwm]: The zero default where motors are stop
   76:Core/Src/freertos.cpp **** #define M_PPI					6.28318530718	//	2*pi
   77:Core/Src/freertos.cpp **** #define MAX_FORWARD_SPEED		1.0				// [m/s]
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   83:Core/Src/freertos.cpp **** #define MOT_ACCELERATION		2				// [m/ss]
   84:Core/Src/freertos.cpp **** #define EPSILON					0.01			//
   85:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 3
+ARM GAS  /tmp/ccZY7RUS.s 			page 3
 
 
   86:Core/Src/freertos.cpp **** // Filter
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  140:Core/Src/freertos.cpp **** extern TIM_HandleTypeDef htim10;
  141:Core/Src/freertos.cpp **** extern TIM_HandleTypeDef htim11;
  142:Core/Src/freertos.cpp **** extern ADC_HandleTypeDef hadc1;
-ARM GAS  /tmp/ccwbgilY.s 			page 4
+ARM GAS  /tmp/ccZY7RUS.s 			page 4
 
 
  143:Core/Src/freertos.cpp **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  197:Core/Src/freertos.cpp **** /**
  198:Core/Src/freertos.cpp ****   * @brief  FreeRTOS initialization
  199:Core/Src/freertos.cpp ****   * @param  None
-ARM GAS  /tmp/ccwbgilY.s 			page 5
+ARM GAS  /tmp/ccZY7RUS.s 			page 5
 
 
  200:Core/Src/freertos.cpp ****   * @retval None
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  254:Core/Src/freertos.cpp ****   // micro-ROS configuration
  255:Core/Src/freertos.cpp **** 
  256:Core/Src/freertos.cpp ****   rmw_uros_set_custom_transport(
-ARM GAS  /tmp/ccwbgilY.s 			page 6
+ARM GAS  /tmp/ccZY7RUS.s 			page 6
 
 
  257:Core/Src/freertos.cpp ****     true,
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  311:Core/Src/freertos.cpp **** 
  312:Core/Src/freertos.cpp ****   allocator = rcl_get_default_allocator();
  313:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 7
+ARM GAS  /tmp/ccZY7RUS.s 			page 7
 
 
  314:Core/Src/freertos.cpp ****   //create init_options
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  368:Core/Src/freertos.cpp ****   SpeedController.EnableProportionalFilter(true);
  369:Core/Src/freertos.cpp ****   SpeedController.UseIFilter(true);
  370:Core/Src/freertos.cpp ****   //SpeedController.SetProportionalFilterWindow(0);
-ARM GAS  /tmp/ccwbgilY.s 			page 8
+ARM GAS  /tmp/ccZY7RUS.s 			page 8
 
 
  371:Core/Src/freertos.cpp **** 
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  425:Core/Src/freertos.cpp **** 				  dist_msg_out.data = (float)globalDistance;
  426:Core/Src/freertos.cpp **** 				  rcl_publish(&globalDistance_pub, &dist_msg_out, NULL);
  427:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 9
+ARM GAS  /tmp/ccZY7RUS.s 			page 9
 
 
  428:Core/Src/freertos.cpp **** 				  accel_msg_out.data = (float)encoderAcceleration;;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  482:Core/Src/freertos.cpp ****     position(msg->data); // Your existing position() function
  483:Core/Src/freertos.cpp **** }
  484:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 10
+ARM GAS  /tmp/ccZY7RUS.s 			page 10
 
 
  485:Core/Src/freertos.cpp **** void stop_callback(const void * msgin) {
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   65              	.L2:
  502:Core/Src/freertos.cpp ****     	}
   66              		.loc 1 502 7 is_stmt 1 view .LVU11
-ARM GAS  /tmp/ccwbgilY.s 			page 11
+ARM GAS  /tmp/ccZY7RUS.s 			page 11
 
 
  502:Core/Src/freertos.cpp ****     	}
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  531:Core/Src/freertos.cpp **** 	}
  532:Core/Src/freertos.cpp **** 	else{
  533:Core/Src/freertos.cpp **** 		speedTarget = vel;
-ARM GAS  /tmp/ccwbgilY.s 			page 12
+ARM GAS  /tmp/ccZY7RUS.s 			page 12
 
 
  534:Core/Src/freertos.cpp **** 	}
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  588:Core/Src/freertos.cpp **** }
  589:Core/Src/freertos.cpp **** 
  590:Core/Src/freertos.cpp **** float readADC(void)
-ARM GAS  /tmp/ccwbgilY.s 			page 13
+ARM GAS  /tmp/ccZY7RUS.s 			page 13
 
 
  591:Core/Src/freertos.cpp **** {
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  645:Core/Src/freertos.cpp **** 
  646:Core/Src/freertos.cpp **** 	}
  647:Core/Src/freertos.cpp **** }
-ARM GAS  /tmp/ccwbgilY.s 			page 14
+ARM GAS  /tmp/ccZY7RUS.s 			page 14
 
 
  648:Core/Src/freertos.cpp **** 
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  702:Core/Src/freertos.cpp **** 
  703:Core/Src/freertos.cpp **** 				speedRef = speedTarget;
  704:Core/Src/freertos.cpp **** 				SpeedController.Compute();// SPEED control action
-ARM GAS  /tmp/ccwbgilY.s 			page 15
+ARM GAS  /tmp/ccZY7RUS.s 			page 15
 
 
  705:Core/Src/freertos.cpp **** 			}
@@ -849,14 +849,14 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  710:Core/Src/freertos.cpp **** 			if(abs(speedRef) == 0.00 || abs(motorPWM)<0.00001)
  711:Core/Src/freertos.cpp **** 				drive_pwm(0);
  712:Core/Src/freertos.cpp **** 			else
- 713:Core/Src/freertos.cpp **** 				speedRef = speedRef;
- 714:Core/Src/freertos.cpp **** //				printf("s\n\r");//drive_pwm(motorPWM);
+ 713:Core/Src/freertos.cpp ****         drive_pwm(motorPWM);
+ 714:Core/Src/freertos.cpp **** //				printf("s\n\r");
  715:Core/Src/freertos.cpp **** 		} else {
  716:Core/Src/freertos.cpp **** 			//stop(steerRef);
  717:Core/Src/freertos.cpp **** 			drive_pwm(0);
  718:Core/Src/freertos.cpp **** 		}
  719:Core/Src/freertos.cpp **** 
- 720:Core/Src/freertos.cpp **** 		drive_pwm(speedTarget);
+ 720:Core/Src/freertos.cpp **** 		//drive_pwm(speedTarget);
  721:Core/Src/freertos.cpp **** 
  722:Core/Src/freertos.cpp **** 
  723:Core/Src/freertos.cpp **** 		// Drive with pwm from topics
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  759:Core/Src/freertos.cpp **** 		}
  760:Core/Src/freertos.cpp **** 	}
  761:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 16
+ARM GAS  /tmp/ccZY7RUS.s 			page 16
 
 
  762:Core/Src/freertos.cpp **** 	//if (TenMsCounter == 1){
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  132 0034 B0EE482A 		vmov.f32	s4, s16
  133 0038 F0EE682A 		vmov.f32	s5, s17
  134 003c 9FED0C1B 		vldr.64	d1, .L9+24
-ARM GAS  /tmp/ccwbgilY.s 			page 17
+ARM GAS  /tmp/ccZY7RUS.s 			page 17
 
 
  135 0040 9FED0D0B 		vldr.64	d0, .L9+32
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  190              		.cfi_startproc
  191              		@ args = 0, pretend = 0, frame = 0
  192              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwbgilY.s 			page 18
+ARM GAS  /tmp/ccZY7RUS.s 			page 18
 
 
  193 0000 08B5     		push	{r3, lr}
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  241              	.LFB1167:
  490:Core/Src/freertos.cpp ****     const std_msgs__msg__Bool * msg = (const std_msgs__msg__Bool *)msgin;
  242              		.loc 1 490 61 is_stmt 1 view -0
-ARM GAS  /tmp/ccwbgilY.s 			page 19
+ARM GAS  /tmp/ccZY7RUS.s 			page 19
 
 
  243              		.cfi_startproc
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  291 000e 0BDD     		ble	.L28
  527:Core/Src/freertos.cpp **** 	}
  292              		.loc 1 527 3 view .LVU37
-ARM GAS  /tmp/ccwbgilY.s 			page 20
+ARM GAS  /tmp/ccZY7RUS.s 			page 20
 
 
  527:Core/Src/freertos.cpp **** 	}
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  335 0050 E3E7     		b	.L23
  336              	.L32:
  337 0052 00BF     		.align	2
-ARM GAS  /tmp/ccwbgilY.s 			page 21
+ARM GAS  /tmp/ccZY7RUS.s 			page 21
 
 
  338              	.L31:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  389              		.global	steer
  390              		.syntax unified
  391              		.thumb
-ARM GAS  /tmp/ccwbgilY.s 			page 22
+ARM GAS  /tmp/ccZY7RUS.s 			page 22
 
 
  392              		.thumb_func
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  438              		.loc 1 550 11 view .LVU64
  439 0038 194B     		ldr	r3, .L46+32
  440 003a C3E90045 		strd	r4, [r3]
-ARM GAS  /tmp/ccwbgilY.s 			page 23
+ARM GAS  /tmp/ccZY7RUS.s 			page 23
 
 
  551:Core/Src/freertos.cpp **** }
@@ -1370,15 +1370,15 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  479              	.L46:
  480 0080 40BD1935 		.word	890879296
  481 0084 5F254F3F 		.word	1062151519
- 482 0088 FD87F4DB 		.word	-604731395
- 483 008c D781B33F 		.word	1068728791
+ 482 0088 83DDB06D 		.word	1840307587
+ 483 008c 5166B33F 		.word	1068721745
  484 0090 00000000 		.word	0
  485 0094 E087E340 		.word	1088653280
  486 0098 00000000 		.word	steerRef
  487 009c 00003C40 		.word	1077673984
  488 00a0 00000000 		.word	servoPWM
  489 00a4 00000000 		.word	htim2
-ARM GAS  /tmp/ccwbgilY.s 			page 24
+ARM GAS  /tmp/ccZY7RUS.s 			page 24
 
 
  490 00a8 00003CC0 		.word	-1069809664
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  509:Core/Src/freertos.cpp **** 	// ---------- STATE ----------
  542              		.loc 1 509 23 is_stmt 1 view -0
  543              		.cfi_startproc
-ARM GAS  /tmp/ccwbgilY.s 			page 25
+ARM GAS  /tmp/ccZY7RUS.s 			page 25
 
 
  544              		@ args = 0, pretend = 0, frame = 0
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  522:Core/Src/freertos.cpp **** 
  583              		.loc 1 522 1 view .LVU95
  584 002c 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccwbgilY.s 			page 26
+ARM GAS  /tmp/ccZY7RUS.s 			page 26
 
 
  585              	.L53:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  636              		.global	position
  637              		.syntax unified
  638              		.thumb
-ARM GAS  /tmp/ccwbgilY.s 			page 27
+ARM GAS  /tmp/ccZY7RUS.s 			page 27
 
 
  639              		.thumb_func
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  681 0028 074A     		ldr	r2, .L58+20
  682 002a 1370     		strb	r3, [r2]
  563:Core/Src/freertos.cpp **** }
-ARM GAS  /tmp/ccwbgilY.s 			page 28
+ARM GAS  /tmp/ccZY7RUS.s 			page 28
 
 
  683              		.loc 1 563 2 is_stmt 1 view .LVU115
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  483:Core/Src/freertos.cpp **** 
  732              		.loc 1 483 1 view .LVU123
  733 000a 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccwbgilY.s 			page 29
+ARM GAS  /tmp/ccZY7RUS.s 			page 29
 
 
  734              		.cfi_endproc
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  782              	.L64:
  573:Core/Src/freertos.cpp **** 	if (pwm_value < -0.0119f) pwm_value = -0.0119f; //Forward
  783              		.loc 1 573 36 discriminator 1 view .LVU132
-ARM GAS  /tmp/ccwbgilY.s 			page 30
+ARM GAS  /tmp/ccZY7RUS.s 			page 30
 
 
  784 002a 1048     		ldr	r0, .L67+20
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  832      6D6F6269 
  832      6C655F6E 
  832      6F646500 
-ARM GAS  /tmp/ccwbgilY.s 			page 31
+ARM GAS  /tmp/ccZY7RUS.s 			page 31
 
 
  833              		.align	2
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  856      6F6D6D61 
  856      6E642F73 
  857 00ed 000000   		.align	2
-ARM GAS  /tmp/ccwbgilY.s 			page 32
+ARM GAS  /tmp/ccZY7RUS.s 			page 32
 
 
  858              	.LC10:
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  900              		.cfi_def_cfa_offset 400
  256:Core/Src/freertos.cpp ****     true,
  901              		.loc 1 256 3 is_stmt 1 view .LVU141
-ARM GAS  /tmp/ccwbgilY.s 			page 33
+ARM GAS  /tmp/ccZY7RUS.s 			page 33
 
 
  256:Core/Src/freertos.cpp ****     true,
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  941              		.loc 1 276 3 is_stmt 1 view .LVU156
  277:Core/Src/freertos.cpp ****   rcl_node_t node;
  942              		.loc 1 277 3 view .LVU157
-ARM GAS  /tmp/ccwbgilY.s 			page 34
+ARM GAS  /tmp/ccZY7RUS.s 			page 34
 
 
  278:Core/Src/freertos.cpp ****   rclc_executor_t executor;
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  971              	.LVL54:
  972 003e 0DF58A7C 		add	ip, sp, #276
  973 0042 02AC     		add	r4, sp, #8
-ARM GAS  /tmp/ccwbgilY.s 			page 35
+ARM GAS  /tmp/ccZY7RUS.s 			page 35
 
 
  974 0044 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  325:Core/Src/freertos.cpp ****           ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Bool), "automobile/feedback/position");
  1017              		.loc 1 325 30 is_stmt 0 view .LVU195
  1018 0088 FFF7FEFF 		bl	rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__Bool
-ARM GAS  /tmp/ccwbgilY.s 			page 36
+ARM GAS  /tmp/ccZY7RUS.s 			page 36
 
 
  1019              	.LVL61:
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1061              		.loc 1 335 33 is_stmt 0 view .LVU207
  1062 00c8 FFF7FEFF 		bl	rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__Float32
  1063              	.LVL69:
-ARM GAS  /tmp/ccwbgilY.s 			page 37
+ARM GAS  /tmp/ccZY7RUS.s 			page 37
 
 
  1064 00cc 0246     		mov	r2, r0
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1106 0108 FFF7FEFF 		bl	rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__Bool
  1107              	.LVL77:
  1108 010c 0246     		mov	r2, r0
-ARM GAS  /tmp/ccwbgilY.s 			page 38
+ARM GAS  /tmp/ccZY7RUS.s 			page 38
 
 
  345:Core/Src/freertos.cpp ****        ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Bool), "automobile/led");
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1152              		.loc 1 353 33 is_stmt 0 view .LVU230
  1153 0150 0094     		str	r4, [sp]
  1154 0152 664B     		ldr	r3, .L74+132
-ARM GAS  /tmp/ccwbgilY.s 			page 39
+ARM GAS  /tmp/ccZY7RUS.s 			page 39
 
 
  1155 0154 0FAA     		add	r2, sp, #60
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1195              		.loc 1 365 26 is_stmt 0 view .LVU244
  1196 018a 5A4D     		ldr	r5, .L74+140
  1197 018c 0121     		movs	r1, #1
-ARM GAS  /tmp/ccwbgilY.s 			page 40
+ARM GAS  /tmp/ccZY7RUS.s 			page 40
 
 
  1198 018e 2846     		mov	r0, r5
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   29:Core/Inc/pid.h **** 
   30:Core/Inc/pid.h **** #ifdef __CODEVISIONAVR__  /* Check compiler */
   31:Core/Inc/pid.h **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 41
+ARM GAS  /tmp/ccZY7RUS.s 			page 41
 
 
   32:Core/Inc/pid.h **** #pragma warn_unref_func- /* Disable 'unused function' warning */
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   86:Core/Inc/pid.h **** 
   87:Core/Inc/pid.h **** 	#if defined ( __ICCARM__ ) /* ICCARM Compiler */
   88:Core/Inc/pid.h **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 42
+ARM GAS  /tmp/ccZY7RUS.s 			page 42
 
 
   89:Core/Inc/pid.h **** 	#pragma diag_suppress=Pe177   /* Disable 'unused function' warning */
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  143:Core/Inc/pid.h **** 
  144:Core/Inc/pid.h **** 	#elif defined(USE_HAL_DRIVER)  /* Check driver */
  145:Core/Inc/pid.h **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 43
+ARM GAS  /tmp/ccZY7RUS.s 			page 43
 
 
  146:Core/Inc/pid.h **** 		#define GetTime()   HAL_GetTick()
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  200:Core/Inc/pid.h **** 
  201:Core/Inc/pid.h **** 	uint32_t        _lastTime;
  202:Core/Inc/pid.h **** 	uint32_t        _sampleTime;
-ARM GAS  /tmp/ccwbgilY.s 			page 44
+ARM GAS  /tmp/ccZY7RUS.s 			page 44
 
 
  203:Core/Inc/pid.h **** 
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  257:Core/Inc/pid.h **** 
  258:Core/Inc/pid.h **** 	/* :::::::::: PID Limits ::::::::::: */
  259:Core/Inc/pid.h **** 	void SetOutputLimits(double Min, double Max);
-ARM GAS  /tmp/ccwbgilY.s 			page 45
+ARM GAS  /tmp/ccZY7RUS.s 			page 45
 
 
  260:Core/Inc/pid.h **** 
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1248 01d2 FFF7FEFF 		bl	_ZN3PID15SetOutputLimitsEdd
  1249              	.LVL96:
  375:Core/Src/freertos.cpp ****   PositionController.EnableProportionalFilter(false);
-ARM GAS  /tmp/ccwbgilY.s 			page 46
+ARM GAS  /tmp/ccZY7RUS.s 			page 46
 
 
  1250              		.loc 1 375 3 is_stmt 1 view .LVU260
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1292              		.loc 1 395 3 is_stmt 1 view .LVU276
  395:Core/Src/freertos.cpp ****   TIM2->EGR = TIM_EGR_UG; // Update registers
  1293              		.loc 1 395 13 is_stmt 0 view .LVU277
-ARM GAS  /tmp/ccwbgilY.s 			page 47
+ARM GAS  /tmp/ccZY7RUS.s 			page 47
 
 
  1294 0206 2922     		movs	r2, #41
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  406:Core/Src/freertos.cpp ****   speedRef 	= 0.0;
  1333              		.loc 1 406 15 is_stmt 0 view .LVU293
  1334 0236 0022     		movs	r2, #0
-ARM GAS  /tmp/ccwbgilY.s 			page 48
+ARM GAS  /tmp/ccZY7RUS.s 			page 48
 
 
  1335 0238 0023     		movs	r3, #0
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1380 02b4 14000000 		.word	.LC2
  1381 02b8 30000000 		.word	.LC3
  1382 02bc 4C000000 		.word	.LC4
-ARM GAS  /tmp/ccwbgilY.s 			page 49
+ARM GAS  /tmp/ccZY7RUS.s 			page 49
 
 
  1383 02c0 6C000000 		.word	.LC5
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1429              		.loc 1 441 29 view .LVU309
  1430 0340 8DF82030 		strb	r3, [sp, #32]
  442:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 50
+ARM GAS  /tmp/ccZY7RUS.s 			page 50
 
 
  1431              		.loc 1 442 7 is_stmt 1 view .LVU310
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1471              		.loc 1 421 13 is_stmt 1 view .LVU324
  421:Core/Src/freertos.cpp **** 				  rcl_publish(&carSpeed_pub, &carSpeed_msg_out, NULL);
  1472              		.loc 1 421 37 is_stmt 0 view .LVU325
-ARM GAS  /tmp/ccwbgilY.s 			page 51
+ARM GAS  /tmp/ccZY7RUS.s 			page 51
 
 
  1473 0370 1C4B     		ldr	r3, .L76+12
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  429:Core/Src/freertos.cpp **** 
  1513              		.loc 1 429 18 is_stmt 0 view .LVU340
  1514 03a8 0022     		movs	r2, #0
-ARM GAS  /tmp/ccwbgilY.s 			page 52
+ARM GAS  /tmp/ccZY7RUS.s 			page 52
 
 
  1515 03aa 0BA9     		add	r1, sp, #44
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1558 03f4 00000000 		.word	posAckDone
  1559              	.LBE20:
  1560              		.cfi_endproc
-ARM GAS  /tmp/ccwbgilY.s 			page 53
+ARM GAS  /tmp/ccZY7RUS.s 			page 53
 
 
  1561              	.LFE1162:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
   16:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h **** // Under Section 7 of GPL version 3, you are granted additional
   17:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h **** // permissions described in the GCC Runtime Library Exception, version
   18:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h **** // 3.1, as published by the Free Software Foundation.
-ARM GAS  /tmp/ccwbgilY.s 			page 54
+ARM GAS  /tmp/ccZY7RUS.s 			page 54
 
 
   19:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h **** 
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1598              	.LBB22:
   72:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h ****   { return __builtin_fabs(__x); }
  1599              		.loc 3 72 5 view .LVU358
-ARM GAS  /tmp/ccwbgilY.s 			page 55
+ARM GAS  /tmp/ccZY7RUS.s 			page 55
 
 
  1600              		.loc 3 72 30 is_stmt 0 view .LVU359
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1652              		.loc 1 592 2 view .LVU363
  593:Core/Src/freertos.cpp **** 
  1653              		.loc 1 593 2 view .LVU364
-ARM GAS  /tmp/ccwbgilY.s 			page 56
+ARM GAS  /tmp/ccZY7RUS.s 			page 56
 
 
  595:Core/Src/freertos.cpp **** 	if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK)
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1696 0030 08EE100A 		vmov	s16, r0	@ int
  1697              	.LVL133:
  599:Core/Src/freertos.cpp **** 	}
-ARM GAS  /tmp/ccwbgilY.s 			page 57
+ARM GAS  /tmp/ccZY7RUS.s 			page 57
 
 
  1698              		.loc 1 599 3 is_stmt 1 view .LVU377
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1746              		.loc 1 609 3 is_stmt 1 view .LVU385
  609:Core/Src/freertos.cpp **** 	}
  1747              		.loc 1 609 16 is_stmt 0 view .LVU386
-ARM GAS  /tmp/ccwbgilY.s 			page 58
+ARM GAS  /tmp/ccZY7RUS.s 			page 58
 
 
  1748 000e FFF7FEFF 		bl	Encoder_Z_ISR
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1798 0004 0446     		mov	r4, r0
  654:Core/Src/freertos.cpp ****   {
  1799              		.loc 1 654 3 is_stmt 1 view .LVU393
-ARM GAS  /tmp/ccwbgilY.s 			page 59
+ARM GAS  /tmp/ccZY7RUS.s 			page 59
 
 
  654:Core/Src/freertos.cpp ****   {
@@ -3488,7 +3488,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1802              		.loc 1 654 3 view .LVU395
  1803 0008 674B     		ldr	r3, .L119+8
  1804 000a 9A42     		cmp	r2, r3
- 1805 000c 08D0     		beq	.L113
+ 1805 000c 08D0     		beq	.L112
  1806              	.LVL142:
  1807              	.L98:
  659:Core/Src/freertos.cpp **** 
@@ -3496,14 +3496,14 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1809              	.LBB23:
  1810 000e 674B     		ldr	r3, .L119+12
  1811 0010 9C42     		cmp	r4, r3
- 1812 0012 08D0     		beq	.L114
+ 1812 0012 08D0     		beq	.L113
  1813              	.L99:
  1814              	.LBE23:
  743:Core/Src/freertos.cpp **** 		pub_flag = true;
  1815              		.loc 1 743 2 view .LVU397
  1816 0014 664B     		ldr	r3, .L119+16
  1817 0016 9C42     		cmp	r4, r3
- 1818 0018 00F0A980 		beq	.L115
+ 1818 0018 00F0A780 		beq	.L114
  1819              	.L97:
  774:Core/Src/freertos.cpp **** #ifdef __cplusplus
  1820              		.loc 1 774 1 is_stmt 0 view .LVU398
@@ -3514,7 +3514,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1825              		@ sp needed
  1826 001e D0BD     		pop	{r4, r6, r7, pc}
  1827              	.LVL143:
- 1828              	.L113:
+ 1828              	.L112:
  1829              	.LCFI28:
  1830              		.cfi_restore_state
  656:Core/Src/freertos.cpp ****   }
@@ -3526,8 +3526,8 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  656:Core/Src/freertos.cpp ****   }
  1835              		.loc 1 656 16 view .LVU401
  1836 0024 F3E7     		b	.L98
- 1837              	.L114:
- 1838              	.LBB28:
+ 1837              	.L113:
+ 1838              	.LBB27:
  1839              	.LBB24:
  661:Core/Src/freertos.cpp **** 
  1840              		.loc 1 661 3 is_stmt 1 view .LVU402
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  663:Core/Src/freertos.cpp **** 
  1844              		.loc 1 663 3 is_stmt 1 view .LVU404
  663:Core/Src/freertos.cpp **** 
-ARM GAS  /tmp/ccwbgilY.s 			page 60
+ARM GAS  /tmp/ccZY7RUS.s 			page 60
 
 
  1845              		.loc 1 663 41 is_stmt 0 view .LVU405
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1885 0062 C3E90067 		strd	r6, [r3]
  671:Core/Src/freertos.cpp **** 		localDistance = globalDistance - localDistanceOrigin;
  1886              		.loc 1 671 3 is_stmt 1 view .LVU420
-ARM GAS  /tmp/ccwbgilY.s 			page 61
+ARM GAS  /tmp/ccZY7RUS.s 			page 61
 
 
  671:Core/Src/freertos.cpp **** 		localDistance = globalDistance - localDistanceOrigin;
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1927 00a0 23B1     		cbz	r3, .L101
  678:Core/Src/freertos.cpp **** 			inRangeForEmergencyBrakeArena = false;
  1928              		.loc 1 678 45 discriminator 1 view .LVU435
-ARM GAS  /tmp/ccwbgilY.s 			page 62
+ARM GAS  /tmp/ccZY7RUS.s 			page 62
 
 
  1929 00a2 642A     		cmp	r2, #100
@@ -3687,13 +3687,13 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  682:Core/Src/freertos.cpp **** 
  1946              		.loc 1 682 33 discriminator 2 view .LVU442
  1947 00b6 002B     		cmp	r3, #0
- 1948 00b8 3ED1     		bne	.L116
+ 1948 00b8 33D1     		bne	.L115
  1949              	.L102:
  686:Core/Src/freertos.cpp **** 
  1950              		.loc 1 686 4 is_stmt 1 view .LVU443
  1951 00ba 494B     		ldr	r3, .L119+64
  1952 00bc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1953 00be ABB1     		cbz	r3, .L104
+ 1953 00be A3B1     		cbz	r3, .L104
  688:Core/Src/freertos.cpp **** 					reachedPosition = true;
  1954              		.loc 1 688 5 view .LVU444
  688:Core/Src/freertos.cpp **** 					reachedPosition = true;
@@ -3704,757 +3704,754 @@ ARM GAS  /tmp/ccwbgilY.s 			page 1
  1959              	.LVL152:
  688:Core/Src/freertos.cpp **** 					reachedPosition = true;
  1960              		.loc 1 688 49 discriminator 1 view .LVU446
- 1961 00ca 18B1     		cbz	r0, .L105
+ 1961 00ca 10B1     		cbz	r0, .L105
  688:Core/Src/freertos.cpp **** 					reachedPosition = true;
  1962              		.loc 1 688 54 discriminator 1 view .LVU447
  1963 00cc 464B     		ldr	r3, .L119+72
  1964 00ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  688:Core/Src/freertos.cpp **** 					reachedPosition = true;
  1965              		.loc 1 688 49 discriminator 1 view .LVU448
- 1966 00d0 002B     		cmp	r3, #0
- 1967 00d2 36D0     		beq	.L106
- 1968              	.L105:
+ 1966 00d0 63B3     		cbz	r3, .L106
+ 1967              	.L105:
  694:Core/Src/freertos.cpp **** 					PositionController.Compute();
- 1969              		.loc 1 694 6 is_stmt 1 view .LVU449
+ 1968              		.loc 1 694 6 is_stmt 1 view .LVU449
  694:Core/Src/freertos.cpp **** 					PositionController.Compute();
- 1970              		.loc 1 694 22 is_stmt 0 view .LVU450
-ARM GAS  /tmp/ccwbgilY.s 			page 63
+ 1969              		.loc 1 694 22 is_stmt 0 view .LVU450
+ 1970 00d2 464B     		ldr	r3, .L119+76
+ARM GAS  /tmp/ccZY7RUS.s 			page 63
 
 
- 1971 00d4 454B     		ldr	r3, .L119+76
- 1972 00d6 0022     		movs	r2, #0
- 1973 00d8 1A70     		strb	r2, [r3]
+ 1971 00d4 0022     		movs	r2, #0
+ 1972 00d6 1A70     		strb	r2, [r3]
  695:Core/Src/freertos.cpp **** 					speedTarget = speedTargetPos;
- 1974              		.loc 1 695 6 is_stmt 1 view .LVU451
+ 1973              		.loc 1 695 6 is_stmt 1 view .LVU451
  695:Core/Src/freertos.cpp **** 					speedTarget = speedTargetPos;
- 1975              		.loc 1 695 32 is_stmt 0 view .LVU452
- 1976 00da 4548     		ldr	r0, .L119+80
- 1977 00dc FFF7FEFF 		bl	_ZN3PID7ComputeEv
- 1978              	.LVL153:
+ 1974              		.loc 1 695 32 is_stmt 0 view .LVU452
+ 1975 00d8 4548     		ldr	r0, .L119+80
+ 1976 00da FFF7FEFF 		bl	_ZN3PID7ComputeEv
+ 1977              	.LVL153:
  696:Core/Src/freertos.cpp **** 				}
- 1979              		.loc 1 696 6 is_stmt 1 view .LVU453
+ 1978              		.loc 1 696 6 is_stmt 1 view .LVU453
  696:Core/Src/freertos.cpp **** 				}
- 1980              		.loc 1 696 18 is_stmt 0 view .LVU454
- 1981 00e0 444B     		ldr	r3, .L119+84
- 1982 00e2 D3E90001 		ldrd	r0, [r3]
- 1983 00e6 444B     		ldr	r3, .L119+88
- 1984 00e8 C3E90001 		strd	r0, [r3]
- 1985              	.L104:
+ 1979              		.loc 1 696 18 is_stmt 0 view .LVU454
+ 1980 00de 454B     		ldr	r3, .L119+84
+ 1981 00e0 D3E90001 		ldrd	r0, [r3]
+ 1982 00e4 444B     		ldr	r3, .L119+88
+ 1983 00e6 C3E90001 		strd	r0, [r3]
+ 1984              	.L104:
  701:Core/Src/freertos.cpp **** 
- 1986              		.loc 1 701 4 is_stmt 1 view .LVU455
- 1987 00ec 434B     		ldr	r3, .L119+92
- 1988 00ee 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1989 00f0 002B     		cmp	r3, #0
- 1990 00f2 32D1     		bne	.L117
- 1991              	.L107:
+ 1985              		.loc 1 701 4 is_stmt 1 view .LVU455
+ 1986 00ea 444B     		ldr	r3, .L119+92
+ 1987 00ec 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1988 00ee 4BBB     		cbnz	r3, .L116
+ 1989              	.L107:
  710:Core/Src/freertos.cpp **** 				drive_pwm(0);
- 1992              		.loc 1 710 4 view .LVU456
+ 1990              		.loc 1 710 4 view .LVU456
  710:Core/Src/freertos.cpp **** 				drive_pwm(0);
- 1993              		.loc 1 710 29 is_stmt 0 discriminator 1 view .LVU457
- 1994 00f4 0022     		movs	r2, #0
- 1995 00f6 0023     		movs	r3, #0
- 1996 00f8 4149     		ldr	r1, .L119+96
- 1997 00fa D1E90001 		ldrd	r0, [r1]
- 1998 00fe FFF7FEFF 		bl	__aeabi_dcmpeq
- 1999              	.LVL154:
- 2000 0102 58B9     		cbnz	r0, .L108
+ 1991              		.loc 1 710 29 is_stmt 0 discriminator 1 view .LVU457
+ 1992 00f0 0022     		movs	r2, #0
+ 1993 00f2 0023     		movs	r3, #0
+ 1994 00f4 4249     		ldr	r1, .L119+96
+ 1995 00f6 D1E90001 		ldrd	r0, [r1]
+ 1996 00fa FFF7FEFF 		bl	__aeabi_dcmpeq
+ 1997              	.LVL154:
+ 1998 00fe 58B9     		cbnz	r0, .L108
  710:Core/Src/freertos.cpp **** 				drive_pwm(0);
- 2001              		.loc 1 710 35 discriminator 2 view .LVU458
- 2002 0104 3F4B     		ldr	r3, .L119+100
- 2003 0106 D3E90023 		ldrd	r2, [r3]
- 2004              	.LVL155:
- 2005              	.LBB25:
- 2006              	.LBI25:
+ 1999              		.loc 1 710 35 discriminator 2 view .LVU458
+ 2000 0100 404B     		ldr	r3, .L119+100
+ 2001 0102 D3E90067 		ldrd	r6, [r3]
+ 2002              	.LVL155:
+ 2003              	.LBB25:
+ 2004              	.LBI25:
   71:/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.100.202509120712/tools/arm-none-eabi/include/c++/13.3.1/bits/std_abs.h ****   { return __builtin_fabs(__x); }
- 2007              		.loc 3 71 3 is_stmt 1 view .LVU459
- 2008              	.LBB26:
- 2009              		.loc 3 72 5 view .LVU460
- 2010              		.loc 3 72 30 is_stmt 0 view .LVU461
- 2011 010a 1046     		mov	r0, r2
- 2012 010c 23F00041 		bic	r1, r3, #-2147483648
- 2013              	.LVL156:
- 2014              		.loc 3 72 30 view .LVU462
- 2015              	.LBE26:
- 2016              	.LBE25:
+ 2005              		.loc 3 71 3 is_stmt 1 view .LVU459
+ 2006              	.LBB26:
+ 2007              		.loc 3 72 5 view .LVU460
+ 2008              		.loc 3 72 30 is_stmt 0 view .LVU461
+ 2009 0106 3046     		mov	r0, r6
+ 2010 0108 27F00041 		bic	r1, r7, #-2147483648
+ 2011              	.LVL156:
+ 2012              		.loc 3 72 30 view .LVU462
+ 2013              	.LBE26:
+ 2014              	.LBE25:
  710:Core/Src/freertos.cpp **** 				drive_pwm(0);
- 2017              		.loc 1 710 29 discriminator 1 view .LVU463
-ARM GAS  /tmp/ccwbgilY.s 			page 64
+ 2015              		.loc 1 710 29 discriminator 1 view .LVU463
+ 2016 010c 24A3     		adr	r3, .L119
+ 2017 010e D3E90023 		ldrd	r2, [r3]
+ARM GAS  /tmp/ccZY7RUS.s 			page 64
 
 
- 2018 0110 23A3     		adr	r3, .L119
- 2019 0112 D3E90023 		ldrd	r2, [r3]
- 2020 0116 FFF7FEFF 		bl	__aeabi_dcmplt
- 2021              	.LVL157:
- 2022 011a 18B1     		cbz	r0, .L103
- 2023              	.L108:
+ 2018 0112 FFF7FEFF 		bl	__aeabi_dcmplt
+ 2019              	.LVL157:
+ 2020 0116 F8B1     		cbz	r0, .L117
+ 2021              	.L108:
  711:Core/Src/freertos.cpp **** 			else
- 2024              		.loc 1 711 5 is_stmt 1 view .LVU464
+ 2022              		.loc 1 711 5 is_stmt 1 view .LVU464
  711:Core/Src/freertos.cpp **** 			else
- 2025              		.loc 1 711 14 is_stmt 0 view .LVU465
- 2026 011c 9FED3A0A 		vldr.32	s0, .L119+104
- 2027 0120 FFF7FEFF 		bl	drive_pwm
- 2028              	.LVL158:
- 2029              	.L103:
- 720:Core/Src/freertos.cpp **** 
- 2030              		.loc 1 720 3 is_stmt 1 view .LVU466
- 720:Core/Src/freertos.cpp **** 
- 2031              		.loc 1 720 12 is_stmt 0 view .LVU467
- 2032 0124 344B     		ldr	r3, .L119+88
- 2033 0126 D3E90001 		ldrd	r0, [r3]
- 2034 012a FFF7FEFF 		bl	__aeabi_d2f
- 2035              	.LVL159:
- 2036 012e 00EE100A 		vmov	s0, r0
- 2037 0132 FFF7FEFF 		bl	drive_pwm
- 2038              	.LVL160:
- 2039              	.LBE24:
- 2040 0136 6DE7     		b	.L99
- 2041              	.L116:
- 2042              	.LBB27:
+ 2023              		.loc 1 711 14 is_stmt 0 view .LVU465
+ 2024 0118 9FED3B0A 		vldr.32	s0, .L119+104
+ 2025 011c FFF7FEFF 		bl	drive_pwm
+ 2026              	.LVL158:
+ 2027 0120 78E7     		b	.L99
+ 2028              	.L115:
  717:Core/Src/freertos.cpp **** 		}
- 2043              		.loc 1 717 4 is_stmt 1 view .LVU468
+ 2029              		.loc 1 717 4 is_stmt 1 view .LVU466
  717:Core/Src/freertos.cpp **** 		}
- 2044              		.loc 1 717 13 is_stmt 0 view .LVU469
- 2045 0138 9FED330A 		vldr.32	s0, .L119+104
- 2046 013c FFF7FEFF 		bl	drive_pwm
- 2047              	.LVL161:
- 2048 0140 F0E7     		b	.L103
- 2049              	.L106:
+ 2030              		.loc 1 717 13 is_stmt 0 view .LVU467
+ 2031 0122 9FED390A 		vldr.32	s0, .L119+104
+ 2032 0126 FFF7FEFF 		bl	drive_pwm
+ 2033              	.LVL159:
+ 2034 012a 73E7     		b	.L99
+ 2035              	.L106:
  689:Core/Src/freertos.cpp **** 					speedTarget = 0.0;
- 2050              		.loc 1 689 6 is_stmt 1 view .LVU470
+ 2036              		.loc 1 689 6 is_stmt 1 view .LVU468
  689:Core/Src/freertos.cpp **** 					speedTarget = 0.0;
- 2051              		.loc 1 689 22 is_stmt 0 view .LVU471
- 2052 0142 2A4B     		ldr	r3, .L119+76
- 2053 0144 0122     		movs	r2, #1
- 2054 0146 1A70     		strb	r2, [r3]
+ 2037              		.loc 1 689 22 is_stmt 0 view .LVU469
+ 2038 012c 2F4B     		ldr	r3, .L119+76
+ 2039 012e 0122     		movs	r2, #1
+ 2040 0130 1A70     		strb	r2, [r3]
  690:Core/Src/freertos.cpp **** 					isPositionControl = false; //just added
- 2055              		.loc 1 690 6 is_stmt 1 view .LVU472
+ 2041              		.loc 1 690 6 is_stmt 1 view .LVU470
  690:Core/Src/freertos.cpp **** 					isPositionControl = false; //just added
- 2056              		.loc 1 690 18 is_stmt 0 view .LVU473
- 2057 0148 2B4B     		ldr	r3, .L119+88
- 2058 014a 0020     		movs	r0, #0
- 2059 014c 0021     		movs	r1, #0
- 2060 014e C3E90001 		strd	r0, [r3]
+ 2042              		.loc 1 690 18 is_stmt 0 view .LVU471
+ 2043 0132 314B     		ldr	r3, .L119+88
+ 2044 0134 0020     		movs	r0, #0
+ 2045 0136 0021     		movs	r1, #0
+ 2046 0138 C3E90001 		strd	r0, [r3]
  691:Core/Src/freertos.cpp **** 				}
- 2061              		.loc 1 691 6 is_stmt 1 view .LVU474
+ 2047              		.loc 1 691 6 is_stmt 1 view .LVU472
  691:Core/Src/freertos.cpp **** 				}
- 2062              		.loc 1 691 24 is_stmt 0 view .LVU475
-ARM GAS  /tmp/ccwbgilY.s 			page 65
+ 2048              		.loc 1 691 24 is_stmt 0 view .LVU473
+ 2049 013c 284B     		ldr	r3, .L119+64
+ 2050 013e 0022     		movs	r2, #0
+ 2051 0140 1A70     		strb	r2, [r3]
+ 2052 0142 D2E7     		b	.L104
+ 2053              	.L116:
+ 703:Core/Src/freertos.cpp **** 				SpeedController.Compute();// SPEED control action
+ 2054              		.loc 1 703 5 is_stmt 1 view .LVU474
+ 703:Core/Src/freertos.cpp **** 				SpeedController.Compute();// SPEED control action
+ 2055              		.loc 1 703 14 is_stmt 0 view .LVU475
+ 2056 0144 2C4B     		ldr	r3, .L119+88
+ 2057 0146 D3E90001 		ldrd	r0, [r3]
+ 2058 014a 2D4B     		ldr	r3, .L119+96
+ 2059 014c C3E90001 		strd	r0, [r3]
+ 704:Core/Src/freertos.cpp **** 			}
+ 2060              		.loc 1 704 5 is_stmt 1 view .LVU476
+ 704:Core/Src/freertos.cpp **** 			}
+ARM GAS  /tmp/ccZY7RUS.s 			page 65
 
 
- 2063 0152 234B     		ldr	r3, .L119+64
- 2064 0154 0022     		movs	r2, #0
- 2065 0156 1A70     		strb	r2, [r3]
- 2066 0158 C8E7     		b	.L104
- 2067              	.L117:
- 703:Core/Src/freertos.cpp **** 				SpeedController.Compute();// SPEED control action
- 2068              		.loc 1 703 5 is_stmt 1 view .LVU476
- 703:Core/Src/freertos.cpp **** 				SpeedController.Compute();// SPEED control action
- 2069              		.loc 1 703 14 is_stmt 0 view .LVU477
- 2070 015a 274B     		ldr	r3, .L119+88
- 2071 015c D3E90001 		ldrd	r0, [r3]
- 2072 0160 274B     		ldr	r3, .L119+96
- 2073 0162 C3E90001 		strd	r0, [r3]
- 704:Core/Src/freertos.cpp **** 			}
- 2074              		.loc 1 704 5 is_stmt 1 view .LVU478
- 704:Core/Src/freertos.cpp **** 			}
- 2075              		.loc 1 704 28 is_stmt 0 view .LVU479
- 2076 0166 2948     		ldr	r0, .L119+108
- 2077 0168 FFF7FEFF 		bl	_ZN3PID7ComputeEv
- 2078              	.LVL162:
- 2079 016c C2E7     		b	.L107
- 2080              	.L115:
- 704:Core/Src/freertos.cpp **** 			}
- 2081              		.loc 1 704 28 view .LVU480
- 2082              	.LBE27:
- 2083              	.LBE28:
+ 2061              		.loc 1 704 28 is_stmt 0 view .LVU477
+ 2062 0150 2E48     		ldr	r0, .L119+108
+ 2063 0152 FFF7FEFF 		bl	_ZN3PID7ComputeEv
+ 2064              	.LVL160:
+ 2065 0156 CBE7     		b	.L107
+ 2066              	.L117:
+ 713:Core/Src/freertos.cpp **** //				printf("s\n\r");
+ 2067              		.loc 1 713 9 is_stmt 1 view .LVU478
+ 713:Core/Src/freertos.cpp **** //				printf("s\n\r");
+ 2068              		.loc 1 713 18 is_stmt 0 view .LVU479
+ 2069 0158 3046     		mov	r0, r6
+ 2070 015a 3946     		mov	r1, r7
+ 2071 015c FFF7FEFF 		bl	__aeabi_d2f
+ 2072              	.LVL161:
+ 2073 0160 00EE100A 		vmov	s0, r0
+ 2074 0164 FFF7FEFF 		bl	drive_pwm
+ 2075              	.LVL162:
+ 2076 0168 54E7     		b	.L99
+ 2077              	.L114:
+ 713:Core/Src/freertos.cpp **** //				printf("s\n\r");
+ 2078              		.loc 1 713 18 view .LVU480
+ 2079              	.LBE24:
+ 2080              	.LBE27:
  744:Core/Src/freertos.cpp **** 
- 2084              		.loc 1 744 3 is_stmt 1 view .LVU481
+ 2081              		.loc 1 744 3 is_stmt 1 view .LVU481
  744:Core/Src/freertos.cpp **** 
- 2085              		.loc 1 744 12 is_stmt 0 view .LVU482
- 2086 016e 284B     		ldr	r3, .L119+112
- 2087 0170 0122     		movs	r2, #1
- 2088 0172 1A70     		strb	r2, [r3]
+ 2082              		.loc 1 744 12 is_stmt 0 view .LVU482
+ 2083 016a 294B     		ldr	r3, .L119+112
+ 2084 016c 0122     		movs	r2, #1
+ 2085 016e 1A70     		strb	r2, [r3]
  748:Core/Src/freertos.cpp **** 
- 2089              		.loc 1 748 3 is_stmt 1 view .LVU483
+ 2086              		.loc 1 748 3 is_stmt 1 view .LVU483
  748:Core/Src/freertos.cpp **** 
- 2090              		.loc 1 748 15 is_stmt 0 view .LVU484
- 2091 0174 274A     		ldr	r2, .L119+116
- 2092 0176 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 2093 0178 0133     		adds	r3, r3, #1
- 2094 017a DBB2     		uxtb	r3, r3
- 2095 017c 1370     		strb	r3, [r2]
+ 2087              		.loc 1 748 15 is_stmt 0 view .LVU484
+ 2088 0170 284A     		ldr	r2, .L119+116
+ 2089 0172 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 2090 0174 0133     		adds	r3, r3, #1
+ 2091 0176 DBB2     		uxtb	r3, r3
+ 2092 0178 1370     		strb	r3, [r2]
  751:Core/Src/freertos.cpp **** 			/* at millisecond 10 prepare sensor to read values */
- 2096              		.loc 1 751 3 is_stmt 1 view .LVU485
- 2097 017e 012B     		cmp	r3, #1
- 2098 0180 0AD0     		beq	.L118
+ 2093              		.loc 1 751 3 is_stmt 1 view .LVU485
+ 2094 017a 012B     		cmp	r3, #1
+ 2095 017c 0AD0     		beq	.L118
  754:Core/Src/freertos.cpp **** 			/* at millisecond 70 read values */
- 2099              		.loc 1 754 10 view .LVU486
- 2100 0182 082B     		cmp	r3, #8
- 2101 0184 7FF44AAF 		bne	.L97
+ 2096              		.loc 1 754 10 view .LVU486
+ 2097 017e 082B     		cmp	r3, #8
+ 2098 0180 7FF44CAF 		bne	.L97
  756:Core/Src/freertos.cpp **** 			//VL6180X_PrintAllDistances(&sensorsTOF[0]);
- 2102              		.loc 1 756 4 view .LVU487
+ 2099              		.loc 1 756 4 view .LVU487
  756:Core/Src/freertos.cpp **** 			//VL6180X_PrintAllDistances(&sensorsTOF[0]);
- 2103              		.loc 1 756 25 is_stmt 0 view .LVU488
- 2104 0188 2349     		ldr	r1, .L119+120
- 2105 018a 1248     		ldr	r0, .L119+52
- 2106 018c FFF7FEFF 		bl	VL6180X_ReadDistances
-ARM GAS  /tmp/ccwbgilY.s 			page 66
+ 2100              		.loc 1 756 25 is_stmt 0 view .LVU488
+ 2101 0184 2449     		ldr	r1, .L119+120
+ 2102 0186 1348     		ldr	r0, .L119+52
+ 2103 0188 FFF7FEFF 		bl	VL6180X_ReadDistances
+ 2104              	.LVL163:
+ 758:Core/Src/freertos.cpp **** 		}
+ 2105              		.loc 1 758 4 is_stmt 1 view .LVU489
+ARM GAS  /tmp/ccZY7RUS.s 			page 66
 
 
- 2107              	.LVL163:
  758:Core/Src/freertos.cpp **** 		}
- 2108              		.loc 1 758 4 is_stmt 1 view .LVU489
- 758:Core/Src/freertos.cpp **** 		}
- 2109              		.loc 1 758 17 is_stmt 0 view .LVU490
- 2110 0190 204B     		ldr	r3, .L119+116
- 2111 0192 0022     		movs	r2, #0
- 2112 0194 1A70     		strb	r2, [r3]
+ 2106              		.loc 1 758 17 is_stmt 0 view .LVU490
+ 2107 018c 214B     		ldr	r3, .L119+116
+ 2108 018e 0022     		movs	r2, #0
+ 2109 0190 1A70     		strb	r2, [r3]
  774:Core/Src/freertos.cpp **** #ifdef __cplusplus
- 2113              		.loc 1 774 1 view .LVU491
- 2114 0196 41E7     		b	.L97
- 2115              	.L118:
+ 2110              		.loc 1 774 1 view .LVU491
+ 2111 0192 43E7     		b	.L97
+ 2112              	.L118:
  753:Core/Src/freertos.cpp **** 		} else if (TenMsCounter == 8){
- 2116              		.loc 1 753 4 is_stmt 1 view .LVU492
+ 2113              		.loc 1 753 4 is_stmt 1 view .LVU492
  753:Core/Src/freertos.cpp **** 		} else if (TenMsCounter == 8){
- 2117              		.loc 1 753 25 is_stmt 0 view .LVU493
- 2118 0198 0E48     		ldr	r0, .L119+52
- 2119 019a FFF7FEFF 		bl	VL6180X_SendMsgToRead
- 2120              	.LVL164:
- 2121 019e 3DE7     		b	.L97
- 2122              	.L120:
- 2123              		.align	3
- 2124              	.L119:
- 2125 01a0 F168E388 		.word	-1998362383
- 2126 01a4 B5F8E43E 		.word	1055193269
- 2127 01a8 00000140 		.word	1073807360
- 2128 01ac 00000000 		.word	htim11
- 2129 01b0 00000000 		.word	htim10
- 2130 01b4 00000000 		.word	encoderCount
- 2131 01b8 00000000 		.word	encoderTotal
- 2132 01bc 00000000 		.word	carSpeed
- 2133 01c0 00000000 		.word	carSpeedfiltered
- 2134 01c4 00000000 		.word	globalDistance
- 2135 01c8 00000000 		.word	encoderAcceleration
- 2136 01cc 00000000 		.word	localDistanceOrigin
- 2137 01d0 00000000 		.word	localDistance
- 2138 01d4 00000000 		.word	sensorsTOF
- 2139 01d8 00000000 		.word	inRangeForEmergencyBrakeArena
- 2140 01dc 00000000 		.word	checkEmergencyBrakeArena
- 2141 01e0 00000000 		.word	isPositionControl
- 2142 01e4 00000000 		.word	localDistanceRef
- 2143 01e8 00000000 		.word	posAckDone
- 2144 01ec 00000000 		.word	reachedPosition
- 2145 01f0 00000000 		.word	PositionController
- 2146 01f4 00000000 		.word	speedTargetPos
- 2147 01f8 00000000 		.word	speedTarget
- 2148 01fc 00000000 		.word	isSpeedControl
- 2149 0200 00000000 		.word	speedRef
- 2150 0204 00000000 		.word	motorPWM
- 2151 0208 00000000 		.word	0
- 2152 020c 00000000 		.word	SpeedController
- 2153 0210 00000000 		.word	pub_flag
- 2154 0214 00000000 		.word	TenMsCounter
- 2155 0218 00000000 		.word	TOFcounterToInitialize
- 2156              		.cfi_endproc
- 2157              	.LFE1177:
- 2158              		.fnend
-ARM GAS  /tmp/ccwbgilY.s 			page 67
+ 2114              		.loc 1 753 25 is_stmt 0 view .LVU493
+ 2115 0194 0F48     		ldr	r0, .L119+52
+ 2116 0196 FFF7FEFF 		bl	VL6180X_SendMsgToRead
+ 2117              	.LVL164:
+ 2118 019a 3FE7     		b	.L97
+ 2119              	.L120:
+ 2120 019c AFF30080 		.align	3
+ 2121              	.L119:
+ 2122 01a0 F168E388 		.word	-1998362383
+ 2123 01a4 B5F8E43E 		.word	1055193269
+ 2124 01a8 00000140 		.word	1073807360
+ 2125 01ac 00000000 		.word	htim11
+ 2126 01b0 00000000 		.word	htim10
+ 2127 01b4 00000000 		.word	encoderCount
+ 2128 01b8 00000000 		.word	encoderTotal
+ 2129 01bc 00000000 		.word	carSpeed
+ 2130 01c0 00000000 		.word	carSpeedfiltered
+ 2131 01c4 00000000 		.word	globalDistance
+ 2132 01c8 00000000 		.word	encoderAcceleration
+ 2133 01cc 00000000 		.word	localDistanceOrigin
+ 2134 01d0 00000000 		.word	localDistance
+ 2135 01d4 00000000 		.word	sensorsTOF
+ 2136 01d8 00000000 		.word	inRangeForEmergencyBrakeArena
+ 2137 01dc 00000000 		.word	checkEmergencyBrakeArena
+ 2138 01e0 00000000 		.word	isPositionControl
+ 2139 01e4 00000000 		.word	localDistanceRef
+ 2140 01e8 00000000 		.word	posAckDone
+ 2141 01ec 00000000 		.word	reachedPosition
+ 2142 01f0 00000000 		.word	PositionController
+ 2143 01f4 00000000 		.word	speedTargetPos
+ 2144 01f8 00000000 		.word	speedTarget
+ 2145 01fc 00000000 		.word	isSpeedControl
+ 2146 0200 00000000 		.word	speedRef
+ 2147 0204 00000000 		.word	motorPWM
+ 2148 0208 00000000 		.word	0
+ 2149 020c 00000000 		.word	SpeedController
+ 2150 0210 00000000 		.word	pub_flag
+ 2151 0214 00000000 		.word	TenMsCounter
+ 2152 0218 00000000 		.word	TOFcounterToInitialize
+ 2153              		.cfi_endproc
+ 2154              	.LFE1177:
+ 2155              		.fnend
+ 2157              		.section	.text._GLOBAL__sub_I_speedTarget,"ax",%progbits
+ 2158              		.align	1
+ 2159              		.syntax unified
+ARM GAS  /tmp/ccZY7RUS.s 			page 67
 
 
- 2160              		.section	.text._GLOBAL__sub_I_speedTarget,"ax",%progbits
- 2161              		.align	1
- 2162              		.syntax unified
- 2163              		.thumb
- 2164              		.thumb_func
- 2166              	_GLOBAL__sub_I_speedTarget:
- 2167              		.fnstart
- 2168              	.LFB1293:
- 2169              		.loc 1 776 1 is_stmt 1 view -0
- 2170              		.cfi_startproc
- 2171              		@ args = 0, pretend = 0, frame = 0
- 2172              		@ frame_needed = 0, uses_anonymous_args = 0
- 2173 0000 08B5     		push	{r3, lr}
- 2174              	.LCFI29:
- 2175              		.cfi_def_cfa_offset 8
- 2176              		.cfi_offset 3, -8
- 2177              		.cfi_offset 14, -4
- 2178              		.loc 1 776 1 is_stmt 0 view .LVU495
- 2179 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
- 2180              	.LVL165:
- 2181 0006 08BD     		pop	{r3, pc}
- 2182              		.cfi_endproc
- 2183              	.LFE1293:
- 2184              		.cantunwind
- 2185              		.fnend
- 2187              		.section	.init_array,"aw",%init_array
- 2188              		.align	2
- 2189 0000 00000000 		.word	_GLOBAL__sub_I_speedTarget(target1)
- 2190              		.global	last_diff
- 2191              		.section	.bss.last_diff,"aw",%nobits
- 2192              		.align	3
- 2195              	last_diff:
- 2196 0000 00000000 		.space	8
- 2196      00000000 
- 2197              		.section	.rodata.str1.4,"aMS",%progbits,1
- 2198              		.align	2
- 2199              	.LC13:
- 2200 0000 64656661 		.ascii	"defaultTask\000"
- 2200      756C7454 
- 2200      61736B00 
- 2201              		.section	.rodata._ZL22defaultTask_attributes,"a"
- 2202              		.align	2
- 2205              	_ZL22defaultTask_attributes:
- 2206 0000 00000000 		.word	.LC13
- 2207 0004 00000000 		.space	4
- 2208 0008 00000000 		.word	defaultTaskControlBlock
- 2209 000c 5C000000 		.word	92
- 2210 0010 00000000 		.word	defaultTaskBuffer
- 2211 0014 A00F0000 		.word	4000
- 2212 0018 18000000 		.word	24
- 2213 001c 00000000 		.space	8
- 2213      00000000 
- 2214              		.global	defaultTaskControlBlock
- 2215              		.section	.bss.defaultTaskControlBlock,"aw",%nobits
- 2216              		.align	2
- 2219              	defaultTaskControlBlock:
- 2220 0000 00000000 		.space	92
-ARM GAS  /tmp/ccwbgilY.s 			page 68
+ 2160              		.thumb
+ 2161              		.thumb_func
+ 2163              	_GLOBAL__sub_I_speedTarget:
+ 2164              		.fnstart
+ 2165              	.LFB1293:
+ 2166              		.loc 1 776 1 is_stmt 1 view -0
+ 2167              		.cfi_startproc
+ 2168              		@ args = 0, pretend = 0, frame = 0
+ 2169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2170 0000 08B5     		push	{r3, lr}
+ 2171              	.LCFI29:
+ 2172              		.cfi_def_cfa_offset 8
+ 2173              		.cfi_offset 3, -8
+ 2174              		.cfi_offset 14, -4
+ 2175              		.loc 1 776 1 is_stmt 0 view .LVU495
+ 2176 0002 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0v
+ 2177              	.LVL165:
+ 2178 0006 08BD     		pop	{r3, pc}
+ 2179              		.cfi_endproc
+ 2180              	.LFE1293:
+ 2181              		.cantunwind
+ 2182              		.fnend
+ 2184              		.section	.init_array,"aw",%init_array
+ 2185              		.align	2
+ 2186 0000 00000000 		.word	_GLOBAL__sub_I_speedTarget(target1)
+ 2187              		.global	last_diff
+ 2188              		.section	.bss.last_diff,"aw",%nobits
+ 2189              		.align	3
+ 2192              	last_diff:
+ 2193 0000 00000000 		.space	8
+ 2193      00000000 
+ 2194              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 2195              		.align	2
+ 2196              	.LC13:
+ 2197 0000 64656661 		.ascii	"defaultTask\000"
+ 2197      756C7454 
+ 2197      61736B00 
+ 2198              		.section	.rodata._ZL22defaultTask_attributes,"a"
+ 2199              		.align	2
+ 2202              	_ZL22defaultTask_attributes:
+ 2203 0000 00000000 		.word	.LC13
+ 2204 0004 00000000 		.space	4
+ 2205 0008 00000000 		.word	defaultTaskControlBlock
+ 2206 000c 5C000000 		.word	92
+ 2207 0010 00000000 		.word	defaultTaskBuffer
+ 2208 0014 A00F0000 		.word	4000
+ 2209 0018 18000000 		.word	24
+ 2210 001c 00000000 		.space	8
+ 2210      00000000 
+ 2211              		.global	defaultTaskControlBlock
+ 2212              		.section	.bss.defaultTaskControlBlock,"aw",%nobits
+ 2213              		.align	2
+ 2216              	defaultTaskControlBlock:
+ 2217 0000 00000000 		.space	92
+ 2217      00000000 
+ 2217      00000000 
+ 2217      00000000 
+ARM GAS  /tmp/ccZY7RUS.s 			page 68
 
 
- 2220      00000000 
- 2220      00000000 
- 2220      00000000 
- 2220      00000000 
- 2221              		.global	defaultTaskBuffer
- 2222              		.section	.bss.defaultTaskBuffer,"aw",%nobits
- 2223              		.align	2
- 2226              	defaultTaskBuffer:
- 2227 0000 00000000 		.space	4000
- 2227      00000000 
- 2227      00000000 
- 2227      00000000 
- 2227      00000000 
- 2228              		.global	defaultTaskHandle
- 2229              		.section	.bss.defaultTaskHandle,"aw",%nobits
- 2230              		.align	2
- 2233              	defaultTaskHandle:
- 2234 0000 00000000 		.space	4
- 2235              		.global	PositionController
- 2236              		.section	.bss.PositionController,"aw",%nobits
- 2237              		.align	3
- 2240              	PositionController:
- 2241 0000 00000000 		.space	24960
- 2241      00000000 
- 2241      00000000 
- 2241      00000000 
- 2241      00000000 
- 2242              		.global	SpeedController
- 2243              		.section	.bss.SpeedController,"aw",%nobits
- 2244              		.align	3
- 2247              	SpeedController:
- 2248 0000 00000000 		.space	24960
- 2248      00000000 
- 2248      00000000 
- 2248      00000000 
- 2248      00000000 
- 2249              		.global	samplingPID
- 2250              		.section	.data.samplingPID,"aw"
- 2253              	samplingPID:
- 2254 0000 01       		.byte	1
- 2255              		.global	TenMsCounter
- 2256              		.section	.bss.TenMsCounter,"aw",%nobits
- 2259              	TenMsCounter:
- 2260 0000 00       		.space	1
- 2261              		.global	TOFcounterToInitialize
- 2262              		.section	.bss.TOFcounterToInitialize,"aw",%nobits
- 2265              	TOFcounterToInitialize:
- 2266 0000 00       		.space	1
- 2267              		.global	sensorsTOF
- 2268              		.section	.bss.sensorsTOF,"aw",%nobits
- 2269              		.align	2
- 2272              	sensorsTOF:
- 2273 0000 00000000 		.space	40
- 2273      00000000 
- 2273      00000000 
- 2273      00000000 
- 2273      00000000 
-ARM GAS  /tmp/ccwbgilY.s 			page 69
+ 2217      00000000 
+ 2218              		.global	defaultTaskBuffer
+ 2219              		.section	.bss.defaultTaskBuffer,"aw",%nobits
+ 2220              		.align	2
+ 2223              	defaultTaskBuffer:
+ 2224 0000 00000000 		.space	4000
+ 2224      00000000 
+ 2224      00000000 
+ 2224      00000000 
+ 2224      00000000 
+ 2225              		.global	defaultTaskHandle
+ 2226              		.section	.bss.defaultTaskHandle,"aw",%nobits
+ 2227              		.align	2
+ 2230              	defaultTaskHandle:
+ 2231 0000 00000000 		.space	4
+ 2232              		.global	PositionController
+ 2233              		.section	.bss.PositionController,"aw",%nobits
+ 2234              		.align	3
+ 2237              	PositionController:
+ 2238 0000 00000000 		.space	24960
+ 2238      00000000 
+ 2238      00000000 
+ 2238      00000000 
+ 2238      00000000 
+ 2239              		.global	SpeedController
+ 2240              		.section	.bss.SpeedController,"aw",%nobits
+ 2241              		.align	3
+ 2244              	SpeedController:
+ 2245 0000 00000000 		.space	24960
+ 2245      00000000 
+ 2245      00000000 
+ 2245      00000000 
+ 2245      00000000 
+ 2246              		.global	samplingPID
+ 2247              		.section	.data.samplingPID,"aw"
+ 2250              	samplingPID:
+ 2251 0000 01       		.byte	1
+ 2252              		.global	TenMsCounter
+ 2253              		.section	.bss.TenMsCounter,"aw",%nobits
+ 2256              	TenMsCounter:
+ 2257 0000 00       		.space	1
+ 2258              		.global	TOFcounterToInitialize
+ 2259              		.section	.bss.TOFcounterToInitialize,"aw",%nobits
+ 2262              	TOFcounterToInitialize:
+ 2263 0000 00       		.space	1
+ 2264              		.global	sensorsTOF
+ 2265              		.section	.bss.sensorsTOF,"aw",%nobits
+ 2266              		.align	2
+ 2269              	sensorsTOF:
+ 2270 0000 00000000 		.space	40
+ 2270      00000000 
+ 2270      00000000 
+ 2270      00000000 
+ 2270      00000000 
+ 2271              		.global	flagLed
+ 2272              		.section	.bss.flagLed,"aw",%nobits
+ 2275              	flagLed:
+ARM GAS  /tmp/ccZY7RUS.s 			page 69
 
 
- 2274              		.global	flagLed
- 2275              		.section	.bss.flagLed,"aw",%nobits
- 2278              	flagLed:
- 2279 0000 00       		.space	1
- 2280              		.global	inRangeForEmergencyBrakeArena
- 2281              		.section	.bss.inRangeForEmergencyBrakeArena,"aw",%nobits
- 2284              	inRangeForEmergencyBrakeArena:
- 2285 0000 00       		.space	1
- 2286              		.global	checkEmergencyBrakeArena
- 2287              		.section	.bss.checkEmergencyBrakeArena,"aw",%nobits
- 2290              	checkEmergencyBrakeArena:
- 2291 0000 00       		.space	1
- 2292              		.global	pub_flag
- 2293              		.section	.bss.pub_flag,"aw",%nobits
- 2296              	pub_flag:
- 2297 0000 00       		.space	1
- 2298              		.global	reachedPosition
- 2299              		.section	.bss.reachedPosition,"aw",%nobits
- 2302              	reachedPosition:
- 2303 0000 00       		.space	1
- 2304              		.global	posAckDone
- 2305              		.section	.bss.posAckDone,"aw",%nobits
- 2308              	posAckDone:
- 2309 0000 00       		.space	1
- 2310              		.global	isPositionControl
- 2311              		.section	.bss.isPositionControl,"aw",%nobits
- 2314              	isPositionControl:
- 2315 0000 00       		.space	1
- 2316              		.global	isSpeedControl
- 2317              		.section	.data.isSpeedControl,"aw"
- 2320              	isSpeedControl:
- 2321 0000 01       		.byte	1
- 2322              		.global	servoPWM
- 2323              		.section	.bss.servoPWM,"aw",%nobits
- 2324              		.align	3
- 2327              	servoPWM:
- 2328 0000 00000000 		.space	8
- 2328      00000000 
- 2329              		.global	motorPWM
- 2330              		.section	.bss.motorPWM,"aw",%nobits
- 2331              		.align	3
- 2334              	motorPWM:
- 2335 0000 00000000 		.space	8
- 2335      00000000 
- 2336              		.global	encoderTotal
- 2337              		.section	.bss.encoderTotal,"aw",%nobits
- 2338              		.align	2
- 2341              	encoderTotal:
- 2342 0000 00000000 		.space	4
- 2343              		.global	encoderCount
- 2344              		.section	.bss.encoderCount,"aw",%nobits
- 2345              		.align	2
- 2348              	encoderCount:
- 2349 0000 00000000 		.space	4
- 2350              		.global	localDistanceRef
- 2351              		.section	.bss.localDistanceRef,"aw",%nobits
- 2352              		.align	3
-ARM GAS  /tmp/ccwbgilY.s 			page 70
+ 2276 0000 00       		.space	1
+ 2277              		.global	inRangeForEmergencyBrakeArena
+ 2278              		.section	.bss.inRangeForEmergencyBrakeArena,"aw",%nobits
+ 2281              	inRangeForEmergencyBrakeArena:
+ 2282 0000 00       		.space	1
+ 2283              		.global	checkEmergencyBrakeArena
+ 2284              		.section	.bss.checkEmergencyBrakeArena,"aw",%nobits
+ 2287              	checkEmergencyBrakeArena:
+ 2288 0000 00       		.space	1
+ 2289              		.global	pub_flag
+ 2290              		.section	.bss.pub_flag,"aw",%nobits
+ 2293              	pub_flag:
+ 2294 0000 00       		.space	1
+ 2295              		.global	reachedPosition
+ 2296              		.section	.bss.reachedPosition,"aw",%nobits
+ 2299              	reachedPosition:
+ 2300 0000 00       		.space	1
+ 2301              		.global	posAckDone
+ 2302              		.section	.bss.posAckDone,"aw",%nobits
+ 2305              	posAckDone:
+ 2306 0000 00       		.space	1
+ 2307              		.global	isPositionControl
+ 2308              		.section	.bss.isPositionControl,"aw",%nobits
+ 2311              	isPositionControl:
+ 2312 0000 00       		.space	1
+ 2313              		.global	isSpeedControl
+ 2314              		.section	.data.isSpeedControl,"aw"
+ 2317              	isSpeedControl:
+ 2318 0000 01       		.byte	1
+ 2319              		.global	servoPWM
+ 2320              		.section	.bss.servoPWM,"aw",%nobits
+ 2321              		.align	3
+ 2324              	servoPWM:
+ 2325 0000 00000000 		.space	8
+ 2325      00000000 
+ 2326              		.global	motorPWM
+ 2327              		.section	.bss.motorPWM,"aw",%nobits
+ 2328              		.align	3
+ 2331              	motorPWM:
+ 2332 0000 00000000 		.space	8
+ 2332      00000000 
+ 2333              		.global	encoderTotal
+ 2334              		.section	.bss.encoderTotal,"aw",%nobits
+ 2335              		.align	2
+ 2338              	encoderTotal:
+ 2339 0000 00000000 		.space	4
+ 2340              		.global	encoderCount
+ 2341              		.section	.bss.encoderCount,"aw",%nobits
+ 2342              		.align	2
+ 2345              	encoderCount:
+ 2346 0000 00000000 		.space	4
+ 2347              		.global	localDistanceRef
+ 2348              		.section	.bss.localDistanceRef,"aw",%nobits
+ 2349              		.align	3
+ 2352              	localDistanceRef:
+ 2353 0000 00000000 		.space	8
+ 2353      00000000 
+ARM GAS  /tmp/ccZY7RUS.s 			page 70
 
 
- 2355              	localDistanceRef:
- 2356 0000 00000000 		.space	8
- 2356      00000000 
- 2357              		.global	localDistanceOrigin
- 2358              		.section	.bss.localDistanceOrigin,"aw",%nobits
- 2359              		.align	3
- 2362              	localDistanceOrigin:
- 2363 0000 00000000 		.space	8
- 2363      00000000 
- 2364              		.global	localDistance
- 2365              		.section	.bss.localDistance,"aw",%nobits
- 2366              		.align	3
- 2369              	localDistance:
- 2370 0000 00000000 		.space	8
- 2370      00000000 
- 2371              		.global	globalDistance
- 2372              		.section	.bss.globalDistance,"aw",%nobits
- 2373              		.align	3
- 2376              	globalDistance:
- 2377 0000 00000000 		.space	8
- 2377      00000000 
- 2378              		.global	encoderAcceleration
- 2379              		.section	.bss.encoderAcceleration,"aw",%nobits
- 2380              		.align	3
- 2383              	encoderAcceleration:
- 2384 0000 00000000 		.space	8
- 2384      00000000 
- 2385              		.global	carSpeedfiltered
- 2386              		.section	.bss.carSpeedfiltered,"aw",%nobits
- 2387              		.align	3
- 2390              	carSpeedfiltered:
- 2391 0000 00000000 		.space	8
- 2391      00000000 
- 2392              		.global	carSpeed
- 2393              		.section	.bss.carSpeed,"aw",%nobits
- 2394              		.align	3
- 2397              	carSpeed:
- 2398 0000 00000000 		.space	8
- 2398      00000000 
- 2399              		.global	steerRef
- 2400              		.section	.bss.steerRef,"aw",%nobits
- 2401              		.align	3
- 2404              	steerRef:
- 2405 0000 00000000 		.space	8
- 2405      00000000 
- 2406              		.global	speedRef
- 2407              		.section	.bss.speedRef,"aw",%nobits
- 2408              		.align	3
- 2411              	speedRef:
- 2412 0000 00000000 		.space	8
- 2412      00000000 
- 2413              		.global	speedTargetPos
- 2414              		.section	.bss.speedTargetPos,"aw",%nobits
- 2415              		.align	3
- 2418              	speedTargetPos:
- 2419 0000 00000000 		.space	8
- 2419      00000000 
-ARM GAS  /tmp/ccwbgilY.s 			page 71
+ 2354              		.global	localDistanceOrigin
+ 2355              		.section	.bss.localDistanceOrigin,"aw",%nobits
+ 2356              		.align	3
+ 2359              	localDistanceOrigin:
+ 2360 0000 00000000 		.space	8
+ 2360      00000000 
+ 2361              		.global	localDistance
+ 2362              		.section	.bss.localDistance,"aw",%nobits
+ 2363              		.align	3
+ 2366              	localDistance:
+ 2367 0000 00000000 		.space	8
+ 2367      00000000 
+ 2368              		.global	globalDistance
+ 2369              		.section	.bss.globalDistance,"aw",%nobits
+ 2370              		.align	3
+ 2373              	globalDistance:
+ 2374 0000 00000000 		.space	8
+ 2374      00000000 
+ 2375              		.global	encoderAcceleration
+ 2376              		.section	.bss.encoderAcceleration,"aw",%nobits
+ 2377              		.align	3
+ 2380              	encoderAcceleration:
+ 2381 0000 00000000 		.space	8
+ 2381      00000000 
+ 2382              		.global	carSpeedfiltered
+ 2383              		.section	.bss.carSpeedfiltered,"aw",%nobits
+ 2384              		.align	3
+ 2387              	carSpeedfiltered:
+ 2388 0000 00000000 		.space	8
+ 2388      00000000 
+ 2389              		.global	carSpeed
+ 2390              		.section	.bss.carSpeed,"aw",%nobits
+ 2391              		.align	3
+ 2394              	carSpeed:
+ 2395 0000 00000000 		.space	8
+ 2395      00000000 
+ 2396              		.global	steerRef
+ 2397              		.section	.bss.steerRef,"aw",%nobits
+ 2398              		.align	3
+ 2401              	steerRef:
+ 2402 0000 00000000 		.space	8
+ 2402      00000000 
+ 2403              		.global	speedRef
+ 2404              		.section	.bss.speedRef,"aw",%nobits
+ 2405              		.align	3
+ 2408              	speedRef:
+ 2409 0000 00000000 		.space	8
+ 2409      00000000 
+ 2410              		.global	speedTargetPos
+ 2411              		.section	.bss.speedTargetPos,"aw",%nobits
+ 2412              		.align	3
+ 2415              	speedTargetPos:
+ 2416 0000 00000000 		.space	8
+ 2416      00000000 
+ 2417              		.global	speedTarget
+ 2418              		.section	.bss.speedTarget,"aw",%nobits
+ 2419              		.align	3
+ARM GAS  /tmp/ccZY7RUS.s 			page 71
 
 
- 2420              		.global	speedTarget
- 2421              		.section	.bss.speedTarget,"aw",%nobits
- 2422              		.align	3
- 2425              	speedTarget:
- 2426 0000 00000000 		.space	8
- 2426      00000000 
- 2427              		.text
- 2428              	.Letext0:
- 2429              		.file 4 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
- 2430              		.file 5 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
- 2431              		.file 6 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
- 2432              		.file 7 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
- 2433              		.file 8 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
- 2434              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 2435              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 2436              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 2437              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 2438              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 2439              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 2440              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 2441              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 2442              		.file 17 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
- 2443              		.file 18 "Core/Inc/encoder.h"
- 2444              		.file 19 "Core/Inc/vl6180.h"
- 2445              		.file 20 "Core/Inc/tim.h"
- 2446              		.file 21 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2447              		.file 22 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2448              		.file 23 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2449              		.file 24 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2450              		.file 25 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2451              		.file 26 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2452              		.file 27 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2453              		.file 28 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2454              		.file 29 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcutils
- 2455              		.file 30 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/all
- 2456              		.file 31 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/ret
- 2457              		.file 32 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
- 2458              		.file 33 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcutils
- 2459              		.file 34 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/tim
- 2460              		.file 35 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/typ
- 2461              		.file 36 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/typ
- 2462              		.file 37 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/con
- 2463              		.file 38 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/gua
- 2464              		.file 39 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2465              		.file 40 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/builtin
- 2466              		.file 41 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2467              		.file 42 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2468              		.file 43 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2469              		.file 44 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2470              		.file 45 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2471              		.file 46 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2472              		.file 47 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
- 2473              		.file 48 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/nod
- 2474              		.file 49 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/ser
- 2475              		.file 50 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/tim
- 2476              		.file 51 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/pub
- 2477              		.file 52 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/sub
-ARM GAS  /tmp/ccwbgilY.s 			page 72
+ 2422              	speedTarget:
+ 2423 0000 00000000 		.space	8
+ 2423      00000000 
+ 2424              		.text
+ 2425              	.Letext0:
+ 2426              		.file 4 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
+ 2427              		.file 5 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
+ 2428              		.file 6 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-s
+ 2429              		.file 7 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 2430              		.file 8 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
+ 2431              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 2432              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 2433              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 2434              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 2435              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 2436              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 2437              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 2438              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 2439              		.file 17 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 2440              		.file 18 "Core/Inc/encoder.h"
+ 2441              		.file 19 "Core/Inc/vl6180.h"
+ 2442              		.file 20 "Core/Inc/tim.h"
+ 2443              		.file 21 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2444              		.file 22 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2445              		.file 23 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2446              		.file 24 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2447              		.file 25 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2448              		.file 26 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2449              		.file 27 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2450              		.file 28 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2451              		.file 29 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcutils
+ 2452              		.file 30 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/all
+ 2453              		.file 31 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/ret
+ 2454              		.file 32 "/opt/st/stm32cubeide_2.0.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-
+ 2455              		.file 33 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcutils
+ 2456              		.file 34 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/tim
+ 2457              		.file 35 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/typ
+ 2458              		.file 36 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/typ
+ 2459              		.file 37 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/con
+ 2460              		.file 38 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/gua
+ 2461              		.file 39 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2462              		.file 40 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/builtin
+ 2463              		.file 41 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2464              		.file 42 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2465              		.file 43 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2466              		.file 44 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2467              		.file 45 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2468              		.file 46 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2469              		.file 47 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rosidl_
+ 2470              		.file 48 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/nod
+ 2471              		.file 49 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/ser
+ 2472              		.file 50 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/tim
+ 2473              		.file 51 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/pub
+ 2474              		.file 52 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/sub
+ 2475              		.file 53 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/cli
+ 2476              		.file 54 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/qos
+ 2477              		.file 55 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/tim
+ARM GAS  /tmp/ccZY7RUS.s 			page 72
 
 
- 2478              		.file 53 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/cli
- 2479              		.file 54 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw/qos
- 2480              		.file 55 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/tim
- 2481              		.file 56 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/eve
- 2482              		.file 57 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/wai
- 2483              		.file 58 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ty
- 2484              		.file 59 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/unique_
- 2485              		.file 60 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/action_
- 2486              		.file 61 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/action_
- 2487              		.file 62 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
- 2488              		.file 63 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
- 2489              		.file 64 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
- 2490              		.file 65 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
- 2491              		.file 66 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
- 2492              		.file 67 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
- 2493              		.file 68 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
- 2494              		.file 69 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ex
- 2495              		.file 70 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ex
- 2496              		.file 71 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
- 2497              		.file 72 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
- 2498              		.file 73 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
- 2499              		.file 74 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2500              		.file 75 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2501              		.file 76 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2502              		.file 77 "Core/Inc/usart.h"
- 2503              		.file 78 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 2504              		.file 79 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2505              		.file 80 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2506              		.file 81 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/su
- 2507              		.file 82 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2508              		.file 83 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2509              		.file 84 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/pu
- 2510              		.file 85 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
- 2511              		.file 86 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/no
- 2512              		.file 87 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/in
- 2513              		.file 88 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw_mic
- 2514              		.file 89 "Core/Inc/main.h"
-ARM GAS  /tmp/ccwbgilY.s 			page 73
+ 2478              		.file 56 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/eve
+ 2479              		.file 57 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl/wai
+ 2480              		.file 58 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ty
+ 2481              		.file 59 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/unique_
+ 2482              		.file 60 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/action_
+ 2483              		.file 61 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/action_
+ 2484              		.file 62 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
+ 2485              		.file 63 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
+ 2486              		.file 64 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
+ 2487              		.file 65 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rcl_act
+ 2488              		.file 66 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
+ 2489              		.file 67 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
+ 2490              		.file 68 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ac
+ 2491              		.file 69 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ex
+ 2492              		.file 70 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/ex
+ 2493              		.file 71 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
+ 2494              		.file 72 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
+ 2495              		.file 73 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/uxr/cli
+ 2496              		.file 74 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2497              		.file 75 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2498              		.file 76 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2499              		.file 77 "Core/Inc/usart.h"
+ 2500              		.file 78 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 2501              		.file 79 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2502              		.file 80 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2503              		.file 81 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/su
+ 2504              		.file 82 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2505              		.file 83 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2506              		.file 84 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/pu
+ 2507              		.file 85 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/std_msg
+ 2508              		.file 86 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/no
+ 2509              		.file 87 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rclc/in
+ 2510              		.file 88 "micro_ros_stm32cubemx_utils/microros_static_library/libmicroros/microros_include/rmw_mic
+ 2511              		.file 89 "Core/Inc/main.h"
+ARM GAS  /tmp/ccZY7RUS.s 			page 73
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 freertos.cpp
-     /tmp/ccwbgilY.s:21     .text.leds_callback:00000000 $t
-     /tmp/ccwbgilY.s:27     .text.leds_callback:00000000 leds_callback
-     /tmp/ccwbgilY.s:80     .text.leds_callback:00000024 $d
-     /tmp/ccwbgilY.s:2278   .bss.flagLed:00000000 flagLed
+     /tmp/ccZY7RUS.s:21     .text.leds_callback:00000000 $t
+     /tmp/ccZY7RUS.s:27     .text.leds_callback:00000000 leds_callback
+     /tmp/ccZY7RUS.s:80     .text.leds_callback:00000024 $d
+     /tmp/ccZY7RUS.s:2275   .bss.flagLed:00000000 flagLed
     .ARM.extab.text.leds_callback:00000000 $d
     .ARM.exidx.text.leds_callback:00000000 $d
-     /tmp/ccwbgilY.s:87     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
-     /tmp/ccwbgilY.s:92     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
-     /tmp/ccwbgilY.s:156    .text._Z41__static_initialization_and_destruction_0v:00000058 $d
-     /tmp/ccwbgilY.s:2411   .bss.speedRef:00000000 speedRef
-     /tmp/ccwbgilY.s:2334   .bss.motorPWM:00000000 motorPWM
-     /tmp/ccwbgilY.s:2390   .bss.carSpeedfiltered:00000000 carSpeedfiltered
-     /tmp/ccwbgilY.s:2247   .bss.SpeedController:00000000 SpeedController
-     /tmp/ccwbgilY.s:2355   .bss.localDistanceRef:00000000 localDistanceRef
-     /tmp/ccwbgilY.s:2418   .bss.speedTargetPos:00000000 speedTargetPos
-     /tmp/ccwbgilY.s:2369   .bss.localDistance:00000000 localDistance
-     /tmp/ccwbgilY.s:2240   .bss.PositionController:00000000 PositionController
+     /tmp/ccZY7RUS.s:87     .text._Z41__static_initialization_and_destruction_0v:00000000 $t
+     /tmp/ccZY7RUS.s:92     .text._Z41__static_initialization_and_destruction_0v:00000000 _Z41__static_initialization_and_destruction_0v
+     /tmp/ccZY7RUS.s:156    .text._Z41__static_initialization_and_destruction_0v:00000058 $d
+     /tmp/ccZY7RUS.s:2408   .bss.speedRef:00000000 speedRef
+     /tmp/ccZY7RUS.s:2331   .bss.motorPWM:00000000 motorPWM
+     /tmp/ccZY7RUS.s:2387   .bss.carSpeedfiltered:00000000 carSpeedfiltered
+     /tmp/ccZY7RUS.s:2244   .bss.SpeedController:00000000 SpeedController
+     /tmp/ccZY7RUS.s:2352   .bss.localDistanceRef:00000000 localDistanceRef
+     /tmp/ccZY7RUS.s:2415   .bss.speedTargetPos:00000000 speedTargetPos
+     /tmp/ccZY7RUS.s:2366   .bss.localDistance:00000000 localDistance
+     /tmp/ccZY7RUS.s:2237   .bss.PositionController:00000000 PositionController
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0v:00000000 $d
-     /tmp/ccwbgilY.s:180    .text.MX_FREERTOS_Init:00000000 $t
-     /tmp/ccwbgilY.s:186    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
-     /tmp/ccwbgilY.s:224    .text.MX_FREERTOS_Init:0000001c $d
-     /tmp/ccwbgilY.s:2205   .rodata._ZL22defaultTask_attributes:00000000 _ZL22defaultTask_attributes
-     /tmp/ccwbgilY.s:873    .text.StartDefaultTask:00000000 StartDefaultTask
-     /tmp/ccwbgilY.s:2233   .bss.defaultTaskHandle:00000000 defaultTaskHandle
+     /tmp/ccZY7RUS.s:180    .text.MX_FREERTOS_Init:00000000 $t
+     /tmp/ccZY7RUS.s:186    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
+     /tmp/ccZY7RUS.s:224    .text.MX_FREERTOS_Init:0000001c $d
+     /tmp/ccZY7RUS.s:2202   .rodata._ZL22defaultTask_attributes:00000000 _ZL22defaultTask_attributes
+     /tmp/ccZY7RUS.s:873    .text.StartDefaultTask:00000000 StartDefaultTask
+     /tmp/ccZY7RUS.s:2230   .bss.defaultTaskHandle:00000000 defaultTaskHandle
  .ARM.extab.text.MX_FREERTOS_Init:00000000 $d
  .ARM.exidx.text.MX_FREERTOS_Init:00000000 $d
-     /tmp/ccwbgilY.s:232    .text.checkEmergencyBrakeArena__callback:00000000 $t
-     /tmp/ccwbgilY.s:238    .text.checkEmergencyBrakeArena__callback:00000000 checkEmergencyBrakeArena__callback
-     /tmp/ccwbgilY.s:259    .text.checkEmergencyBrakeArena__callback:00000008 $d
-     /tmp/ccwbgilY.s:2290   .bss.checkEmergencyBrakeArena:00000000 checkEmergencyBrakeArena
+     /tmp/ccZY7RUS.s:232    .text.checkEmergencyBrakeArena__callback:00000000 $t
+     /tmp/ccZY7RUS.s:238    .text.checkEmergencyBrakeArena__callback:00000000 checkEmergencyBrakeArena__callback
+     /tmp/ccZY7RUS.s:259    .text.checkEmergencyBrakeArena__callback:00000008 $d
+     /tmp/ccZY7RUS.s:2287   .bss.checkEmergencyBrakeArena:00000000 checkEmergencyBrakeArena
 .ARM.exidx.text.checkEmergencyBrakeArena__callback:00000000 $d
-     /tmp/ccwbgilY.s:267    .text.speed:00000000 $t
-     /tmp/ccwbgilY.s:273    .text.speed:00000000 speed
-     /tmp/ccwbgilY.s:339    .text.speed:00000054 $d
-     /tmp/ccwbgilY.s:2425   .bss.speedTarget:00000000 speedTarget
-     /tmp/ccwbgilY.s:2320   .data.isSpeedControl:00000000 isSpeedControl
-     /tmp/ccwbgilY.s:2314   .bss.isPositionControl:00000000 isPositionControl
+     /tmp/ccZY7RUS.s:267    .text.speed:00000000 $t
+     /tmp/ccZY7RUS.s:273    .text.speed:00000000 speed
+     /tmp/ccZY7RUS.s:339    .text.speed:00000054 $d
+     /tmp/ccZY7RUS.s:2422   .bss.speedTarget:00000000 speedTarget
+     /tmp/ccZY7RUS.s:2317   .data.isSpeedControl:00000000 isSpeedControl
+     /tmp/ccZY7RUS.s:2311   .bss.isPositionControl:00000000 isPositionControl
             .ARM.exidx.text.speed:00000000 $d
-     /tmp/ccwbgilY.s:350    .text.speed_callback:00000000 $t
-     /tmp/ccwbgilY.s:356    .text.speed_callback:00000000 speed_callback
+     /tmp/ccZY7RUS.s:350    .text.speed_callback:00000000 $t
+     /tmp/ccZY7RUS.s:356    .text.speed_callback:00000000 speed_callback
    .ARM.exidx.text.speed_callback:00000000 $d
-     /tmp/ccwbgilY.s:388    .text.steer:00000000 $t
-     /tmp/ccwbgilY.s:394    .text.steer:00000000 steer
-     /tmp/ccwbgilY.s:480    .text.steer:00000080 $d
-     /tmp/ccwbgilY.s:2404   .bss.steerRef:00000000 steerRef
-     /tmp/ccwbgilY.s:2327   .bss.servoPWM:00000000 servoPWM
+     /tmp/ccZY7RUS.s:388    .text.steer:00000000 $t
+     /tmp/ccZY7RUS.s:394    .text.steer:00000000 steer
+     /tmp/ccZY7RUS.s:480    .text.steer:00000080 $d
+     /tmp/ccZY7RUS.s:2401   .bss.steerRef:00000000 steerRef
+     /tmp/ccZY7RUS.s:2324   .bss.servoPWM:00000000 servoPWM
             .ARM.exidx.text.steer:00000000 $d
-     /tmp/ccwbgilY.s:497    .text.steer_callback:00000000 $t
-     /tmp/ccwbgilY.s:503    .text.steer_callback:00000000 steer_callback
+     /tmp/ccZY7RUS.s:497    .text.steer_callback:00000000 $t
+     /tmp/ccZY7RUS.s:503    .text.steer_callback:00000000 steer_callback
    .ARM.exidx.text.steer_callback:00000000 $d
-     /tmp/ccwbgilY.s:532    .text.stop:00000000 $t
-     /tmp/ccwbgilY.s:538    .text.stop:00000000 stop
-     /tmp/ccwbgilY.s:588    .text.stop:00000030 $d
+     /tmp/ccZY7RUS.s:532    .text.stop:00000000 $t
+     /tmp/ccZY7RUS.s:538    .text.stop:00000000 stop
+     /tmp/ccZY7RUS.s:588    .text.stop:00000030 $d
              .ARM.exidx.text.stop:00000000 $d
-     /tmp/ccwbgilY.s:600    .text.stop_callback:00000000 $t
-ARM GAS  /tmp/ccwbgilY.s 			page 74
+     /tmp/ccZY7RUS.s:600    .text.stop_callback:00000000 $t
+ARM GAS  /tmp/ccZY7RUS.s 			page 74
 
 
-     /tmp/ccwbgilY.s:606    .text.stop_callback:00000000 stop_callback
+     /tmp/ccZY7RUS.s:606    .text.stop_callback:00000000 stop_callback
     .ARM.exidx.text.stop_callback:00000000 $d
-     /tmp/ccwbgilY.s:635    .text.position:00000000 $t
-     /tmp/ccwbgilY.s:641    .text.position:00000000 position
-     /tmp/ccwbgilY.s:692    .text.position:00000034 $d
-     /tmp/ccwbgilY.s:2376   .bss.globalDistance:00000000 globalDistance
-     /tmp/ccwbgilY.s:2362   .bss.localDistanceOrigin:00000000 localDistanceOrigin
-     /tmp/ccwbgilY.s:2308   .bss.posAckDone:00000000 posAckDone
-     /tmp/ccwbgilY.s:2302   .bss.reachedPosition:00000000 reachedPosition
+     /tmp/ccZY7RUS.s:635    .text.position:00000000 $t
+     /tmp/ccZY7RUS.s:641    .text.position:00000000 position
+     /tmp/ccZY7RUS.s:692    .text.position:00000034 $d
+     /tmp/ccZY7RUS.s:2373   .bss.globalDistance:00000000 globalDistance
+     /tmp/ccZY7RUS.s:2359   .bss.localDistanceOrigin:00000000 localDistanceOrigin
+     /tmp/ccZY7RUS.s:2305   .bss.posAckDone:00000000 posAckDone
+     /tmp/ccZY7RUS.s:2299   .bss.reachedPosition:00000000 reachedPosition
          .ARM.exidx.text.position:00000000 $d
-     /tmp/ccwbgilY.s:705    .text.pos_callback:00000000 $t
-     /tmp/ccwbgilY.s:711    .text.pos_callback:00000000 pos_callback
+     /tmp/ccZY7RUS.s:705    .text.pos_callback:00000000 $t
+     /tmp/ccZY7RUS.s:711    .text.pos_callback:00000000 pos_callback
      .ARM.exidx.text.pos_callback:00000000 $d
-     /tmp/ccwbgilY.s:741    .text.drive_pwm:00000000 $t
-     /tmp/ccwbgilY.s:747    .text.drive_pwm:00000000 drive_pwm
-     /tmp/ccwbgilY.s:813    .text.drive_pwm:00000058 $d
+     /tmp/ccZY7RUS.s:741    .text.drive_pwm:00000000 $t
+     /tmp/ccZY7RUS.s:747    .text.drive_pwm:00000000 drive_pwm
+     /tmp/ccZY7RUS.s:813    .text.drive_pwm:00000058 $d
         .ARM.exidx.text.drive_pwm:00000000 $d
-     /tmp/ccwbgilY.s:827    .rodata.StartDefaultTask.str1.4:00000000 $d
-     /tmp/ccwbgilY.s:867    .text.StartDefaultTask:00000000 $t
-     /tmp/ccwbgilY.s:1361   .text.StartDefaultTask:00000268 $d
-     /tmp/ccwbgilY.s:2253   .data.samplingPID:00000000 samplingPID
-     /tmp/ccwbgilY.s:2272   .bss.sensorsTOF:00000000 sensorsTOF
-     /tmp/ccwbgilY.s:2265   .bss.TOFcounterToInitialize:00000000 TOFcounterToInitialize
-     /tmp/ccwbgilY.s:1415   .text.StartDefaultTask:0000032c $t
-     /tmp/ccwbgilY.s:1551   .text.StartDefaultTask:000003d8 $d
-     /tmp/ccwbgilY.s:2296   .bss.pub_flag:00000000 pub_flag
-     /tmp/ccwbgilY.s:2383   .bss.encoderAcceleration:00000000 encoderAcceleration
+     /tmp/ccZY7RUS.s:827    .rodata.StartDefaultTask.str1.4:00000000 $d
+     /tmp/ccZY7RUS.s:867    .text.StartDefaultTask:00000000 $t
+     /tmp/ccZY7RUS.s:1361   .text.StartDefaultTask:00000268 $d
+     /tmp/ccZY7RUS.s:2250   .data.samplingPID:00000000 samplingPID
+     /tmp/ccZY7RUS.s:2269   .bss.sensorsTOF:00000000 sensorsTOF
+     /tmp/ccZY7RUS.s:2262   .bss.TOFcounterToInitialize:00000000 TOFcounterToInitialize
+     /tmp/ccZY7RUS.s:1415   .text.StartDefaultTask:0000032c $t
+     /tmp/ccZY7RUS.s:1551   .text.StartDefaultTask:000003d8 $d
+     /tmp/ccZY7RUS.s:2293   .bss.pub_flag:00000000 pub_flag
+     /tmp/ccZY7RUS.s:2380   .bss.encoderAcceleration:00000000 encoderAcceleration
  .ARM.extab.text.StartDefaultTask:00000000 $d
  .ARM.exidx.text.StartDefaultTask:00000000 $d
-     /tmp/ccwbgilY.s:1567   .text.isClose:00000000 $t
-     /tmp/ccwbgilY.s:1573   .text.isClose:00000000 isClose
-     /tmp/ccwbgilY.s:1619   .text.isClose:00000030 $d
+     /tmp/ccZY7RUS.s:1567   .text.isClose:00000000 $t
+     /tmp/ccZY7RUS.s:1573   .text.isClose:00000000 isClose
+     /tmp/ccZY7RUS.s:1619   .text.isClose:00000030 $d
           .ARM.exidx.text.isClose:00000000 $d
-     /tmp/ccwbgilY.s:1627   .text.readADC:00000000 $t
-     /tmp/ccwbgilY.s:1633   .text.readADC:00000000 readADC
-     /tmp/ccwbgilY.s:1707   .text.readADC:0000003c $d
+     /tmp/ccZY7RUS.s:1627   .text.readADC:00000000 $t
+     /tmp/ccZY7RUS.s:1633   .text.readADC:00000000 readADC
+     /tmp/ccZY7RUS.s:1707   .text.readADC:0000003c $d
           .ARM.exidx.text.readADC:00000000 $d
-     /tmp/ccwbgilY.s:1713   .text.HAL_GPIO_EXTI_Callback:00000000 $t
-     /tmp/ccwbgilY.s:1719   .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
-     /tmp/ccwbgilY.s:1764   .text.HAL_GPIO_EXTI_Callback:00000020 $d
+     /tmp/ccZY7RUS.s:1713   .text.HAL_GPIO_EXTI_Callback:00000000 $t
+     /tmp/ccZY7RUS.s:1719   .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
+     /tmp/ccZY7RUS.s:1764   .text.HAL_GPIO_EXTI_Callback:00000020 $d
 .ARM.extab.text.HAL_GPIO_EXTI_Callback:00000000 $d
 .ARM.exidx.text.HAL_GPIO_EXTI_Callback:00000000 $d
-     /tmp/ccwbgilY.s:1771   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-     /tmp/ccwbgilY.s:1777   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-     /tmp/ccwbgilY.s:2125   .text.HAL_TIM_PeriodElapsedCallback:000001a0 $d
-     /tmp/ccwbgilY.s:2348   .bss.encoderCount:00000000 encoderCount
-     /tmp/ccwbgilY.s:2341   .bss.encoderTotal:00000000 encoderTotal
-     /tmp/ccwbgilY.s:2397   .bss.carSpeed:00000000 carSpeed
-     /tmp/ccwbgilY.s:2284   .bss.inRangeForEmergencyBrakeArena:00000000 inRangeForEmergencyBrakeArena
-     /tmp/ccwbgilY.s:2259   .bss.TenMsCounter:00000000 TenMsCounter
+     /tmp/ccZY7RUS.s:1771   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+     /tmp/ccZY7RUS.s:1777   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+     /tmp/ccZY7RUS.s:2122   .text.HAL_TIM_PeriodElapsedCallback:000001a0 $d
+     /tmp/ccZY7RUS.s:2345   .bss.encoderCount:00000000 encoderCount
+     /tmp/ccZY7RUS.s:2338   .bss.encoderTotal:00000000 encoderTotal
+     /tmp/ccZY7RUS.s:2394   .bss.carSpeed:00000000 carSpeed
+     /tmp/ccZY7RUS.s:2281   .bss.inRangeForEmergencyBrakeArena:00000000 inRangeForEmergencyBrakeArena
+     /tmp/ccZY7RUS.s:2256   .bss.TenMsCounter:00000000 TenMsCounter
 .ARM.exidx.text.HAL_TIM_PeriodElapsedCallback:00000000 $d
-     /tmp/ccwbgilY.s:2161   .text._GLOBAL__sub_I_speedTarget:00000000 $t
-     /tmp/ccwbgilY.s:2166   .text._GLOBAL__sub_I_speedTarget:00000000 _GLOBAL__sub_I_speedTarget
+     /tmp/ccZY7RUS.s:2158   .text._GLOBAL__sub_I_speedTarget:00000000 $t
+     /tmp/ccZY7RUS.s:2163   .text._GLOBAL__sub_I_speedTarget:00000000 _GLOBAL__sub_I_speedTarget
 .ARM.exidx.text._GLOBAL__sub_I_speedTarget:00000000 $d
-     /tmp/ccwbgilY.s:2188   .init_array:00000000 $d
-     /tmp/ccwbgilY.s:2195   .bss.last_diff:00000000 last_diff
-     /tmp/ccwbgilY.s:2192   .bss.last_diff:00000000 $d
-ARM GAS  /tmp/ccwbgilY.s 			page 75
+     /tmp/ccZY7RUS.s:2185   .init_array:00000000 $d
+     /tmp/ccZY7RUS.s:2192   .bss.last_diff:00000000 last_diff
+     /tmp/ccZY7RUS.s:2189   .bss.last_diff:00000000 $d
+ARM GAS  /tmp/ccZY7RUS.s 			page 75
 
 
-     /tmp/ccwbgilY.s:2198   .rodata.str1.4:00000000 $d
-     /tmp/ccwbgilY.s:2202   .rodata._ZL22defaultTask_attributes:00000000 $d
-     /tmp/ccwbgilY.s:2219   .bss.defaultTaskControlBlock:00000000 defaultTaskControlBlock
-     /tmp/ccwbgilY.s:2226   .bss.defaultTaskBuffer:00000000 defaultTaskBuffer
-     /tmp/ccwbgilY.s:2216   .bss.defaultTaskControlBlock:00000000 $d
-     /tmp/ccwbgilY.s:2223   .bss.defaultTaskBuffer:00000000 $d
-     /tmp/ccwbgilY.s:2230   .bss.defaultTaskHandle:00000000 $d
-     /tmp/ccwbgilY.s:2237   .bss.PositionController:00000000 $d
-     /tmp/ccwbgilY.s:2244   .bss.SpeedController:00000000 $d
-     /tmp/ccwbgilY.s:2260   .bss.TenMsCounter:00000000 $d
-     /tmp/ccwbgilY.s:2266   .bss.TOFcounterToInitialize:00000000 $d
-     /tmp/ccwbgilY.s:2269   .bss.sensorsTOF:00000000 $d
-     /tmp/ccwbgilY.s:2279   .bss.flagLed:00000000 $d
-     /tmp/ccwbgilY.s:2285   .bss.inRangeForEmergencyBrakeArena:00000000 $d
-     /tmp/ccwbgilY.s:2291   .bss.checkEmergencyBrakeArena:00000000 $d
-     /tmp/ccwbgilY.s:2297   .bss.pub_flag:00000000 $d
-     /tmp/ccwbgilY.s:2303   .bss.reachedPosition:00000000 $d
-     /tmp/ccwbgilY.s:2309   .bss.posAckDone:00000000 $d
-     /tmp/ccwbgilY.s:2315   .bss.isPositionControl:00000000 $d
-     /tmp/ccwbgilY.s:2324   .bss.servoPWM:00000000 $d
-     /tmp/ccwbgilY.s:2331   .bss.motorPWM:00000000 $d
-     /tmp/ccwbgilY.s:2338   .bss.encoderTotal:00000000 $d
-     /tmp/ccwbgilY.s:2345   .bss.encoderCount:00000000 $d
-     /tmp/ccwbgilY.s:2352   .bss.localDistanceRef:00000000 $d
-     /tmp/ccwbgilY.s:2359   .bss.localDistanceOrigin:00000000 $d
-     /tmp/ccwbgilY.s:2366   .bss.localDistance:00000000 $d
-     /tmp/ccwbgilY.s:2373   .bss.globalDistance:00000000 $d
-     /tmp/ccwbgilY.s:2380   .bss.encoderAcceleration:00000000 $d
-     /tmp/ccwbgilY.s:2387   .bss.carSpeedfiltered:00000000 $d
-     /tmp/ccwbgilY.s:2394   .bss.carSpeed:00000000 $d
-     /tmp/ccwbgilY.s:2401   .bss.steerRef:00000000 $d
-     /tmp/ccwbgilY.s:2408   .bss.speedRef:00000000 $d
-     /tmp/ccwbgilY.s:2415   .bss.speedTargetPos:00000000 $d
-     /tmp/ccwbgilY.s:2422   .bss.speedTarget:00000000 $d
+     /tmp/ccZY7RUS.s:2195   .rodata.str1.4:00000000 $d
+     /tmp/ccZY7RUS.s:2199   .rodata._ZL22defaultTask_attributes:00000000 $d
+     /tmp/ccZY7RUS.s:2216   .bss.defaultTaskControlBlock:00000000 defaultTaskControlBlock
+     /tmp/ccZY7RUS.s:2223   .bss.defaultTaskBuffer:00000000 defaultTaskBuffer
+     /tmp/ccZY7RUS.s:2213   .bss.defaultTaskControlBlock:00000000 $d
+     /tmp/ccZY7RUS.s:2220   .bss.defaultTaskBuffer:00000000 $d
+     /tmp/ccZY7RUS.s:2227   .bss.defaultTaskHandle:00000000 $d
+     /tmp/ccZY7RUS.s:2234   .bss.PositionController:00000000 $d
+     /tmp/ccZY7RUS.s:2241   .bss.SpeedController:00000000 $d
+     /tmp/ccZY7RUS.s:2257   .bss.TenMsCounter:00000000 $d
+     /tmp/ccZY7RUS.s:2263   .bss.TOFcounterToInitialize:00000000 $d
+     /tmp/ccZY7RUS.s:2266   .bss.sensorsTOF:00000000 $d
+     /tmp/ccZY7RUS.s:2276   .bss.flagLed:00000000 $d
+     /tmp/ccZY7RUS.s:2282   .bss.inRangeForEmergencyBrakeArena:00000000 $d
+     /tmp/ccZY7RUS.s:2288   .bss.checkEmergencyBrakeArena:00000000 $d
+     /tmp/ccZY7RUS.s:2294   .bss.pub_flag:00000000 $d
+     /tmp/ccZY7RUS.s:2300   .bss.reachedPosition:00000000 $d
+     /tmp/ccZY7RUS.s:2306   .bss.posAckDone:00000000 $d
+     /tmp/ccZY7RUS.s:2312   .bss.isPositionControl:00000000 $d
+     /tmp/ccZY7RUS.s:2321   .bss.servoPWM:00000000 $d
+     /tmp/ccZY7RUS.s:2328   .bss.motorPWM:00000000 $d
+     /tmp/ccZY7RUS.s:2335   .bss.encoderTotal:00000000 $d
+     /tmp/ccZY7RUS.s:2342   .bss.encoderCount:00000000 $d
+     /tmp/ccZY7RUS.s:2349   .bss.localDistanceRef:00000000 $d
+     /tmp/ccZY7RUS.s:2356   .bss.localDistanceOrigin:00000000 $d
+     /tmp/ccZY7RUS.s:2363   .bss.localDistance:00000000 $d
+     /tmp/ccZY7RUS.s:2370   .bss.globalDistance:00000000 $d
+     /tmp/ccZY7RUS.s:2377   .bss.encoderAcceleration:00000000 $d
+     /tmp/ccZY7RUS.s:2384   .bss.carSpeedfiltered:00000000 $d
+     /tmp/ccZY7RUS.s:2391   .bss.carSpeed:00000000 $d
+     /tmp/ccZY7RUS.s:2398   .bss.steerRef:00000000 $d
+     /tmp/ccZY7RUS.s:2405   .bss.speedRef:00000000 $d
+     /tmp/ccZY7RUS.s:2412   .bss.speedTargetPos:00000000 $d
+     /tmp/ccZY7RUS.s:2419   .bss.speedTarget:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -4478,7 +4475,7 @@ rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__Float32
 rclc_publisher_init_default
 rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__Bool
 rosidl_typesupport_c__get_message_type_support_handle__std_msgs__msg__UInt8
-ARM GAS  /tmp/ccwbgilY.s 			page 76
+ARM GAS  /tmp/ccZY7RUS.s 			page 76
 
 
 rclc_subscription_init_default

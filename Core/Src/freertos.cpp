@@ -71,7 +71,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 #define STEER_DEG2PWM_RATIO 	0.0009505		// [deg] -> [pwm]
-#define STEER_DEG2PWM_OFFSET	0.07620			// [pwm]
+#define STEER_DEG2PWM_OFFSET	0.07578			// [pwm]
 #define MOTOR_SPEED_OFFSET 		0.075568        // [pwm]: The zero default where motors are stop
 #define M_PPI					6.28318530718	//	2*pi
 #define MAX_FORWARD_SPEED		1.0				// [m/s]
@@ -710,14 +710,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			if(abs(speedRef) == 0.00 || abs(motorPWM)<0.00001)
 				drive_pwm(0);
 			else
-				speedRef = speedRef;
-//				printf("s\n\r");//drive_pwm(motorPWM);
+        drive_pwm(motorPWM);
+//				printf("s\n\r");
 		} else {
 			//stop(steerRef);
 			drive_pwm(0);
 		}
 
-		drive_pwm(speedTarget);
+		//drive_pwm(speedTarget);
 
 
 		// Drive with pwm from topics

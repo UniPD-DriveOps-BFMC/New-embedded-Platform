@@ -16,7 +16,7 @@ extern "C" {
 /* Your existing TIM11 is 1 ms, so use 0.001 s */
 #define ENCODER_TS_S         0.001f
 
-#define VELOCITY_LPF_ALPHA   0.10f
+#define VELOCITY_LPF_ALPHA   0.01f
 #define Z_CORRECTION_GAIN    0.20f
 
 #define TWO_PI 6.28318530718f
