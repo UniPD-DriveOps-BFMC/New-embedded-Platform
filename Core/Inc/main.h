@@ -76,12 +76,16 @@ void Error_Handler(void);
 #define SERVO_PWM_GPIO_Port GPIOA
 #define LINE_SENSOR_RIGHT_Pin GPIO_PIN_1
 #define LINE_SENSOR_RIGHT_GPIO_Port GPIOA
+#define VBAT_Pin GPIO_PIN_4
+#define VBAT_GPIO_Port GPIOA
 #define LEDS_IO_Pin GPIO_PIN_5
 #define LEDS_IO_GPIO_Port GPIOA
 #define Encoder_A_Pin_Pin GPIO_PIN_6
 #define Encoder_A_Pin_GPIO_Port GPIOA
 #define Encoder_B_Pin_Pin GPIO_PIN_7
 #define Encoder_B_Pin_GPIO_Port GPIOA
+#define VCURR_Pin GPIO_PIN_0
+#define VCURR_GPIO_Port GPIOB
 #define MOTOR_PWM_Pin GPIO_PIN_10
 #define MOTOR_PWM_GPIO_Port GPIOB
 #define VL6180X_2_SHUT_Pin GPIO_PIN_8

@@ -141,6 +141,8 @@ extern TIM_HandleTypeDef htim10;
 extern TIM_HandleTypeDef htim11;
 extern ADC_HandleTypeDef hadc1;
 
+volatile uint32_t adc_buf[3]; // [0]=LINE_SENSOR_RIGHT, [1]=VBAT(PA4), [2]=VCURR(PB0)
+
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -184,8 +186,6 @@ void drive_pwm(float pwm_value);
 
 bool isClose(double A, double B);
 double last_diff=0.0;
-
-float readADC(void);
 
 /* USER CODE END FunctionPrototypes */
 
@@ -284,6 +284,8 @@ void StartDefaultTask(void *argument)
   rcl_publisher_t posFeedback_pub;
   rcl_publisher_t tof_front_pub;
   rcl_publisher_t tof_left_pub;
+  rcl_publisher_t battery_voltage_pub;
+  rcl_publisher_t battery_current_pub;
 
   // micro-ROS Subscriber handles
   rcl_subscription_t speed_sub;
@@ -308,6 +310,8 @@ void StartDefaultTask(void *argument)
   std_msgs__msg__Bool posFeedback_msg_out;
   std_msgs__msg__UInt8 tof_front_msg_out;
   std_msgs__msg__UInt8 tof_left_msg_out;
+  std_msgs__msg__Float32 battery_voltage_msg_out;
+  std_msgs__msg__Float32 battery_current_msg_out;
 
   allocator = rcl_get_default_allocator();
 
@@ -330,6 +334,10 @@ void StartDefaultTask(void *argument)
             ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt8), "automobile/tof/left");
   rclc_publisher_init_default(&acceleration_pub,&node,
       ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32),"automobile/encoder/acceleration");
+  rclc_publisher_init_default(&battery_voltage_pub, &node,
+      ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "automobile/battery/voltage");
+  rclc_publisher_init_default(&battery_current_pub, &node,
+      ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "automobile/battery/current");
 
   // create subscribers
   rclc_subscription_init_default(&speed_sub, &node,
@@ -410,6 +418,7 @@ void StartDefaultTask(void *argument)
   steer(0);
   drive_pwm(0);
 
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buf, 3);
 
   for(;;)
   {
@@ -440,6 +449,13 @@ void StartDefaultTask(void *argument)
 
 				  tof_left_msg_out.data = sensorsTOF[0].distance;
 				  rcl_publish(&tof_left_pub, &tof_left_msg_out, NULL);
+
+				  uint32_t vbat_mV  = (adc_buf[1] > 1706u) ? (uint32_t)((uint64_t)adc_buf[1] * 142800u / 40601u) : 0u;
+				  uint32_t vcurr_mA = (adc_buf[2] > 410u)  ? (uint32_t)((uint64_t)(adc_buf[2] - 410u) * 16000000u / 524280u) : 0u;
+				  battery_voltage_msg_out.data = (float)vbat_mV;
+				  rcl_publish(&battery_voltage_pub, &battery_voltage_msg_out, NULL);
+				  battery_current_msg_out.data = (float)vcurr_mA;
+				  rcl_publish(&battery_current_pub, &battery_current_msg_out, NULL);
 
 				  // Reset the flag (set by your 10ms Timer Interrupt)
 				  pub_flag = false;
@@ -585,22 +601,6 @@ bool isClose(double A, double B)
 	double diff = A - B;
 	return (abs(diff) < 0.001) ;//&& (abs(last_diff-diff) < EPSILON_DIFF) ;
 	//last_diff = diff;
-}
-
-float readADC(void)
-{
-	uint32_t  adc_value;
-	float scaled_value;
-
-	HAL_ADC_Start(&hadc1); // Start ADC conversion
-	if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK)
-	{ // Wait for conversion
-		adc_value = HAL_ADC_GetValue(&hadc1); // Read ADC value
-		scaled_value = (float)adc_value;// / 7358.54; // Scale ADC value
-	}
-	HAL_ADC_Stop(&hadc1); // Stop ADC conversion
-
-	return scaled_value;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
