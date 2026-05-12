@@ -70,10 +70,10 @@ void Encoder_Update_ISR(void)
     delta = current_counter - previous_counter;
     previous_counter = current_counter;
 
-    if (delta >= -1 && delta <= 1)
-    {
-        delta = 0;
-    }
+    // if (delta >= -1 && delta <= 1)
+    // {
+    //     delta = 0;
+    // }
 
     enc_state.delta_counts = delta;
     enc_state.total_counts_raw += delta;
@@ -82,7 +82,7 @@ void Encoder_Update_ISR(void)
     enc_state.total_counts_corrected = corrected_counts;
 
     distance_now = Encoder_CountsToMeters(corrected_counts);
-
+    //distance_now = current_counter;
     enc_state.velocity_mps =
         (distance_now - previous_distance_m) / ENCODER_TS_S;
 

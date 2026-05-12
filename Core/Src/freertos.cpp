@@ -605,6 +605,10 @@ float readADC(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
+	if(GPIO_Pin == Encoder_Z_Pin_Pin){
+		Encoder_Z_ISR();
+	}
+
 	// ---------- USER BUTTON EMERGENCY BRAKE (BLUE BUTTON)----------
 	if(GPIO_Pin == B1_Pin){
 
@@ -663,7 +667,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 		carSpeed = enc.velocity_mps;
 		carSpeedfiltered = enc.velocity_mps_filtered;
-		globalDistance = enc.distance_m_filtered;
+		globalDistance = enc.distance_m;
 		encoderAcceleration = enc.acceleration_mps2;
 		localDistance = globalDistance - localDistanceOrigin;
 
